@@ -1160,70 +1160,241 @@ body {
 /* ==========================================================================
    CONTACT FOOTER & RETRO LAPTOP
    ========================================================================== */
+/* ==========================================================================
+   CONTACT FOOTER & RETRO LAPTOP (Y2K SCRAPBOOK LAYOUT)
+   ========================================================================== */
 .contact-footer-section {
-  padding: 6rem 2rem 2rem;
-  background: var(--bg-cream);
-  border-top: 2px solid var(--border-cream);
+  padding: 5rem 2rem 2.5rem;
+  background: #faf5ee;
+  border-top: 3px solid var(--border-cream);
+  position: relative;
 }
 
 .contact-container {
   max-width: 1320px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1.1fr 1fr;
-  gap: 3rem;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 3.5rem;
   align-items: center;
 }
 
 .contact-left-col {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.35rem;
+}
+
+.contact-top-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--bg-burgundy);
+  color: var(--text-cream);
+  padding: 0.4rem 0.95rem;
+  border-radius: 9999px;
+  width: fit-content;
+  box-shadow: 0 4px 12px rgba(89, 16, 26, 0.2);
+}
+
+.live-status-pulse {
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulse 1.5s infinite;
+}
+
+.status-text {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
 }
 
 .contact-heading-serif {
   font-family: var(--font-serif);
-  font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
   font-weight: 900;
   color: var(--text-burgundy);
-  line-height: 1.1;
+  line-height: 1.05;
 }
 
-.contact-links-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+.contact-serif-italic {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent-cherry);
 }
 
-.contact-paper-link {
+.contact-body-text {
+  font-size: 1.02rem;
+  color: #4b5563;
+  line-height: 1.65;
+  max-width: 520px;
+}
+
+.contact-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--accent-cherry);
+  color: white;
+  border: 2px solid var(--border-burgundy);
+  padding: 0.75rem 1.6rem;
+  border-radius: 9999px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  width: fit-content;
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.contact-cta-btn:hover {
+  background: var(--bg-burgundy);
+  transform: translateY(-3px) scale(1.02);
+}
+
+.contact-paper-links-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.paper-link-card {
+  position: relative;
+  background: white;
+  border: 1.5px solid var(--border-cream);
+  border-radius: 8px;
+  padding: 0.9rem 1.1rem;
   display: flex;
   align-items: center;
-  gap: 1rem;
-  background: white;
-  border: 1px solid var(--border-cream);
-  padding: 1rem 1.25rem;
-  color: var(--text-burgundy);
+  justify-content: space-between;
   text-decoration: none;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  font-weight: 700;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
   transition: all 0.25s ease;
 }
 
-.contact-paper-link:hover {
-  background: var(--bg-burgundy);
-  color: white;
-  transform: translateX(6px);
+.paper-link-card:hover {
+  transform: scale(1.03) rotate(0deg);
+  border-color: var(--accent-cherry);
+  box-shadow: 0 12px 25px rgba(89, 16, 26, 0.18);
+  z-index: 10;
+}
+
+.link-card-left {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.link-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.link-info-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.link-label {
+  letter-spacing: 0.05em;
+}
+
+.link-value {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.copy-btn-pill {
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  padding: 0.35rem;
+  border-radius: 6px;
+  color: #374151;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.copy-btn-pill:hover {
+  background: #e5e7eb;
+}
+
+.link-arrow-badge {
+  font-family: var(--font-mono);
+  font-weight: bold;
+  color: var(--accent-cherry);
+  font-size: 1rem;
+}
+
+/* Right Column 3D Laptop Paper Frame */
+.contact-right-col {
+  display: flex;
+  justify-content: center;
+}
+
+.laptop-paper-frame {
+  position: relative;
+  background: white;
+  border: 2px solid var(--border-cream);
+  border-radius: 12px;
+  padding: 1.5rem 1.25rem;
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+}
+
+.frame-header-tag {
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-cream);
+  border: 1px solid var(--border-cream);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-burgundy);
+  margin-bottom: 1rem;
+}
+
+.laptop-canvas-wrapper {
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.laptop-caption-script {
+  font-size: 1.4rem;
+  color: var(--text-burgundy);
+  margin-top: 1rem;
+}
+
+.top-center-tape {
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1deg);
 }
 
 .footer-bottom-bar {
   max-width: 1320px;
-  margin: 4rem auto 0;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border-cream);
+  margin: 4.5rem auto 0;
+  padding-top: 1.75rem;
+  border-top: 2px dashed rgba(89, 16, 26, 0.15);
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-family: var(--font-mono);
   font-size: 0.78rem;
   color: var(--text-muted);

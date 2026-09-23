@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Linkedin, Github, Globe, Plus, ArrowRight, Check, Copy } from 'lucide-react';
+import { Mail, Linkedin, Github, Globe, Plus, Check, Copy, Sparkles, Send } from 'lucide-react';
 import { CONTACT_INFO } from '../constants/portfolioData';
 import { Laptop3D } from './Laptop3D';
 
@@ -15,99 +15,146 @@ export function ContactFooter({ onOpenContact }) {
 
   return (
     <footer className="contact-footer-section" id="contact">
-      <div className="contact-content-grid">
-        
-        {/* LEFT COLUMN: CTA TEXT */}
+      <div className="contact-container">
+
+        {/* LEFT/MAIN COLUMN: Heading, Bio & Social Taped Link Cards */}
         <div className="contact-left-col">
-          <div className="contact-title-row">
-            <h2 className="contact-heading">LET'S WORK TOGETHER</h2>
-            <span className="contact-plus-icon"><Plus size={32} /></span>
+
+          <div className="contact-top-status">
+            <span className="live-status-pulse" />
+            <span className="status-text font-mono">AVAILABLE FOR INTERNSHIP &amp; PROJECTS ⚡</span>
           </div>
 
-          <p className="contact-desc">
+          <h2 className="contact-heading-serif">
+            LET'S WORK <br />
+            <span className="contact-serif-italic">TOGETHER</span>
+          </h2>
+
+          <p className="contact-body-text">
             I'm currently open to internship opportunities, collaborations, and projects where I can continue developing my skills in web and mobile application development.
           </p>
 
+          <button className="contact-cta-btn shadow-y2k" onClick={onOpenContact}>
+            <span>START A PROJECT WITH ME</span>
+            <Send size={16} />
+          </button>
 
-
-        </div>
-
-        {/* MIDDLE COLUMN: SOCIAL & EMAIL LINKS */}
-        <div className="contact-middle-col">
-          <div className="contact-links-list">
+          {/* TAPED SOCIAL & EMAIL LINK CARDS */}
+          <div className="contact-paper-links-grid">
             
-            {/* EMAIL LINK */}
-            <div className="contact-link-card group" onClick={handleCopyEmail} style={{ cursor: 'pointer' }}>
-              <div className="link-icon-box">
-                <Mail size={20} />
+            {/* EMAIL LINK CARD */}
+            <div 
+              className="paper-link-card group cursor-pointer shadow-y2k -rotate-1" 
+              onClick={handleCopyEmail}
+              title="Click to copy email address!"
+            >
+              <div className="link-card-left">
+                <div className="link-icon-box bg-red-100 text-burgundy">
+                  <Mail size={18} />
+                </div>
+                <div className="link-info-text">
+                  <span className="link-label font-mono text-[10px] text-muted uppercase">DIRECT EMAIL</span>
+                  <p className="link-value font-mono text-xs font-bold text-burgundy">{CONTACT_INFO.email}</p>
+                </div>
               </div>
-              <div className="link-text-details">
-                <span className="link-url">{CONTACT_INFO.email}</span>
-              </div>
-              <button className="copy-action-btn" title="Copy Email">
-                {copied ? <Check size={16} className="text-green-400" /> : <Copy size={16} />}
+              <button className="copy-btn-pill" aria-label="Copy Email">
+                {copied ? <Check size={14} className="text-green-600" /> : <Copy size={14} />}
               </button>
             </div>
 
-            {/* LINKEDIN LINK */}
+            {/* LINKEDIN LINK CARD */}
             <a 
               href={CONTACT_INFO.linkedin} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="contact-link-card group"
+              className="paper-link-card group shadow-y2k rotate-1"
             >
-              <div className="link-icon-box">
-                <Linkedin size={20} />
+              <div className="link-card-left">
+                <div className="link-icon-box bg-blue-100 text-blue-700">
+                  <Linkedin size={18} />
+                </div>
+                <div className="link-info-text">
+                  <span className="link-label font-mono text-[10px] text-muted uppercase">CONNECT ON LINKEDIN</span>
+                  <p className="link-value font-mono text-xs font-bold text-burgundy">linkedin.com/in/altheazuleikasadicon</p>
+                </div>
               </div>
-              <div className="link-text-details">
-                <span className="link-url">LinkedIn</span>
-              </div>
+              <span className="link-arrow-badge">↗</span>
             </a>
 
-            {/* GITHUB LINK */}
+            {/* GITHUB LINK CARD */}
             <a 
               href={CONTACT_INFO.github} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="contact-link-card group"
+              className="paper-link-card group shadow-y2k -rotate-1"
             >
-              <div className="link-icon-box">
-                <Github size={20} />
+              <div className="link-card-left">
+                <div className="link-icon-box bg-gray-100 text-gray-900">
+                  <Github size={18} />
+                </div>
+                <div className="link-info-text">
+                  <span className="link-label font-mono text-[10px] text-muted uppercase">VIEW REPOSITORIES</span>
+                  <p className="link-value font-mono text-xs font-bold text-burgundy">github.com/altheazuleikasadicon</p>
+                </div>
               </div>
-              <div className="link-text-details">
-                <span className="link-url">GitHub</span>
-              </div>
+              <span className="link-arrow-badge">↗</span>
             </a>
 
-            {/* PORTFOLIO LINK */}
+            {/* PORTFOLIO WEBSITE LINK CARD */}
             <a 
               href={CONTACT_INFO.portfolio} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="contact-link-card group"
+              className="paper-link-card group shadow-y2k rotate-2"
             >
-              <div className="link-icon-box">
-                <Globe size={20} />
+              <div className="link-card-left">
+                <div className="link-icon-box bg-amber-100 text-amber-700">
+                  <Globe size={18} />
+                </div>
+                <div className="link-info-text">
+                  <span className="link-label font-mono text-[10px] text-muted uppercase">PORTFOLIO DOMAIN</span>
+                  <p className="link-value font-mono text-xs font-bold text-burgundy">althea.dev</p>
+                </div>
               </div>
-              <div className="link-text-details">
-                <span className="link-url">Portfolio</span>
-              </div>
+              <span className="link-arrow-badge">↗</span>
             </a>
 
           </div>
+
         </div>
 
-        {/* RIGHT COLUMN: 3D INTERACTIVE LAPTOP MOCKUP */}
+        {/* RIGHT COLUMN: 3D INTERACTIVE LAPTOP SHOWCASE */}
         <div className="contact-right-col">
-          <Laptop3D />
+          <div className="laptop-paper-frame shadow-y2k rotate-2">
+            <div className="tape-strip top-center-tape" />
+            <div className="frame-header-tag font-mono">
+              <Sparkles size={14} className="text-cherry inline mr-1" />
+              <span>INTERACTIVE 3D MODEL</span>
+            </div>
+
+            {/* 3D Laptop Component */}
+            <div className="laptop-canvas-wrapper">
+              <Laptop3D />
+            </div>
+
+            <p className="laptop-caption-script font-script">
+              Designed &amp; Developed with 3D Aesthetics ✨
+            </p>
+          </div>
         </div>
 
       </div>
 
+      {/* FOOTER BOTTOM COPYRIGHT BAR */}
       <div className="footer-bottom-bar">
         <span>© {new Date().getFullYear()} Althea Zuleika Sadicon. All Rights Reserved.</span>
-        <span>Designed &amp; Developed with 3D Aesthetics</span>
+        <div className="flex items-center gap-2 font-mono">
+          <span>MANILA, PH 📍</span>
+          <span>•</span>
+          <span>3D DIGITAL DIARY v2.0</span>
+        </div>
       </div>
     </footer>
   );
 }
+
