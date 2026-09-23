@@ -1,7 +1,12 @@
 import React from 'react';
 
 const ITEMS = [
-  'VOGUE', '✳', 'BAZAAR', '✳', 'FORBES', '✳', 'ELLE', '✳', 'THE NEW YORK TIMES', '✳',
+  'WEB & MOBILE APPLICATION DEVELOPER', '✳', 
+  'REACT & REACT NATIVE', '✳', 
+  'UI/UX & FRONTEND DESIGN', '✳', 
+  'FEU INSTITUTE OF TECHNOLOGY', '✳', 
+  'SYSTEMS INTEGRATION & APIS', '✳', 
+  'CREATIVE DIGITAL SOLUTIONS', '✳',
 ];
 
 export function PressMarquee() {
