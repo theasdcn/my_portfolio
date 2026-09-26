@@ -8,13 +8,11 @@ import { Education } from '../components/Education';
 import { Skills } from '../components/Skills';
 import { Certifications } from '../components/Certifications';
 import { ProjectsSection } from '../components/ProjectsSection';
-import { WorkProcess } from '../components/WorkProcess';
-import { QuoteBanner } from '../components/QuoteBanner';
 import { ContactFooter } from '../components/ContactFooter';
 import { ProjectModal } from '../components/ProjectModal';
 import { ContactModal } from '../components/ContactModal';
 
-export function HomeScreen() {
+export function HomeScreen({ onNavigateToCertifications }) {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isContactOpen, setIsContactOpen] = useState(false);
 
@@ -26,7 +24,7 @@ export function HomeScreen() {
       {/* Header Navigation */}
       <Navbar onOpenContact={() => setIsContactOpen(true)} />
 
-      {/* Main Content Flow: Hero -> Press -> About Me -> Education -> Skills -> Certification -> Projects */}
+      {/* Main Content Flow: Hero -> Press -> About Me -> Education -> Skills -> Certification -> Projects -> Contact */}
       <main className="main-content-flow">
         {/* 1. HERO */}
         <Hero3D />
@@ -44,20 +42,12 @@ export function HomeScreen() {
         <Skills />
 
         {/* 5. CERTIFICATIONS */}
-        <Certifications />
+        <Certifications onViewAll={onNavigateToCertifications} />
 
         {/* 6. PROJECTS */}
         <ProjectsSection onSelectProject={(project) => setSelectedProject(project)} />
 
-        {/* 7. WORK PROCESS & QUOTE */}
-        <section className="process-quote-section">
-          <div className="process-quote-container">
-            <WorkProcess />
-            <QuoteBanner onOpenContact={() => setIsContactOpen(true)} />
-          </div>
-        </section>
-
-        {/* 8. CONTACT & FOOTER */}
+        {/* 7. CONTACT & FOOTER */}
         <ContactFooter onOpenContact={() => setIsContactOpen(true)} />
       </main>
 

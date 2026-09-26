@@ -173,45 +173,118 @@ export const CERTIFICATIONS_DATA = [
     id: 1,
     title: "Cisco DevNet Associate",
     issuer: "Cisco Networking Academy",
+    issuerCode: "CISCO",
     date: "2026",
     credentialId: "CISCO-DEVNET-2026",
     badgeColor: "#049FD9",
     sealType: "gold",
     verificationUrl: "https://www.credly.com/org/cisco/badge/cisco-certified-devnet-associate",
-    description: "Certification focused on software development, APIs, application development, automation, and modern network-based development."
+    description: "Validates technical mastery in software development, REST API integrations, network automation, CI/CD pipelines, and application deployment on Cisco infrastructure.",
+    competencies: ["REST APIs", "Network Automation", "Python", "CI/CD Pipelines", "Infrastructure as Code"]
   },
   {
     id: 2,
     title: "PMI Project Management Ready",
     issuer: "Project Management Institute (PMI)",
+    issuerCode: "PMI",
     date: "2026",
     credentialId: "PMI-PMR-2026",
     badgeColor: "#FF6900",
     sealType: "gold",
     verificationUrl: "https://www.credly.com/org/project-management-institute/badge/pmi-project-management-ready",
-    description: "Certification covering project management fundamentals, planning, teamwork, communication, and project execution."
+    description: "Certification covering project management methodologies, Agile & Waterfall frameworks, scope and schedule planning, risk mitigation, and stakeholder leadership.",
+    competencies: ["Project Lifecycle", "Agile & Waterfall", "Risk Management", "Resource Planning", "Stakeholder Leadership"]
   },
   {
     id: 3,
     title: "Cisco CCNA Enterprise Networking, Security & Automation",
     issuer: "Cisco Networking Academy",
+    issuerCode: "CISCO",
     date: "2025",
-    credentialId: "CISCO-CCNA-2025",
+    credentialId: "CISCO-CCNA-ENSA-2025",
     badgeColor: "#049FD9",
     sealType: "bronze",
     verificationUrl: "https://www.credly.com/org/cisco/badge/ccna-enterprise-networking-security-and-automation",
-    description: "Training covering networking fundamentals, security concepts, network automation, and enterprise networking technologies."
+    description: "Comprehensive credentials covering enterprise IP routing (OSPFv2/v3), switching architectures, network security protocols, VLAN segmentation, and automation scripts.",
+    competencies: ["Enterprise Routing & OSPF", "Network Security & ACLs", "VLAN Segmentation", "Network Automation", "Cisco IOS"]
   },
   {
     id: 4,
+    title: "Cisco CCNA Automation",
+    issuer: "Cisco Networking Academy",
+    issuerCode: "CISCO",
+    date: "2025",
+    credentialId: "CISCO-CCNA-AUTO-2025",
+    badgeColor: "#049FD9",
+    sealType: "gold",
+    verificationUrl: "https://www.credly.com/org/cisco/badge/ccna-automation",
+    description: "Focuses on programmatic network configuration, RESTCONF, NETCONF, Python network scripts, JSON/YAML data encoding, and modern controller-based architectures.",
+    competencies: ["Network Automation", "RESTCONF / NETCONF", "Python Scripting", "JSON / YAML", "Cisco DNA Center"]
+  },
+  {
+    id: 5,
+    title: "Cisco CCNA Switching, Routing & Wireless Essentials",
+    issuer: "Cisco Networking Academy",
+    issuerCode: "CISCO",
+    date: "2025",
+    credentialId: "CISCO-CCNA-SRWE-2025",
+    badgeColor: "#049FD9",
+    sealType: "gold",
+    verificationUrl: "https://www.credly.com/org/cisco/badge/ccna-switching-routing-and-wireless-essentials",
+    description: "Covers configuration and troubleshooting of enterprise switches, routers, VLANs, STP, EtherChannel, DHCPv4/v6, SLAAC, and WLAN wireless network architectures.",
+    competencies: ["Switching & Routing", "VLANs & Trunks", "Spanning Tree (STP)", "EtherChannel", "Wireless LANs (WLAN)"]
+  },
+  {
+    id: 6,
+    title: "Cisco CCNA Introduction to Networks",
+    issuer: "Cisco Networking Academy",
+    issuerCode: "CISCO",
+    date: "2024",
+    credentialId: "CISCO-CCNA-ITN-2024",
+    badgeColor: "#049FD9",
+    sealType: "gold",
+    verificationUrl: "https://www.credly.com/org/cisco/badge/ccna-introduction-to-networks",
+    description: "Foundational architecture covering OSI & TCP/IP models, IPv4/IPv6 addressing and subnetting, Ethernet principles, and basic network device configuration.",
+    competencies: ["OSI & TCP/IP Model", "IPv4 & IPv6 Subnetting", "Ethernet Architecture", "Cisco Packet Tracer", "Device Hardening"]
+  },
+  {
+    id: 7,
     title: "Cisco Linux Essentials",
     issuer: "Cisco & Linux Professional Institute",
+    issuerCode: "LPI",
     date: "2025",
     credentialId: "CISCO-LINUX-2025",
     badgeColor: "#F59E0B",
     sealType: "gold",
     verificationUrl: "https://www.credly.com/org/cisco/badge/linux-essentials",
-    description: "Fundamentals of Linux operating systems, command-line tools, file management, permissions, and basic system administration."
+    description: "Certification in Linux operating system fundamentals, command-line interface (CLI) mastery, Bash shell scripting, security permissions, and system administration.",
+    competencies: ["Linux OS Architecture", "Bash Scripting & CLI", "File Systems & Permissions", "User Administration", "Security Concepts"]
+  },
+  {
+    id: 8,
+    title: "Cisco Cybersecurity Essentials",
+    issuer: "Cisco Networking Academy",
+    issuerCode: "CISCO",
+    date: "2024",
+    credentialId: "CISCO-CYBER-2024",
+    badgeColor: "#DC2626",
+    sealType: "bronze",
+    verificationUrl: "https://www.credly.com/org/cisco/badge/cybersecurity-essentials",
+    description: "Covers tactical cybersecurity principles, threat actor profiles, vulnerability assessments, encryption fundamentals, firewall policies, and incident mitigation.",
+    competencies: ["Threat Analysis", "Cryptography & SSL", "Firewalls & Defense", "Network Vulnerabilities", "Security Compliance"]
+  },
+  {
+    id: 9,
+    title: "Cisco Python Essentials",
+    issuer: "Cisco & OpenEDG Python Institute",
+    issuerCode: "PYTHON",
+    date: "2025",
+    credentialId: "CISCO-PYTHON-2025",
+    badgeColor: "#3776AB",
+    sealType: "gold",
+    verificationUrl: "https://www.credly.com/org/cisco/badge/python-essentials-1",
+    description: "Certification demonstrating proficiency in core Python programming, data structures, algorithmic problem solving, object-oriented concepts, and API integration.",
+    competencies: ["Python 3 Core", "Data Structures & OOP", "Algorithms & Logic", "Exception Handling", "Automation Scripts"]
   }
 ];
 

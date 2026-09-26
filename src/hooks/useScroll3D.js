@@ -17,23 +17,26 @@ export function useScroll3D() {
 
     const observerOptions = {
       root: null,
-      rootMargin: '100px 0px 50px 0px',
-      threshold: 0.05
+      rootMargin: '-20px 0px -40px 0px',
+      threshold: 0.08
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
+        } else {
+          // Remove is-visible when scrolling out of viewport so it re-fades on scrolling back
+          entry.target.classList.remove('is-visible');
         }
       });
     }, observerOptions);
 
     revealElements.forEach((el) => {
       observer.observe(el);
-      // Immediately reveal if element is already within or near viewport
+      // Immediately reveal if element is already within viewport on load
       const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight + 150) {
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
         el.classList.add('is-visible');
       }
     });
