@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useScroll3D } from '../hooks/useScroll3D';
 import { Navbar } from '../components/Navbar';
 import { Hero3D } from '../components/Hero3D';
 import { PressMarquee } from '../components/PressMarquee';
@@ -16,6 +17,9 @@ import { ContactModal } from '../components/ContactModal';
 export function HomeScreen() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isContactOpen, setIsContactOpen] = useState(false);
+
+  // Initialize 3D scroll animations, parallax, and card tilt
+  useScroll3D();
 
   return (
     <div className="portfolio-app-root">

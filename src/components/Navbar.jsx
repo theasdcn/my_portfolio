@@ -4,7 +4,7 @@ import { DESIGNER_INFO, NAV_LINKS } from '../constants/portfolioData';
 
 // Split nav links: first half left, second half right of the center logo
 const leftLinks  = NAV_LINKS.slice(0, 3); // Hero, About Me, Education
-const rightLinks = NAV_LINKS.slice(3, 6); // Skills, Certifications, Projects
+const rightLinks = NAV_LINKS.slice(3, 7); // Skills, Certifications, Projects, Contact
 
 export function Navbar({ onOpenContact }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

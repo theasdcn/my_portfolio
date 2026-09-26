@@ -6,16 +6,16 @@ export function Education() {
   return (
     <section className="education-section" id="education">
       <div className="education-container">
-        <div className="section-header-retro" style={{ borderColor: '#ffffff' }}>
-          <span className="section-num-stamp" style={{ color: '#fecdd3' }}>02 //</span>
-          <h2 className="section-title-serif" style={{ color: '#ffffff' }}>Where I studied.
-          </h2>
+        <div className="section-header-retro reveal-3d">
+          <span className="section-num-stamp">02 //</span>
+          <h2 className="section-title-serif">Education &amp; Background</h2>
         </div>
 
         <div className="education-grid-retro">
-          {EDUCATION_DATA.map((edu) => (
-            <div key={edu.id} className="edu-paper-card">
-              <div className="tape-strip top-left" />
+          {EDUCATION_DATA.map((edu, idx) => (
+            <div key={edu.id} className={`edu-paper-card tilt-card-3d reveal-3d-card delay-${idx + 1}`}>
+              <div className="tilt-sheen-layer" />
+              <div className="edu-card-accent" />
 
               {/* Level badge */}
               <span className="edu-level-label">{edu.level}</span>

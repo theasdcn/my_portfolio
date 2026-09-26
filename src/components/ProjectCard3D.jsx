@@ -16,11 +16,12 @@ export function ProjectCard3D({ project, onSelectProject }) {
 
   return (
     <div 
-      className="project-polaroid-card group cursor-pointer"
+      className="project-polaroid-card group cursor-pointer tilt-card-3d reveal-3d-card"
       onClick={handleClick}
       onMouseEnter={playVinylClick}
     >
-      <div className="tape-strip top-center" />
+      <div className="tilt-sheen-layer" />
+      <div className="archival-mount-tag">{project.categoryKey.replace('-', ' · ').toUpperCase()}</div>
 
       <div className="project-img-frame">
         <img 

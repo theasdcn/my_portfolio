@@ -5,14 +5,14 @@ import { playCameraShutter } from '../utils/soundEffects';
 export function AboutMe() {
   return (
     <section className="about-section" id="about">
-      <div className="section-header-retro">
+      <div className="section-header-retro reveal-3d">
         <span className="section-num-stamp">01 //</span>
-        <h2 className="section-title-serif">about me</h2>
+        <h2 className="section-title-serif">About Me</h2>
       </div>
 
       <div className="about-scrapbook-grid">
         {/* Left Column: Editorial Text & About Cards */}
-        <div className="about-text-content">
+        <div className="about-text-content reveal-3d-left">
           <h3 className="about-headline-serif">
             Turning ideas into <span>practical digital solutions.</span>
           </h3>
@@ -28,9 +28,10 @@ export function AboutMe() {
           {/* About Trait Cards */}
           <div className="about-stats-tape-grid">
             {DESIGNER_INFO.aboutCards.map((card, idx) => (
-              <div key={idx} className="stat-paper-card">
-                <div className="tape-strip top-center" />
-                <span className="stat-num-y2k" style={{ fontSize: '0.85rem', letterSpacing: '0.08em' }}>{card.label}</span>
+              <div key={idx} className={`stat-paper-card tilt-card-3d reveal-3d-card delay-${idx + 1}`}>
+                <div className="tilt-sheen-layer" />
+                <div className="card-luxury-accent" />
+                <span className="stat-num-y2k">{card.label}</span>
                 <p className="stat-label-y2k">{card.sub}</p>
               </div>
             ))}
@@ -38,9 +39,10 @@ export function AboutMe() {
         </div>
 
         {/* Right Column: Y2K Photobooth Film Strip with Real User Photos */}
-        <div className="photobooth-strip-container">
+        <div className="photobooth-strip-container reveal-3d-right">
           <div 
             className="photobooth-film-strip cursor-pointer"
+            data-parallax-speed="-0.15"
             onClick={playCameraShutter}
             title="Click to trigger camera shutter!"
           >

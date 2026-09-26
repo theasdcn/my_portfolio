@@ -18,7 +18,7 @@ export function ContactFooter({ onOpenContact }) {
       <div className="contact-container">
 
         {/* LEFT/MAIN COLUMN: Heading, Bio & Social Taped Link Cards */}
-        <div className="contact-left-col">
+        <div className="contact-left-col reveal-3d-left">
 
           <div className="contact-top-status">
             <span className="live-status-pulse" />
@@ -44,10 +44,11 @@ export function ContactFooter({ onOpenContact }) {
             
             {/* EMAIL LINK CARD */}
             <div 
-              className="paper-link-card group cursor-pointer shadow-y2k -rotate-1" 
+              className="paper-link-card group cursor-pointer shadow-y2k tilt-card-3d" 
               onClick={handleCopyEmail}
               title="Click to copy email address!"
             >
+              <div className="tilt-sheen-layer" />
               <div className="link-card-left">
                 <div className="link-icon-box bg-red-100 text-burgundy">
                   <Mail size={18} />
@@ -67,8 +68,9 @@ export function ContactFooter({ onOpenContact }) {
               href={CONTACT_INFO.linkedin} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="paper-link-card group shadow-y2k rotate-1"
+              className="paper-link-card group shadow-y2k tilt-card-3d"
             >
+              <div className="tilt-sheen-layer" />
               <div className="link-card-left">
                 <div className="link-icon-box bg-blue-100 text-blue-700">
                   <Linkedin size={18} />
@@ -86,8 +88,9 @@ export function ContactFooter({ onOpenContact }) {
               href={CONTACT_INFO.github} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="paper-link-card group shadow-y2k -rotate-1"
+              className="paper-link-card group shadow-y2k tilt-card-3d"
             >
+              <div className="tilt-sheen-layer" />
               <div className="link-card-left">
                 <div className="link-icon-box bg-gray-100 text-gray-900">
                   <Github size={18} />
@@ -105,9 +108,11 @@ export function ContactFooter({ onOpenContact }) {
         </div>
 
         {/* RIGHT COLUMN: LAPTOP SHOWCASE */}
-        <div className="contact-right-col">
-          <div className="laptop-paper-frame shadow-y2k rotate-2">
-            <div className="tape-strip top-center-tape" />
+        <div className="contact-right-col reveal-3d-right">
+          <div className="laptop-paper-frame shadow-y2k" data-parallax-speed="-0.1">
+            <div className="frame-header-tag">
+              <span>✦ 3D INTERACTIVE DEVICE • DRAG TO ROTATE</span>
+            </div>
 
             {/* 3D Laptop Component */}
             <div className="laptop-canvas-wrapper">

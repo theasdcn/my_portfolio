@@ -10,7 +10,7 @@ export function Hero3D() {
 
       <div className="hero-container">
         {/* LEFT COLUMN: Editorial Titles & Bio */}
-        <div className="hero-left">
+        <div className="hero-left reveal-3d-left">
           <div className="hero-top-badge">
             <Sparkles size={16} className="text-cherry" />
             <span className="font-mono text-xs text-cream uppercase">3D Interactive Digital Portfolio</span>
@@ -25,26 +25,56 @@ export function Hero3D() {
 
           <p className="hero-role-tag">BSIT Student | Web &amp; Mobile Application Developer</p>
 
-          <p className="hero-bio">
-            {DESIGNER_INFO.bio}
-          </p>
+          <div className="hero-meta-row">
+            <div className="hero-location-tag">
+              <MapPin size={15} />
+              <span>{DESIGNER_INFO.location}</span>
+            </div>
+            <div className="hero-status-pill">
+              <span className="hero-pulse-dot" />
+              <span>AVAILABLE FOR OPPORTUNITIES</span>
+            </div>
+          </div>
 
-          <div className="hero-location-tag">
-            <MapPin size={16} />
-            <span>{DESIGNER_INFO.location}</span>
+          {/* Hero Elegant Action Buttons */}
+          <div className="hero-actions-row">
+            <a 
+              href="#projects" 
+              className="hero-btn-primary"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              <span>Explore Projects</span>
+              <span className="hero-btn-arrow">↓</span>
+            </a>
+            <a 
+              href="#contact" 
+              className="hero-btn-secondary"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              <span>Get in Touch</span>
+              <span className="hero-btn-arrow">→</span>
+            </a>
           </div>
         </div>
 
-        {/* CENTER COLUMN: Y2K Photobook Polaroid Collage with User's Real Photos */}
-        <div className="hero-center-collage">
-          {/* Main Polaroid Photo */}
+        {/* CENTER COLUMN: Editorial Archival Photo Collage with User's Real Photos */}
+        <div className="hero-center-collage reveal-3d-right">
+          {/* Main Portrait Frame */}
           <div
-            className="polaroid-card main-portrait-polaroid group cursor-pointer"
+            className="polaroid-card main-portrait-polaroid group cursor-pointer tilt-card-3d"
+            data-parallax-speed="-0.1"
             onClick={playCameraShutter}
             onMouseEnter={playVinylClick}
-            title="Click to snap camera shutter sound!"
+            title="Click to snap camera shutter!"
           >
-            <div className="tape-strip top-center" />
+            <div className="tilt-sheen-layer" />
+            <div className="archival-mount-tag">PORTFOLIO EDITORIAL</div>
             <div className="polaroid-img-box">
               <img
                 src="/assets/user_photo_5.png"
@@ -53,17 +83,20 @@ export function Hero3D() {
             </div>
             <div className="polaroid-caption-row">
               <p className="polaroid-caption">Althea — 2026</p>
-              <Volume2 size={16} className="audio-hint-icon opacity-50 group-hover:opacity-100" />
+              <Volume2 size={16} className="audio-hint-icon opacity-60 group-hover:opacity-100 transition-opacity" />
             </div>
           </div>
 
-          {/* Secondary Tilted Polaroid */}
+          {/* Secondary Tilted Frame */}
           <div
-            className="polaroid-card secondary-polaroid-tilted group cursor-pointer"
+            className="polaroid-card secondary-polaroid-tilted group cursor-pointer tilt-card-3d"
+            data-parallax-speed="-0.2"
             onClick={playCameraShutter}
             onMouseEnter={playVinylClick}
+            title="Click to snap camera shutter!"
           >
-            <div className="tape-strip top-right" />
+            <div className="tilt-sheen-layer" />
+            <div className="archival-mount-tag">DEV · ARCHIVE</div>
             <div className="polaroid-img-box">
               <img
                 src="/assets/user_photo_1.png"

@@ -172,37 +172,45 @@ export const CERTIFICATIONS_DATA = [
   {
     id: 1,
     title: "Cisco DevNet Associate",
-    issuer: "Cisco",
+    issuer: "Cisco Networking Academy",
     date: "2026",
     credentialId: "CISCO-DEVNET-2026",
-    badgeColor: "#3b82f6",
+    badgeColor: "#049FD9",
+    sealType: "gold",
+    verificationUrl: "https://www.credly.com/org/cisco/badge/cisco-certified-devnet-associate",
     description: "Certification focused on software development, APIs, application development, automation, and modern network-based development."
   },
   {
     id: 2,
     title: "PMI Project Management Ready",
-    issuer: "Project Management Institute",
+    issuer: "Project Management Institute (PMI)",
     date: "2026",
     credentialId: "PMI-PMR-2026",
-    badgeColor: "#84cc16",
+    badgeColor: "#FF6900",
+    sealType: "gold",
+    verificationUrl: "https://www.credly.com/org/project-management-institute/badge/pmi-project-management-ready",
     description: "Certification covering project management fundamentals, planning, teamwork, communication, and project execution."
   },
   {
     id: 3,
     title: "Cisco CCNA Enterprise Networking, Security & Automation",
-    issuer: "Cisco",
+    issuer: "Cisco Networking Academy",
     date: "2025",
     credentialId: "CISCO-CCNA-2025",
-    badgeColor: "#f59e0b",
+    badgeColor: "#049FD9",
+    sealType: "bronze",
+    verificationUrl: "https://www.credly.com/org/cisco/badge/ccna-enterprise-networking-security-and-automation",
     description: "Training covering networking fundamentals, security concepts, network automation, and enterprise networking technologies."
   },
   {
     id: 4,
     title: "Cisco Linux Essentials",
-    issuer: "Cisco",
+    issuer: "Cisco & Linux Professional Institute",
     date: "2025",
     credentialId: "CISCO-LINUX-2025",
-    badgeColor: "#ef4444",
+    badgeColor: "#F59E0B",
+    sealType: "gold",
+    verificationUrl: "https://www.credly.com/org/cisco/badge/linux-essentials",
     description: "Fundamentals of Linux operating systems, command-line tools, file management, permissions, and basic system administration."
   }
 ];

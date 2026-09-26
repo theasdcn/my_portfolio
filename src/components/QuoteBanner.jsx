@@ -3,7 +3,11 @@ import { Plus, Quote } from 'lucide-react';
 
 export function QuoteBanner({ onOpenContact }) {
   return (
-    <div className="quote-banner-card group">
+    <div 
+      className="quote-banner-card group tilt-card-3d reveal-3d-right"
+      data-parallax-speed="-0.08"
+    >
+      <div className="tilt-sheen-layer" />
       <div className="quote-bg-glow" />
       
       <div className="quote-icon-container">

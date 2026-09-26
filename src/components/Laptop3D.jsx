@@ -56,8 +56,20 @@ export function Laptop3D() {
                   <span className="dot yellow" />
                   <span className="dot green" />
                 </div>
+                <div className="screen-address-bar">
+                  <span>altheasadicon.portfolio</span>
+                </div>
               </div>
-              <div className="screen-hero-preview" />
+              <div className="screen-hero-preview">
+                <div className="mini-hero-badge">✦ WEB &amp; MOBILE DEV</div>
+                <div className="mini-hero-title">ALTHEA ZULEIKA</div>
+                <div className="mini-hero-subtitle">FEU TECH • BSIT 2026</div>
+                <div className="mini-projects-row">
+                  <div className="mini-project-chip">SAVR App</div>
+                  <div className="mini-project-chip">Fairall</div>
+                  <div className="mini-project-chip">Vitaly Tea</div>
+                </div>
+              </div>
             </div>
           </div>
           <div className="laptop-bevel-bottom" />
