@@ -37,12 +37,7 @@ export function Laptop3D() {
       ref={containerRef}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
-      title="Click and drag to rotate 3D laptop"
     >
-      <div className="laptop-drag-hint">
-        <span>✨ Drag to rotate 3D Laptop</span>
-      </div>
-
       <div 
         className="laptop-3d-model"
         style={{
@@ -53,7 +48,7 @@ export function Laptop3D() {
         <div className="laptop-screen-frame">
           <div className="laptop-camera-dot" />
           <div className="laptop-screen-display">
-            {/* Live Portfolio Preview Screen */}
+            {/* Clean Screen Preview */}
             <div className="screen-content-preview">
               <div className="screen-header-bar">
                 <div className="screen-dots">
@@ -61,13 +56,8 @@ export function Laptop3D() {
                   <span className="dot yellow" />
                   <span className="dot green" />
                 </div>
-                <span className="screen-url">althea.dev</span>
               </div>
-              <div className="screen-hero-preview">
-                <span className="mini-portfolio-title">PORTFOLIO</span>
-                <span className="mini-hero-text">ALTHEA ZULEIKA</span>
-                <span className="mini-subtext">WEB &amp; MOBILE DEV</span>
-              </div>
+              <div className="screen-hero-preview" />
             </div>
           </div>
           <div className="laptop-bevel-bottom" />

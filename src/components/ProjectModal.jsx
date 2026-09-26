@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { X, ExternalLink, Sparkles, CheckCircle, ArrowRight } from 'lucide-react';
+import { X, ExternalLink, Sparkles } from 'lucide-react';
 
 export function ProjectModal({ project, onClose }) {
   useEffect(() => {
@@ -18,77 +18,83 @@ export function ProjectModal({ project, onClose }) {
   if (!project) return null;
 
   return (
-    <div className="modal-backdrop" onClick={onClose}>
+    <div className="cream-modal-backdrop" onClick={onClose}>
       <div 
-        className="modal-card-container" 
+        className="cream-modal-card shadow-y2k" 
         onClick={(e) => e.stopPropagation()}
-        style={{ borderColor: project.accentColor }}
       >
-        <button className="modal-close-btn" onClick={onClose} aria-label="Close Modal">
-          <X size={24} />
+        {/* Floating Close Button */}
+        <button className="cream-close-btn" onClick={onClose} aria-label="Close Modal">
+          <X size={20} />
         </button>
 
-        <div className="modal-header">
-          <span className="modal-number" style={{ color: project.accentColor }}>
-            {project.number}
+        {/* Modal Header */}
+        <div className="cream-modal-header">
+          <span className="cream-num-stamp">
+            {project.number} //
           </span>
           <div>
-            <h2 className="modal-title">{project.title}</h2>
-            <p className="modal-subtitle">{project.subtitle} • {project.category}</p>
+            <h2 className="cream-modal-title">{project.title}</h2>
+            <p className="cream-modal-subtitle">{project.subtitle} • {project.category}</p>
           </div>
         </div>
 
-        <div className="modal-body-scroll">
-          <div className="modal-hero-image-wrapper">
-            <img src={project.image} alt={project.title} className="modal-hero-img" />
-            <div 
-              className="modal-image-glow" 
-              style={{ background: project.accentGlow }}
-            />
+        {/* Modal Scrollable Body */}
+        <div className="cream-modal-body">
+          {/* Showcase Image Frame */}
+          <div className="cream-img-frame">
+            <img src={project.image} alt={project.title} className="cream-hero-img" />
+            {project.liveUrl && (
+              <span className="cream-live-tag">
+                <span className="live-dot-cherry" /> LIVE SITE AVAILABLE
+              </span>
+            )}
           </div>
 
-          <div className="modal-details-grid">
-            <div className="modal-description-section">
-              <h3 className="modal-section-heading">Overview & Case Study</h3>
-              <p className="modal-desc-p">{project.description}</p>
-              
-              <div className="modal-metrics-badge">
-                <Sparkles size={18} style={{ color: project.accentColor }} />
-                <span>{project.metrics}</span>
+          {/* Grid Layout */}
+          <div className="cream-content-grid">
+            {/* Left Column: Overview & Case Study */}
+            <div className="cream-left-col">
+              <div className="cream-section">
+                <h3 className="cream-heading">Overview &amp; Case Study</h3>
+                <p className="cream-text">{project.description}</p>
               </div>
             </div>
 
-            <div className="modal-sidebar-section">
-              <h3 className="modal-section-heading">Key Deliverables</h3>
-              <ul className="modal-deliverables-list">
-                {project.tags.map((tag, i) => (
-                  <li key={i} className="modal-tag-pill">
-                    <CheckCircle size={14} style={{ color: project.accentColor }} />
-                    <span>{tag}</span>
-                  </li>
-                ))}
-              </ul>
+            {/* Right Column: Role, Technologies & Live CTA */}
+            <div className="cream-right-col">
+              {/* Role Card */}
+              <div className="cream-role-card">
+                <Sparkles size={16} className="text-cherry shrink-0" />
+                <span>{project.metrics}</span>
+              </div>
 
+              {/* Technologies */}
+              <div className="cream-section">
+                <h3 className="cream-heading">Technologies Used</h3>
+                <div className="cream-tags-wrap">
+                  {project.tags.map((tag, idx) => (
+                    <span key={idx} className="cream-tag-pill">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Action Buttons */}
               {project.liveUrl && (
-                <a 
-                  href={project.liveUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="modal-action-btn live-site-btn mb-2"
-                  style={{ background: '#10b981', color: '#ffffff', textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}
-                >
-                  Visit Live Website <ExternalLink size={18} />
-                </a>
+                <div className="cream-cta-stack">
+                  <a 
+                    href={project.liveUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="cream-btn-primary"
+                  >
+                    <span>VISIT LIVE WEBSITE</span>
+                    <ExternalLink size={16} />
+                  </a>
+                </div>
               )}
-
-              <a 
-                href="#contact" 
-                onClick={onClose}
-                className="modal-action-btn"
-                style={{ background: project.accentColor }}
-              >
-                Discuss Similar Project <ArrowRight size={18} />
-              </a>
             </div>
           </div>
         </div>
@@ -96,3 +102,7 @@ export function ProjectModal({ project, onClose }) {
     </div>
   );
 }
+
+
+
+

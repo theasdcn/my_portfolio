@@ -38,13 +38,23 @@ export const PROJECTS_DATA = [
     title: "SAVR",
     subtitle: "Food Donation Management System",
     category: "Web & Mobile Application",
-    image: "/assets/project_safegate.png",
+    categoryKey: "web-mobile",
+    image: "/assets/project_savr.png",
     accentColor: "#84cc16",
     accentGlow: "rgba(132, 204, 22, 0.4)",
-    description: "A web and mobile system developed for the Philippine FoodBank Foundation Inc. to support food donation management, inventory, logistics, meal planning, disaster intelligence, donation requests, distribution, and reporting.",
-    metrics: "Role: Project Manager & Frontend Mobile Developer • Live at savrdonate.com",
+    description: "A comprehensive web and mobile platform developed for the Philippine FoodBank Foundation Inc. to streamline food donation logistics, real-time inventory tracking, meal planning, disaster intelligence, donation requests, distribution, and analytical reporting.",
+    metrics: "Role: Project Manager & Frontend Mobile Developer • Live Production Platform",
     liveUrl: "https://savrdonate.com/",
-    tags: ["React Native", "Web Development", "Mobile App", "Project Management", "Live Production"]
+    githubUrl: "https://github.com/altheazuleikasadicon",
+    tags: ["React Native", "Web Development", "Mobile App", "Project Management", "Live Production"],
+    features: [
+      "Real-time Food Donation & Inventory Tracking",
+      "Disaster Intelligence & Relief Response Dashboard",
+      "Automated Donor & Beneficiary Matching",
+      "Logistics Route Management & Meal Planning",
+      "Comprehensive Analytics & Reporting Tools"
+    ],
+    roleDetails: "Managed project timelines and deliverables while leading the front-end mobile development using React Native to ensure seamless user experience for donors and volunteers."
   },
   {
     id: "fairall",
@@ -52,12 +62,23 @@ export const PROJECTS_DATA = [
     title: "FAIRALL",
     subtitle: "Systems Integration & Architecture",
     category: "Web Application",
-    image: "/assets/project_event_ticket.png",
+    categoryKey: "systems",
+    image: "/assets/project_fairall.png",
     accentColor: "#3b82f6",
     accentGlow: "rgba(59, 130, 246, 0.4)",
-    description: "A donation and payment management application integrating donor and administrator workflows with PayPal for online payment processing.",
-    metrics: "Role: Developer",
-    tags: ["Systems Integration", "PayPal API", "Web Development", "Full-Stack"]
+    description: "A modern donation and payment management platform engineered to connect donor portals with administrator workflows, featuring real-time financial tracking, automated receipts, and secure PayPal REST API integration.",
+    metrics: "Role: Full-Stack Systems Developer • API Integration Specialist",
+    liveUrl: "https://github.com/altheazuleikasadicon",
+    githubUrl: "https://github.com/altheazuleikasadicon",
+    tags: ["Systems Integration", "PayPal API", "Web Development", "Full-Stack Architecture", "Payment Gateway"],
+    features: [
+      "Seamless PayPal REST API Payment Gateway Integration",
+      "Administrator Financial Dashboard & Audit Trail",
+      "Donor Workflow & Transaction History Management",
+      "Automated Receipt Generation & Instant Email Alerts",
+      "Role-Based Access Control (RBAC) Security System"
+    ],
+    roleDetails: "Designed and implemented the full systems integration architecture, payment gateway handlers, and donor-admin data pipelines."
   },
   {
     id: "vitaly-tea",
@@ -65,13 +86,23 @@ export const PROJECTS_DATA = [
     title: "VITALY TEA",
     subtitle: "Tea Shop & Printing Service Hub",
     category: "Web Application",
-    image: "/assets/project_loopin.png",
+    categoryKey: "web-mobile",
+    image: "/assets/project_vitalytea.png",
     accentColor: "#f59e0b",
     accentGlow: "rgba(245, 158, 11, 0.4)",
-    description: "A cozy tea shop and printing service web platform featuring an interactive beverage ordering menu, printing service catalog, customer testimonials, news & blogs, and responsive UI design.",
-    metrics: "Role: Web Developer • Live on Netlify",
+    description: "An interactive web platform built for a hybrid tea shop and printing service hub. Features a responsive beverage ordering catalog, customizable printing request form, customer reviews, blog updates, and custom Y2K visual design.",
+    metrics: "Role: Web Developer & UI Designer • Deployed on Netlify",
     liveUrl: "https://moonlit-pithivier-1e4971.netlify.app/",
-    tags: ["HTML/CSS", "JavaScript", "Netlify Deployment", "E-Commerce & Services", "UI Design"]
+    githubUrl: "https://github.com/altheazuleikasadicon",
+    tags: ["HTML/CSS", "JavaScript", "Netlify Deployment", "E-Commerce & Services", "UI/UX Design"],
+    features: [
+      "Interactive Digital Ordering Menu for Beverages",
+      "Customizable Printing Service Catalog & Upload Form",
+      "Responsive Layout with Vintage & Modern Styling",
+      "Customer Testimonials & News/Blog Engine",
+      "Fast Static Deployment with Netlify Automation"
+    ],
+    roleDetails: "Sole developer responsible for UI/UX wireframing, frontend development, dynamic ordering logic, and cloud deployment."
   },
   {
     id: "cybersecurity",
@@ -79,12 +110,23 @@ export const PROJECTS_DATA = [
     title: "IT & CYBERSECURITY PROJECTS",
     subtitle: "Networking & Cybersecurity",
     category: "Academic Projects",
-    image: "/assets/project_landing.png",
+    categoryKey: "academic",
+    image: "/assets/project_cybersecurity.png",
     accentColor: "#ef4444",
     accentGlow: "rgba(239, 68, 68, 0.4)",
-    description: "Hands-on projects involving Linux, networking, system processes, endpoint analysis, cybersecurity concepts, and network security activities.",
-    metrics: "Role: Student Researcher",
-    tags: ["Linux", "Networking", "Cybersecurity", "Cisco"]
+    description: "A collection of hands-on networking and cybersecurity lab implementations, including Cisco enterprise topologies, Linux administration, Packet Tracer simulations, endpoint threat analysis, and network security protocol configurations.",
+    metrics: "Role: Student Researcher & Network Security Specialist",
+    liveUrl: "https://github.com/altheazuleikasadicon",
+    githubUrl: "https://github.com/altheazuleikasadicon",
+    tags: ["Linux", "Networking", "Cybersecurity", "Cisco Packet Tracer", "Enterprise Security"],
+    features: [
+      "Cisco Enterprise Network Topology & Routing Protocols (OSPF, VLANs)",
+      "Linux Server Administration & Permission Hardening",
+      "Endpoint Security Analysis & Threat Monitoring Labs",
+      "Network Automation Scripts & Packet Packet Capture Diagnostics",
+      "DevNet API Integration & Infrastructure Automation"
+    ],
+    roleDetails: "Executed lab configurations, enterprise network topology designs, and security auditing as part of Cisco CCNA & DevNet certification courses."
   }
 ];
 

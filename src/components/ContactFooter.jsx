@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Linkedin, Github, Globe, Plus, Check, Copy, Sparkles, Send } from 'lucide-react';
+import { Mail, Linkedin, Github, Check, Copy, Send } from 'lucide-react';
 import { CONTACT_INFO } from '../constants/portfolioData';
 import { Laptop3D } from './Laptop3D';
 
@@ -100,46 +100,19 @@ export function ContactFooter({ onOpenContact }) {
               <span className="link-arrow-badge">↗</span>
             </a>
 
-            {/* PORTFOLIO WEBSITE LINK CARD */}
-            <a 
-              href={CONTACT_INFO.portfolio} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="paper-link-card group shadow-y2k rotate-2"
-            >
-              <div className="link-card-left">
-                <div className="link-icon-box bg-amber-100 text-amber-700">
-                  <Globe size={18} />
-                </div>
-                <div className="link-info-text">
-                  <span className="link-label font-mono text-[10px] text-muted uppercase">PORTFOLIO DOMAIN</span>
-                  <p className="link-value font-mono text-xs font-bold text-burgundy">althea.dev</p>
-                </div>
-              </div>
-              <span className="link-arrow-badge">↗</span>
-            </a>
-
           </div>
 
         </div>
 
-        {/* RIGHT COLUMN: 3D INTERACTIVE LAPTOP SHOWCASE */}
+        {/* RIGHT COLUMN: LAPTOP SHOWCASE */}
         <div className="contact-right-col">
           <div className="laptop-paper-frame shadow-y2k rotate-2">
             <div className="tape-strip top-center-tape" />
-            <div className="frame-header-tag font-mono">
-              <Sparkles size={14} className="text-cherry inline mr-1" />
-              <span>INTERACTIVE 3D MODEL</span>
-            </div>
 
             {/* 3D Laptop Component */}
             <div className="laptop-canvas-wrapper">
               <Laptop3D />
             </div>
-
-            <p className="laptop-caption-script font-script">
-              Designed &amp; Developed with 3D Aesthetics ✨
-            </p>
           </div>
         </div>
 

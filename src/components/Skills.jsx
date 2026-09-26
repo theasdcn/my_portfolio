@@ -14,11 +14,11 @@ export function Skills() {
         {SKILLS_CATEGORIES.map((catGroup, idx) => (
           <div key={idx} className="skill-box-paper">
             <h3 className="skill-box-header">{catGroup.category}</h3>
-            
+
             <div className="skill-pills-stack">
               {catGroup.skills.map((skill, i) => (
-                <div 
-                  key={i} 
+                <div
+                  key={i}
                   className="skill-item-tag cursor-pointer"
                   onMouseEnter={playPopSound}
                 >

@@ -61,6 +61,7 @@ export function HomeScreen() {
       <ProjectModal 
         project={selectedProject} 
         onClose={() => setSelectedProject(null)} 
+        onOpenContact={() => setIsContactOpen(true)}
       />
 
       <ContactModal 
