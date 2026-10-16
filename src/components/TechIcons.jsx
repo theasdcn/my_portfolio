@@ -242,6 +242,12 @@ export function TechIcon({ name, className = "tech-svg-icon" }) {
           <path d="M12 3C7.58 3 4 6.58 4 11c0 2.21.9 4.21 2.35 5.65L7 21h10l.65-4.35C19.1 15.21 20 13.21 20 11c0-4.42-3.58-8-8-8zm-2 10.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" fill="#336791"/>
         </svg>
       );
+    case 'docker':
+      return (
+        <svg className={className} viewBox="0 0 24 24" fill="#2496ED">
+          <path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.186.185.186zm-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.186.185.186zm-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.186.186.186zm5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185zm-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185zm-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.184-.186h-2.12a.186.186 0 00-.186.185v1.888c0 .102.084.185.186.185zm-2.92 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.082.185.185.185M23.766 12.27s-1.222-.888-3.415-.888c-.68 0-1.428.106-2.13.336-.33-1.077-1.3-1.84-2.45-1.84H1.426a.916.916 0 00-.916.916v3.29c0 3.79 3.072 6.862 6.862 6.862 4.954 0 9.208-3.324 10.362-8.082 1.34.02 2.766-.364 3.513-1.748.113-.21.22-.533.22-.533s.385-.634.3-.907c-.062-.204-.3-.38-.3-.38"/>
+        </svg>
+      );
     case 'aspnet':
     case 'dotnet':
       return (
@@ -269,6 +275,60 @@ export function TechIcon({ name, className = "tech-svg-icon" }) {
         <svg className={className} viewBox="0 0 24 24" fill="none">
           <circle cx="12" cy="12" r="10" fill="#00599C"/>
           <text x="12" y="16.5" fill="#FFFFFF" fontSize="11" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">C</text>
+        </svg>
+      );
+    case 'swift':
+      return (
+        <svg className={className} viewBox="0 0 24 24" fill="none">
+          <rect width="24" height="24" rx="5" fill="#F05138"/>
+          <path d="M18.5 18.5c-3.2 0-6.8-2.3-8.6-6C11.6 14 14 15 16.2 15c-2.8-1.8-4.1-5-3.6-8.2.9 1.8 2.3 3.2 4.1 4.1-.9-2.3-.5-4.6.9-6-.5 2.8 1.4 5.5 3.2 7.4.8-1.8.8-3.7.4-5.5 1.8 2.3 2.3 6 .5 8.7 1.4.5 2.8 0 3.7-.9-.9 2.7-2.7 4.1-4.6 4.1z" fill="#FFFFFF"/>
+        </svg>
+      );
+    case 'kotlin':
+      return (
+        <svg className={className} viewBox="0 0 24 24" fill="none">
+          <defs>
+            <linearGradient id="kotlin-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#7F52FF"/>
+              <stop offset="50%" stopColor="#C711E1"/>
+              <stop offset="100%" stopColor="#E4485D"/>
+            </linearGradient>
+          </defs>
+          <rect width="24" height="24" rx="5" fill="url(#kotlin-grad)"/>
+          <polygon points="4,4 12,4 4,12" fill="#FFFFFF" fillOpacity="0.95"/>
+          <polygon points="12,4 20,4 4,20 4,12" fill="#FFFFFF" fillOpacity="0.4"/>
+          <polygon points="20,4 20,12 12,20 4,20" fill="#FFFFFF" fillOpacity="0.8"/>
+        </svg>
+      );
+    case 'androidstudio':
+    case 'android-studio':
+      return (
+        <svg className={className} viewBox="0 0 24 24" fill="none">
+          <rect width="24" height="24" rx="5" fill="#3DDC84"/>
+          <path d="M7 11.5c-.8 0-1.5.7-1.5 1.5v4c0 .8.7 1.5 1.5 1.5s1.5-.7 1.5-1.5v-4c0-.8-.7-1.5-1.5-1.5zm10 0c-.8 0-1.5.7-1.5 1.5v4c0 .8.7 1.5 1.5 1.5s1.5-.7 1.5-1.5v-4c0-.8-.7-1.5-1.5-1.5zm-8-3.5c-.4-.7-.9-1.3-1.4-1.8l-.8.8c.4.5.9 1 1.2 1.6l1-.6zm6 0l1-.6c.3-.6.8-1.1 1.2-1.6l-.8-.8c-.5.5-1 1.1-1.4 1.8zm-3-1c-2.8 0-5 2-5.3 4.5h10.6c-.3-2.5-2.5-4.5-5.3-4.5zm-2.5 3c-.4 0-.8-.3-.8-.8s.3-.8.8-.8.8.3.8.8-.4.8-.8.8zm5 0c-.4 0-.8-.3-.8-.8s.3-.8.8-.8.8.3.8.8-.4.8-.8.8zm-6.5 3.5v5c0 1.1.9 2 2 2h1v2c0 .6.4 1 1 1s1-.4 1-1v-2h2v2c0 .6.4 1 1 1s1-.4 1-1v-2h1c1.1 0 2-.9 2-2v-5H8z" fill="#073042"/>
+        </svg>
+      );
+    case 'xcode':
+      return (
+        <svg className={className} viewBox="0 0 24 24" fill="none">
+          <rect width="24" height="24" rx="5" fill="#147EFB"/>
+          <path d="M6 18l4-4 2 2-4 4H6v-2zm12-12l-6 6 2 2 6-6V6h-2zm-2.5 1l1.5 1.5-1.5 1.5-1.5-1.5 1.5-1.5zm-5 5l1.5 1.5-5 5H5.5v-1.5l5-5z" fill="#FFFFFF"/>
+          <path d="M14 6l4 4-2 2-4-4 2-2z" fill="#FFFFFF" fillOpacity="0.8"/>
+        </svg>
+      );
+    case 'cpp':
+    case 'c++':
+      return (
+        <svg className={className} viewBox="0 0 24 24" fill="none">
+          <rect width="24" height="24" rx="5" fill="#00599C"/>
+          <text x="12" y="16.5" fill="#FFFFFF" fontSize="8.5" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">C++</text>
+        </svg>
+      );
+    case 'photoshop':
+      return (
+        <svg className={className} viewBox="0 0 24 24" fill="none">
+          <rect width="24" height="24" rx="5" fill="#001E36"/>
+          <text x="12" y="16.5" fill="#31A8FF" fontSize="10.5" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">Ps</text>
         </svg>
       );
     case 'vite':

@@ -1,5 +1,5 @@
 export const NAV_LINKS = [
-  { id: "hero", label: "Hero" },
+  { id: "hero", label: "Home" },
   { id: "about", label: "About Me" },
   { id: "education", label: "Education" },
   { id: "skills", label: "Skills" },
@@ -19,7 +19,7 @@ export const DESIGNER_INFO = {
 
   stats: [
     { number: "4+", label: "Academic Projects" },
-    { number: "3+", label: "Certifications" },
+    { number: "13+", label: "Certifications" },
     { number: "2+", label: "Years Coding" },
     { number: "100%", label: "Passion & Drive" }
   ],
@@ -34,7 +34,6 @@ export const DESIGNER_INFO = {
 export const PROJECTS_DATA = [
   {
     id: "savr",
-    number: "01",
     title: "SAVR",
     subtitle: "Food Donation Management System",
     category: "Web & Mobile Application",
@@ -43,10 +42,10 @@ export const PROJECTS_DATA = [
     accentColor: "#84cc16",
     accentGlow: "rgba(132, 204, 22, 0.4)",
     description: "A comprehensive web and mobile platform developed for the Philippine FoodBank Foundation Inc. to streamline food donation logistics, real-time inventory tracking, meal planning, disaster intelligence, donation requests, distribution, and analytical reporting.",
-    metrics: "Role: Project Manager & Frontend Mobile Developer • Live Production Platform",
+    metrics: "Role: Project Manager & Frontend Mobile Developer",
     liveUrl: "https://savrdonate.com/",
     githubUrl: "https://github.com/altheazuleikasadicon",
-    tags: ["React Native", "Web Development", "Mobile App", "Project Management", "Live Production"],
+    tags: ["React Native", "Web Development", "Mobile App", "Project Management"],
     features: [
       "Real-time Food Donation & Inventory Tracking",
       "Disaster Intelligence & Relief Response Dashboard",
@@ -57,44 +56,43 @@ export const PROJECTS_DATA = [
     roleDetails: "Managed project timelines and deliverables while leading the front-end mobile development using React Native to ensure seamless user experience for donors and volunteers."
   },
   {
-    id: "fairall",
-    number: "02",
-    title: "FAIRALL",
-    subtitle: "Systems Integration & Architecture",
+    id: "teddiursa-airlines",
+    title: "TEDDIURSA AIRLINES",
+    subtitle: "Intergalactic Space Flight Booking & Passenger Management System",
     category: "Web Application",
-    categoryKey: "systems",
-    image: "/assets/project_fairall.png",
-    accentColor: "#3b82f6",
-    accentGlow: "rgba(59, 130, 246, 0.4)",
-    description: "A modern donation and payment management platform engineered to connect donor portals with administrator workflows, featuring real-time financial tracking, automated receipts, and secure PayPal REST API integration.",
-    metrics: "Role: Full-Stack Systems Developer • API Integration Specialist",
-    liveUrl: "https://github.com/altheazuleikasadicon",
-    githubUrl: "https://github.com/altheazuleikasadicon",
-    tags: ["Systems Integration", "PayPal API", "Web Development", "Full-Stack Architecture", "Payment Gateway"],
+    categoryKey: "web",
+    image: "/assets/project_teddiursa.png",
+    accentColor: "#8b5cf6",
+    accentGlow: "rgba(139, 92, 246, 0.4)",
+    description: "A full-stack space tourism web platform that lets travelers explore planetary destinations, browse celestial flight schedules, calculate dynamic fares, and book voyages across the Milky Way. Features end-to-end flight reservations, automated ticket generation, and a centralized admin management dashboard with full CRUD operations for passengers and flights.",
+    metrics: "Role: Frontend Web Developer & UI Designer",
+    liveUrl: "https://teddiursa-airlines.onrender.com",
+    githubUrl: "https://github.com/briee1w/teddiursa-airlines",
+    client: "Space Tourism & Flight Booking Platform",
+    tags: ["PHP 8", "PostgreSQL", "MongoDB", "Docker", "JavaScript (ES6+)", "HTML5/CSS3", "RESTful Handlers"],
     features: [
-      "Seamless PayPal REST API Payment Gateway Integration",
-      "Administrator Financial Dashboard & Audit Trail",
-      "Donor Workflow & Transaction History Management",
-      "Automated Receipt Generation & Instant Email Alerts",
-      "Role-Based Access Control (RBAC) Security System"
+      "End-to-End Intergalactic Flight Booking & Dynamic Fare Calculation",
+      "Automated Passenger Boarding Pass & Ticket Generation",
+      "Centralized Administrator Dashboard with Full CRUD Operations",
+      "Dual-Database Architecture with PostgreSQL & MongoDB",
+      "Dockerized Containerization & Cloud Deployment on Render"
     ],
-    roleDetails: "Designed and implemented the full systems integration architecture, payment gateway handlers, and donor-admin data pipelines."
+    roleDetails: "Focused on frontend development and interface design, building the responsive intergalactic flight booking views, passenger seat selection, dynamic ticket generation display, and space-themed UI styling."
   },
   {
     id: "vitaly-tea",
-    number: "03",
     title: "VITALY TEA",
     subtitle: "Tea Shop & Printing Service Hub",
     category: "Web Application",
-    categoryKey: "web-mobile",
+    categoryKey: "web",
     image: "/assets/project_vitalytea.png",
     accentColor: "#f59e0b",
     accentGlow: "rgba(245, 158, 11, 0.4)",
     description: "An interactive web platform built for a hybrid tea shop and printing service hub. Features a responsive beverage ordering catalog, customizable printing request form, customer reviews, blog updates, and custom Y2K visual design.",
-    metrics: "Role: Web Developer & UI Designer • Deployed on Netlify",
+    metrics: "Role: Full-Stack Web Developer (Frontend & Backend)",
     liveUrl: "https://moonlit-pithivier-1e4971.netlify.app/",
     githubUrl: "https://github.com/altheazuleikasadicon",
-    tags: ["HTML/CSS", "JavaScript", "Netlify Deployment", "E-Commerce & Services", "UI/UX Design"],
+    tags: ["HTML/CSS", "JavaScript", "E-Commerce & Services", "UI/UX Design"],
     features: [
       "Interactive Digital Ordering Menu for Beverages",
       "Customizable Printing Service Catalog & Upload Form",
@@ -102,31 +100,31 @@ export const PROJECTS_DATA = [
       "Customer Testimonials & News/Blog Engine",
       "Fast Static Deployment with Netlify Automation"
     ],
-    roleDetails: "Sole developer responsible for UI/UX wireframing, frontend development, dynamic ordering logic, and cloud deployment."
+    roleDetails: "Sole full-stack developer responsible for end-to-end architecture, UI/UX wireframing, responsive frontend design, dynamic cart ordering logic, printing request submission handlers, and cloud deployment on Netlify."
   },
   {
-    id: "cybersecurity",
-    number: "04",
-    title: "IT & CYBERSECURITY PROJECTS",
-    subtitle: "Networking & Cybersecurity",
-    category: "Academic Projects",
-    categoryKey: "academic",
-    image: "/assets/project_cybersecurity.png",
-    accentColor: "#ef4444",
-    accentGlow: "rgba(239, 68, 68, 0.4)",
-    description: "A collection of hands-on networking and cybersecurity lab implementations, including Cisco enterprise topologies, Linux administration, Packet Tracer simulations, endpoint threat analysis, and network security protocol configurations.",
-    metrics: "Role: Student Researcher & Network Security Specialist",
-    liveUrl: "https://github.com/altheazuleikasadicon",
-    githubUrl: "https://github.com/altheazuleikasadicon",
-    tags: ["Linux", "Networking", "Cybersecurity", "Cisco Packet Tracer", "Enterprise Security"],
+    id: "brewha-cafe",
+    title: "BREW-HA CAFÉ",
+    subtitle: "E-Commerce Cafe & Online Ordering System",
+    category: "Web Application",
+    categoryKey: "web",
+    image: "/assets/project_brewha.png",
+    accentColor: "#794628",
+    accentGlow: "rgba(121, 70, 40, 0.4)",
+    description: "A full-stack e-commerce web platform for Brew-Ha Café, featuring an interactive ordering catalog for handcrafted coffees, fruit refreshers, artisan pastries, and specialty pastas. Features real-time cart calculations with customizable drink sizes and pastry quantities, delivery fee estimations, customer authentication, live order tracking, and a centralized administrative dashboard with full CRUD operations for menu inventory, registered users, and active orders.",
+    metrics: "Role: Frontend Web Developer",
+    liveUrl: "https://brewha-cafe.onrender.com/index.html",
+    githubUrl: "https://github.com/briee1w/brewha-cafe",
+    repoUrl: "https://github.com/briee1w/brewha-cafe",
+    tags: ["PHP", "JavaScript", "HTML/CSS", "SQLite / MySQL", "Vercel Deployment", "REST APIs", "E-Commerce"],
     features: [
-      "Cisco Enterprise Network Topology & Routing Protocols (OSPF, VLANs)",
-      "Linux Server Administration & Permission Hardening",
-      "Endpoint Security Analysis & Threat Monitoring Labs",
-      "Network Automation Scripts & Packet Packet Capture Diagnostics",
-      "DevNet API Integration & Infrastructure Automation"
+      "Interactive Ordering Catalog with customizable drink sizes & pastry quantities",
+      "Real-time Cart Calculations & Dynamic Delivery Fee Estimations",
+      "Customer Authentication, Session Management & Live Order Tracking",
+      "Centralized Administrative Dashboard with Full CRUD for Menu Inventory, Users & Active Orders",
+      "Single-entrypoint Serverless Routing & Relational Database Architecture (MySQL / SQLite)"
     ],
-    roleDetails: "Executed lab configurations, enterprise network topology designs, and security auditing as part of Cisco CCNA & DevNet certification courses."
+    roleDetails: "Focused on frontend web development, user interface design, interactive drink and pastry catalog ordering system, dynamic cart calculations, and responsive cross-device layout."
   }
 ];
 
@@ -148,8 +146,8 @@ export const EDUCATION_DATA = [
     institution: "Emilio Aguinaldo College – Cavite",
     location: "Cavite, Philippines",
     years: "2021 - 2023",
-    detail: "With High Honors",
-    achievements: ["With High Honors"]
+    detail: "Graduated With High Honors.",
+    achievements: []
   }
 ];
 
@@ -160,7 +158,7 @@ export const SKILLS_CATEGORIES = [
   },
   {
     category: "Programming & Technologies",
-    skills: ["HTML & CSS", "JAVASCRIPT", "JAVA", "PHP", "SQL", "GIT & GITHUB", "REACT / WEB TECHNOLOGIES"]
+    skills: ["HTML & CSS", "JAVASCRIPT", "JAVA", "PHP", "SQL", "DOCKER", "GIT & GITHUB", "REACT / WEB TECHNOLOGIES"]
   },
   {
     category: "Design & Workflow",
@@ -285,6 +283,62 @@ export const CERTIFICATIONS_DATA = [
     verificationUrl: "https://www.credly.com/org/cisco/badge/python-essentials-1",
     description: "Certification demonstrating proficiency in core Python programming, data structures, algorithmic problem solving, object-oriented concepts, and API integration.",
     competencies: ["Python 3 Core", "Data Structures & OOP", "Algorithms & Logic", "Exception Handling", "Automation Scripts"]
+  },
+  {
+    id: 10,
+    title: "Javascript Essentials : Build Interactive Websites",
+    issuer: "Ethel Programming Computer Programming Services",
+    issuerCode: "EPCPS",
+    date: "October 2026",
+    credentialId: "EPCPS-JS-202610",
+    badgeColor: "#F59E0B",
+    sealType: "gold",
+    image: "/assets/cert_javascript_essentials.png",
+    verificationUrl: "/assets/cert_javascript_essentials.png",
+    description: "Intensive technical certification demonstrating proficiency in modern JavaScript (ES6+), DOM manipulation, dynamic event handling, and interactive web architecture.",
+    competencies: ["JavaScript ES6+", "DOM Manipulation", "Interactive Web", "Event Handling", "Web Development"]
+  },
+  {
+    id: 11,
+    title: "Code-Lab Hands-On Program Lead,Build,Connect",
+    issuer: "Ethel Programming Computer Programming Services",
+    issuerCode: "EPCPS",
+    date: "September 2026",
+    credentialId: "EPCPS-CODELAB-202609",
+    badgeColor: "#2563EB",
+    sealType: "gold",
+    image: "/assets/cert_codelab_hands_on.png",
+    verificationUrl: "/assets/cert_codelab_hands_on.png",
+    description: "Hands-on collaborative program covering end-to-end coding practices, agile team leadership, component integration, and practical software construction.",
+    competencies: ["Hands-On Coding", "Program Leadership", "Team Collaboration", "System Integration", "Problem Solving"]
+  },
+  {
+    id: 12,
+    title: "UI AND UX for Web Developers",
+    issuer: "Ethel Programming Computer Programming Services",
+    issuerCode: "EPCPS",
+    date: "September 2026",
+    credentialId: "EPCPS-UIUX-202609",
+    badgeColor: "#10B981",
+    sealType: "gold",
+    image: "/assets/cert_uiux_webdev.png",
+    verificationUrl: "/assets/cert_uiux_webdev.png",
+    description: "Specialized training in user interface & user experience design systems, wireframing, responsive layouts, usability heuristics, and developer-to-designer handoffs.",
+    competencies: ["UI/UX Design", "User-Centered Design", "Wireframing", "Web Design Systems", "Visual Hierarchy"]
+  },
+  {
+    id: 13,
+    title: "Software Development",
+    issuer: "Ethel Programming Computer Programming Services",
+    issuerCode: "EPCPS",
+    date: "September 2026",
+    credentialId: "EPCPS-SWDEV-202609",
+    badgeColor: "#8B5CF6",
+    sealType: "gold",
+    image: "/assets/cert_software_dev.png",
+    verificationUrl: "/assets/cert_software_dev.png",
+    description: "Foundational software engineering credentials emphasizing clean code principles, SDLC lifecycle methodologies, architecture patterns, and industry best practices.",
+    competencies: ["Software Engineering", "SDLC Methodologies", "Architecture Principles", "Code Quality", "Development Best Practices"]
   }
 ];
 
@@ -299,7 +353,8 @@ export const WORK_PROCESS = [
 
 export const CONTACT_INFO = {
   email: "sadiconaltheazuleika@gmail.com",
-  linkedin: "https://www.linkedin.com/in/altheazuleikasadicon",
+  linkedin: "https://www.linkedin.com/in/althea-zuleika-sadicon-1754271ba/",
+  briefcase: "https://paraverse.feutech.edu.ph/briefcase/profile/126013202T",
   github: "https://github.com/altheazuleikasadicon",
   portfolio: "https://althea.dev"
 };

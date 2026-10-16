@@ -40,7 +40,7 @@ export function AboutMe() {
 
         {/* Right Column: Y2K Photobooth Film Strip with Real User Photos */}
         <div className="photobooth-strip-container reveal-3d-right">
-          <div 
+          <div
             className="photobooth-film-strip cursor-pointer"
             data-parallax-speed="-0.15"
             onClick={playCameraShutter}
@@ -60,13 +60,13 @@ export function AboutMe() {
 
             {/* Film Cells with User's Real Photos */}
             <div className="film-cell">
-              <img src="/assets/user_photo_2.png" alt="Althea - Frame 1" className="film-cell-img" />
+              <img src="/assets/user_photo_6.png" alt="Althea - Frame 1" className="film-cell-img" draggable={false} />
             </div>
             <div className="film-cell">
-              <img src="/assets/user_photo_3.png" alt="Althea - Frame 2" className="film-cell-img" />
+              <img src="/assets/user_photo_3.png" alt="Althea - Frame 2" className="film-cell-img" draggable={false} />
             </div>
             <div className="film-cell">
-              <img src="/assets/user_photo_4.png" alt="Althea - Frame 3" className="film-cell-img" />
+              <img src="/assets/user_photo_4.png" alt="Althea - Frame 3" className="film-cell-img" draggable={false} />
             </div>
 
             <div className="film-footer-meta">

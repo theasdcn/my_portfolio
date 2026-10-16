@@ -1,5 +1,4 @@
 import React from 'react';
-import { Award } from 'lucide-react';
 import { EDUCATION_DATA } from '../constants/portfolioData';
 
 export function Education() {
@@ -31,29 +30,14 @@ export function Education() {
 
               {edu.detail && (
                 <p className="edu-body-p">
-                  {edu.achievements.length > 0 ? (
-                    <>
-                      Specialization track: {edu.detail === 'With High Honors'
-                        ? (
-                          <span className="edu-honors-badge">
-                            <Award size={14} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '4px' }} />
-                            {edu.detail}
-                          </span>
-                        )
-                        : edu.detail
-                      }
-                    </>
+                  {edu.detail.includes('With High Honors') ? (
+                    <span className="edu-honors-badge">
+                      <span className="edu-honors-star">★</span> {edu.detail}
+                    </span>
                   ) : (
                     edu.detail
                   )}
                 </p>
-              )}
-
-              {edu.achievements.includes('With High Honors') && (
-                <div className="edu-honor-row">
-                  <Award size={16} />
-                  <span>With High Honors</span>
-                </div>
               )}
             </div>
           ))}

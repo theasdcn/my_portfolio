@@ -15,7 +15,7 @@ export function ProjectCard3D({ project, onSelectProject }) {
   };
 
   return (
-    <div 
+    <div
       className="project-polaroid-card group cursor-pointer tilt-card-3d reveal-3d-card"
       onClick={handleClick}
       onMouseEnter={playVinylClick}
@@ -24,17 +24,18 @@ export function ProjectCard3D({ project, onSelectProject }) {
       <div className="archival-mount-tag">{project.categoryKey.replace('-', ' · ').toUpperCase()}</div>
 
       <div className="project-img-frame">
-        <img 
-          src={project.image} 
-          alt={project.title} 
+        <img
+          src={project.image}
+          alt={project.title}
+          draggable={false}
         />
         <div className="project-view-overlay">
           <div className="project-card-overlay-actions">
             <span className="view-case-study-badge">
-              <Eye size={14} /> Case Study
+              <Eye size={14} /> View Info
             </span>
             {project.liveUrl && (
-              <button 
+              <button
                 className="card-quick-live-btn"
                 onClick={handleLiveClick}
                 title="Open Live Website in New Tab"
@@ -50,22 +51,15 @@ export function ProjectCard3D({ project, onSelectProject }) {
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-1 flex-wrap">
             <h3 className="project-title-serif">{project.title}</h3>
-            {project.liveUrl && (
-              <span className="live-site-badge-tag">LIVE 🟢</span>
-            )}
           </div>
           <p className="project-subtitle-mono">{project.subtitle} • {project.category}</p>
-          
+
           <div className="project-card-tags-pills">
             {project.tags.slice(0, 3).map((tag, idx) => (
               <span key={idx} className="project-mini-tag">{tag}</span>
             ))}
           </div>
         </div>
-
-        <span className="project-num-stamp" style={{ color: project.accentColor }}>
-          {project.number}
-        </span>
       </div>
     </div>
   );

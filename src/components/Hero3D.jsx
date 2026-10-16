@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Sparkles, Volume2 } from 'lucide-react';
+import { MapPin, Volume2 } from 'lucide-react';
 import { DESIGNER_INFO } from '../constants/portfolioData';
 import { playCameraShutter, playVinylClick } from '../utils/soundEffects';
 
@@ -11,11 +11,6 @@ export function Hero3D() {
       <div className="hero-container">
         {/* LEFT COLUMN: Editorial Titles & Bio */}
         <div className="hero-left reveal-3d-left">
-          <div className="hero-top-badge">
-            <Sparkles size={16} className="text-cherry" />
-            <span className="font-mono text-xs text-cream uppercase">3D Interactive Digital Portfolio</span>
-          </div>
-
           <span className="hero-script-tag">Hey, I'm</span>
 
           <h1 className="hero-title-main">
@@ -38,8 +33,8 @@ export function Hero3D() {
 
           {/* Hero Elegant Action Buttons */}
           <div className="hero-actions-row">
-            <a 
-              href="#projects" 
+            <a
+              href="#projects"
               className="hero-btn-primary"
               onClick={(e) => {
                 e.preventDefault();
@@ -49,8 +44,8 @@ export function Hero3D() {
               <span>Explore Projects</span>
               <span className="hero-btn-arrow">↓</span>
             </a>
-            <a 
-              href="#contact" 
+            <a
+              href="#contact"
               className="hero-btn-secondary"
               onClick={(e) => {
                 e.preventDefault();
@@ -77,8 +72,9 @@ export function Hero3D() {
             <div className="archival-mount-tag">PORTFOLIO EDITORIAL</div>
             <div className="polaroid-img-box">
               <img
-                src="/assets/user_photo_5.png"
+                src="/assets/user_photo_1.png"
                 alt="Althea Zuleika Sadicon"
+                draggable={false}
               />
             </div>
             <div className="polaroid-caption-row">
@@ -99,8 +95,9 @@ export function Hero3D() {
             <div className="archival-mount-tag">DEV · ARCHIVE</div>
             <div className="polaroid-img-box">
               <img
-                src="/assets/user_photo_1.png"
+                src="/assets/user_photo_2.png"
                 alt="Althea — Developer"
+                draggable={false}
               />
             </div>
             <p className="polaroid-caption">Web &amp; Mobile Dev</p>

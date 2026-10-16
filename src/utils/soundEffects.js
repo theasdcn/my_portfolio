@@ -81,7 +81,7 @@ export function playVinylClick() {
     gain.connect(ctx.destination);
     osc.start(now);
     osc.stop(now + 0.03);
-  } catch (e) {}
+  } catch (e) { }
 }
 
 // Pop sound for skill tags & interactive badges
@@ -105,5 +105,5 @@ export function playPopSound() {
     gain.connect(ctx.destination);
     osc.start(now);
     osc.stop(now + 0.04);
-  } catch (e) {}
+  } catch (e) { }
 }

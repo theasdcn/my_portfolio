@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { X, ExternalLink, Sparkles, Github, Lock } from 'lucide-react';
+import { X, ExternalLink, Sparkles, Globe, ArrowUpRight } from 'lucide-react';
 
 export function ProjectModal({ project, onClose }) {
   useEffect(() => {
@@ -17,7 +17,6 @@ export function ProjectModal({ project, onClose }) {
 
   if (!project) return null;
 
-  // Format display domain for browser bar
   const getDomainFromUrl = (url) => {
     if (!url) return `${project.id || 'project'}.demo`;
     try {
@@ -31,137 +30,128 @@ export function ProjectModal({ project, onClose }) {
   const domainName = getDomainFromUrl(project.liveUrl);
 
   return (
-    <div className="cream-modal-backdrop" onClick={onClose} role="dialog" aria-modal="true">
+    <div className="executive-modal-backdrop" onClick={onClose} role="dialog" aria-modal="true">
       <div
-        className="cream-modal-card shadow-y2k"
+        className="executive-modal-card"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Floating Close Button */}
+        {/* Floating Top Close Button */}
         <button 
-          className="cream-close-btn" 
+          className="modal-luxury-close-btn" 
           onClick={onClose} 
-          aria-label="Close Case Study"
+          aria-label="Close Project Info"
         >
           <X size={18} />
         </button>
 
-        {/* Modal Header */}
-        <div className="cream-modal-header">
-          <div className="cream-modal-meta-row">
-            <span className="cream-num-stamp">{project.number} //</span>
-            <span className="cream-category-badge">{project.category}</span>
-            {project.liveUrl && (
-              <span className="cream-status-pill">
-                <span className="status-dot-pulse" />
-                <span>Live Platform</span>
-              </span>
-            )}
+        {/* Modal Top Header Bar */}
+        <div className="modal-luxury-header">
+          <div className="modal-header-meta">
+            <span className="modal-category-pill">{project.category}</span>
           </div>
-          
-          <div className="cream-modal-title-row">
-            <h2 className="cream-modal-title">{project.title}</h2>
-            <p className="cream-modal-subtitle">{project.subtitle}</p>
+
+          <div className="modal-title-and-actions">
+            <div>
+              <h2 className="modal-title-serif">{project.title}</h2>
+              <p className="modal-subtitle-text">{project.subtitle}</p>
+            </div>
+
+            {/* Quick Header Action Buttons */}
+            <div className="modal-header-actions">
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="modal-btn-primary"
+                >
+                  <span>Visit Live</span>
+                  <ArrowUpRight size={14} />
+                </a>
+              )}
+            </div>
           </div>
         </div>
 
-        {/* Modal Scrollable Body */}
-        <div className="cream-modal-body">
-          {/* Showcase Browser Mockup Window */}
-          <div className="cream-browser-window">
-            <div className="cream-browser-chrome">
-              <div className="browser-traffic-dots">
-                <span className="dot dot-close" />
-                <span className="dot dot-minimize" />
-                <span className="dot dot-expand" />
+        {/* Scrollable Modal Content */}
+        <div className="modal-luxury-body">
+          {/* Browser Window Mockup Frame */}
+          <div className="modal-browser-showcase">
+            <div className="modal-browser-bar">
+              <div className="browser-dots-group">
+                <span className="dot dot-red" />
+                <span className="dot dot-yellow" />
+                <span className="dot dot-green" />
               </div>
-              <div className="browser-address-bar">
-                <Lock size={11} className="browser-lock-icon" />
-                <span className="browser-url-text">{domainName}</span>
+
+              <div className="browser-url-pill">
+                <Globe size={11} className="text-emerald-500" />
+                <span>{domainName}</span>
               </div>
+
               {project.liveUrl ? (
                 <a
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="browser-quick-link"
-                  title="Open live site in new tab"
+                  className="browser-open-icon"
+                  title="Open live link"
                 >
-                  <ExternalLink size={13} />
+                  <ExternalLink size={12} />
                 </a>
               ) : (
                 <div style={{ width: 16 }} />
               )}
             </div>
 
-            <div className="cream-browser-viewport">
+            <div className="modal-browser-viewport">
               <img 
                 src={project.image} 
                 alt={`${project.title} project showcase`} 
-                className="cream-browser-img" 
+                className="modal-showcase-image" 
+                draggable={false}
               />
             </div>
           </div>
 
-          {/* Structured Case Study Grid */}
-          <div className="cream-content-grid">
-            {/* Left Column: Overview & Role */}
-            <div className="cream-left-col">
-              <div className="cream-section">
-                <h3 className="cream-heading">Executive Overview</h3>
-                <p className="cream-text">{project.description}</p>
+          {/* Structured Case Study Layout: Balanced Overview & Role + Bottom Tech Stack */}
+          <div className="modal-case-body">
+            {/* Top Row: Executive Overview & Role Side-by-Side */}
+            <div className="modal-overview-role-grid">
+              {/* Executive Overview */}
+              <div className="modal-section-block">
+                <h3 className="modal-section-title">
+                  <span className="title-bar-accent" />
+                  Executive Overview
+                </h3>
+                <p className="modal-paragraph">{project.description}</p>
               </div>
 
-              {/* Role & Leadership Card */}
-              <div className="cream-role-card">
-                <div className="cream-role-header">
-                  <Sparkles size={15} className="cream-sparkle-icon" />
-                  <span className="cream-role-tag">ROLE &amp; LEADERSHIP</span>
+              {/* Role & Leadership */}
+              <div className="modal-leadership-box">
+                <div className="leadership-header">
+                  <Sparkles size={15} className="text-cherry" />
+                  <span className="leadership-tag">ROLE &amp; LEADERSHIP</span>
                 </div>
-                <div className="cream-role-metric">{project.metrics}</div>
+                <h4 className="leadership-role-text">{project.metrics}</h4>
                 {project.roleDetails && (
-                  <p className="cream-role-desc">{project.roleDetails}</p>
+                  <p className="leadership-desc-text">{project.roleDetails}</p>
                 )}
               </div>
             </div>
 
-            {/* Right Column: Tech Stack & Action Links */}
-            <div className="cream-right-col">
-              {/* Technologies Used */}
-              <div className="cream-section">
-                <h3 className="cream-heading">Technologies &amp; Tools</h3>
-                <div className="cream-tags-wrap">
-                  {project.tags.map((tag, idx) => (
-                    <span key={idx} className="cream-tag-pill">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="cream-cta-stack">
-                {project.liveUrl && (
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="cream-btn-primary"
-                  >
-                    <span>Visit Live Website</span>
-                    <ExternalLink size={15} />
-                  </a>
-                )}
-                {project.githubUrl && (
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="cream-btn-secondary"
-                  >
-                    <Github size={15} />
-                    <span>View Repository</span>
-                  </a>
-                )}
+            {/* Bottom Row: Technologies & Tools Across Width */}
+            <div className="modal-tech-section">
+              <h3 className="modal-section-title">
+                <span className="title-bar-accent" />
+                Technologies &amp; Tools
+              </h3>
+              <div className="modal-tags-container">
+                {project.tags.map((tag, idx) => (
+                  <span key={idx} className="modal-tech-chip">
+                    {tag}
+                  </span>
+                ))}
               </div>
             </div>
           </div>

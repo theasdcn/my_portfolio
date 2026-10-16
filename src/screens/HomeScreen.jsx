@@ -8,7 +8,8 @@ import { Education } from '../components/Education';
 import { Skills } from '../components/Skills';
 import { Certifications } from '../components/Certifications';
 import { ProjectsSection } from '../components/ProjectsSection';
-import { ContactFooter } from '../components/ContactFooter';
+import { ContactSection } from '../components/ContactSection';
+import { Footer } from '../components/Footer';
 import { ProjectModal } from '../components/ProjectModal';
 import { ContactModal } from '../components/ContactModal';
 
@@ -47,8 +48,11 @@ export function HomeScreen({ onNavigateToCertifications }) {
         {/* 6. PROJECTS */}
         <ProjectsSection onSelectProject={(project) => setSelectedProject(project)} />
 
-        {/* 7. CONTACT & FOOTER */}
-        <ContactFooter onOpenContact={() => setIsContactOpen(true)} />
+        {/* 7. CONTACT */}
+        <ContactSection />
+
+        {/* 8. SIMPLE FOOTER */}
+        <Footer />
       </main>
 
       {/* MODALS */}

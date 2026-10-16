@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ArrowLeft, 
@@ -6,26 +6,26 @@ import {
   Award, 
   ShieldCheck, 
   Sparkles, 
-  Search, 
   CheckCircle2, 
   Layers, 
   BookOpen,
   Terminal,
-  Cpu,
-  RotateCcw
+  Cpu
 } from 'lucide-react';
-import { CERTIFICATIONS_DATA, DESIGNER_INFO, CONTACT_INFO } from '../constants/portfolioData';
+import { CERTIFICATIONS_DATA } from '../constants/portfolioData';
 import { playVinylClick } from '../utils/soundEffects';
-
-const CATEGORIES = [
-  'All Credentials',
-  'Cisco Networking',
-  'Automation & Cloud',
-  'Programming & OS',
-  'Project Management'
-];
+import { CertificateModal } from '../components/CertificateModal';
 
 function getCategoryForCert(cert) {
+  if (
+    cert.issuerCode === 'EPCPS' ||
+    cert.title.includes('Javascript') ||
+    cert.title.includes('UI AND UX') ||
+    cert.title.includes('Code-Lab') ||
+    cert.title.includes('Software Development')
+  ) {
+    return 'Web & Software Dev';
+  }
   if (cert.title.includes('DevNet') || cert.title.includes('Automation')) {
     return 'Automation & Cloud';
   }
@@ -38,7 +38,7 @@ function getCategoryForCert(cert) {
   if (cert.title.includes('Project Management')) {
     return 'Project Management';
   }
-  return 'Cisco Networking';
+  return 'Web & Software Dev';
 }
 
 function PageCertCard({ cert, idx, onVerify }) {
@@ -186,7 +186,7 @@ function PageCertCard({ cert, idx, onVerify }) {
               onClick={(e) => onVerify(cert, e)}
               aria-label={`Verify ${cert.title} on official registry`}
             >
-              <span>Verify on Credly</span>
+              <span>{cert.image ? 'View Certificate' : (cert.verificationUrl?.includes('credly') ? 'Verify on Credly' : 'Verify Credential')}</span>
               <ExternalLink size={11} className="verify-arrow-icon" />
             </button>
           </div>
@@ -197,35 +197,17 @@ function PageCertCard({ cert, idx, onVerify }) {
 }
 
 export function CertificationsScreen({ onBack }) {
-  const [selectedCategory, setSelectedCategory] = useState('All Credentials');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [previewCert, setPreviewCert] = useState(null);
 
   const handleVerify = (cert, e) => {
     e?.stopPropagation();
     playVinylClick();
-    if (cert.verificationUrl) {
+    if (cert.image) {
+      setPreviewCert(cert);
+    } else if (cert.verificationUrl) {
       window.open(cert.verificationUrl, '_blank', 'noopener,noreferrer');
     }
   };
-
-  const filteredCerts = useMemo(() => {
-    return CERTIFICATIONS_DATA.filter((cert) => {
-      const category = getCategoryForCert(cert);
-      const matchesCategory = 
-        selectedCategory === 'All Credentials' || category === selectedCategory;
-
-      const query = searchQuery.trim().toLowerCase();
-      const matchesSearch = 
-        !query ||
-        cert.title.toLowerCase().includes(query) ||
-        cert.issuer.toLowerCase().includes(query) ||
-        cert.credentialId.toLowerCase().includes(query) ||
-        cert.description.toLowerCase().includes(query) ||
-        (cert.competencies && cert.competencies.some(c => c.toLowerCase().includes(query)));
-
-      return matchesCategory && matchesSearch;
-    });
-  }, [selectedCategory, searchQuery]);
 
   return (
     <div className="cert-page-root">
@@ -243,21 +225,6 @@ export function CertificationsScreen({ onBack }) {
             <ArrowLeft size={16} />
             <span>Back to Portfolio</span>
           </button>
-
-          <div className="cert-nav-brand">
-            <span className="brand-script-name">{DESIGNER_INFO.name}</span>
-            <span className="cert-nav-tag">Certification &amp; Training Registry</span>
-          </div>
-
-          <div className="cert-nav-actions">
-            <a 
-              href={`mailto:${CONTACT_INFO.email}`}
-              className="cert-contact-quick-btn"
-              onClick={playVinylClick}
-            >
-              <span>Contact Candidate</span>
-            </a>
-          </div>
         </div>
       </header>
 
@@ -267,7 +234,7 @@ export function CertificationsScreen({ onBack }) {
         <section className="cert-page-hero">
           <div className="cert-hero-badge">
             <Sparkles size={14} className="hero-sparkle-icon" />
-            <span>OFFICIAL INDUSTRY REGISTRY &bull; 9 VERIFIED CREDENTIALS</span>
+            <span>OFFICIAL INDUSTRY REGISTRY &bull; {CERTIFICATIONS_DATA.length} VERIFIED CREDENTIALS</span>
           </div>
 
           <h1 className="cert-page-title">
@@ -275,9 +242,10 @@ export function CertificationsScreen({ onBack }) {
           </h1>
 
           <p className="cert-page-lead">
-            A comprehensive catalog of accredited digital credentials awarded by the Cisco Networking Academy, 
-            the Project Management Institute (PMI), and the Linux Professional Institute (LPI). Every credential 
-            is cryptographically verified and recorded on official digital registries.
+            A comprehensive catalog of accredited digital credentials and webinar certifications awarded by 
+            Ethel Programming Computer Programming Services, the Cisco Networking Academy, the Project Management 
+            Institute (PMI), and the Linux Professional Institute (LPI). Every credential is cryptographically verified 
+            or registered with official certificate issuance metadata.
           </p>
 
           {/* Quick Metrics Cards */}
@@ -287,8 +255,8 @@ export function CertificationsScreen({ onBack }) {
                 <Award size={20} />
               </div>
               <div className="stat-text-group">
-                <span className="stat-big-num">9</span>
-                <span className="stat-label">Accredited Credentials</span>
+                <span className="stat-big-num">{CERTIFICATIONS_DATA.length}</span>
+                <span className="stat-label">Total Credentials</span>
               </div>
             </div>
 
@@ -297,8 +265,8 @@ export function CertificationsScreen({ onBack }) {
                 <ShieldCheck size={20} />
               </div>
               <div className="stat-text-group">
-                <span className="stat-big-num">100%</span>
-                <span className="stat-label">Credly Verified</span>
+                <span className="stat-big-num">4</span>
+                <span className="stat-label">Webinar &amp; Hands-On</span>
               </div>
             </div>
 
@@ -317,111 +285,24 @@ export function CertificationsScreen({ onBack }) {
                 <BookOpen size={20} />
               </div>
               <div className="stat-text-group">
-                <span className="stat-big-num">4</span>
+                <span className="stat-big-num">5</span>
                 <span className="stat-label">Technical Domains</span>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Filter and Search Bar */}
-        <section className="cert-controls-section">
-          {/* Category Filter Pills */}
-          <div className="cert-category-pills">
-            {CATEGORIES.map((cat) => {
-              const count = cat === 'All Credentials' 
-                ? CERTIFICATIONS_DATA.length 
-                : CERTIFICATIONS_DATA.filter(c => getCategoryForCert(c) === cat).length;
-
-              const isSelected = selectedCategory === cat;
-
-              return (
-                <button
-                  key={cat}
-                  type="button"
-                  className={`cert-cat-pill ${isSelected ? 'active' : ''}`}
-                  onClick={() => {
-                    playVinylClick();
-                    setSelectedCategory(cat);
-                  }}
-                >
-                  <span>{cat}</span>
-                  <span className="pill-count-badge">{count}</span>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Search Box */}
-          <div className="cert-search-box">
-            <Search size={16} className="search-icon" />
-            <input
-              type="text"
-              className="cert-search-input"
-              placeholder="Search by title, issuer, credential ID, or skill..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            {searchQuery && (
-              <button 
-                type="button"
-                className="search-clear-btn" 
-                onClick={() => setSearchQuery('')}
-                aria-label="Clear search"
-              >
-                <RotateCcw size={14} />
-              </button>
-            )}
-          </div>
-        </section>
-
-        {/* Active Results Counter */}
-        <div className="cert-results-header">
-          <span className="results-label">
-            Showing <strong>{filteredCerts.length}</strong> of <strong>{CERTIFICATIONS_DATA.length}</strong> accredited credentials
-          </span>
-          {selectedCategory !== 'All Credentials' && (
-            <span className="active-filter-badge">
-              Filtered by: {selectedCategory}
-            </span>
-          )}
-        </div>
-
         {/* Certification Cards Grid */}
         <motion.div layout className="cert-page-cards-grid">
           <AnimatePresence mode="popLayout">
-            {filteredCerts.length > 0 ? (
-              filteredCerts.map((cert, idx) => (
-                <PageCertCard
-                  key={cert.id}
-                  cert={cert}
-                  idx={idx}
-                  onVerify={handleVerify}
-                />
-              ))
-            ) : (
-              <motion.div 
-                className="cert-empty-state"
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-              >
-                <Award size={36} className="empty-icon" />
-                <h3 className="empty-title">No credentials found</h3>
-                <p className="empty-desc">
-                  No certifications matched "{searchQuery}". Try searching with a different term or clear your filter.
-                </p>
-                <button 
-                  type="button" 
-                  className="empty-reset-btn"
-                  onClick={() => {
-                    setSelectedCategory('All Credentials');
-                    setSearchQuery('');
-                  }}
-                >
-                  Reset Filters
-                </button>
-              </motion.div>
-            )}
+            {CERTIFICATIONS_DATA.map((cert, idx) => (
+              <PageCertCard
+                key={cert.id}
+                cert={cert}
+                idx={idx}
+                onVerify={handleVerify}
+              />
+            ))}
           </AnimatePresence>
         </motion.div>
 
@@ -436,10 +317,10 @@ export function CertificationsScreen({ onBack }) {
             <div className="notice-content-col">
               <h3 className="notice-title">Authenticity &amp; Digital Registry Verification</h3>
               <p className="notice-text">
-                Every credential showcased in this repository has been issued directly by recognized academic and industry authorities—including <strong>Cisco Networking Academy</strong>, the <strong>Project Management Institute (PMI)</strong>, and the <strong>Linux Professional Institute (LPI)</strong>. Each badge features tamper-proof cryptographic metadata hosted on Pearson Credly and official issuer registries.
+                Every credential showcased in this repository has been issued directly by recognized academic and industry authorities—including <strong>Ethel Programming Computer Programming Services</strong>, <strong>Cisco Networking Academy</strong>, the <strong>Project Management Institute (PMI)</strong>, and the <strong>Linux Professional Institute (LPI)</strong>. Each badge features official certification records and verifiable credentials.
               </p>
               <div className="notice-tags">
-                <span className="notice-tag"><CheckCircle2 size={13} /> 256-Bit Cryptographic Signatures</span>
+                <span className="notice-tag"><CheckCircle2 size={13} /> Official Certificate Records</span>
                 <span className="notice-tag"><CheckCircle2 size={13} /> Official Credly Metadata</span>
                 <span className="notice-tag"><CheckCircle2 size={13} /> Permanent Registry Records</span>
               </div>
@@ -462,6 +343,12 @@ export function CertificationsScreen({ onBack }) {
           </button>
         </div>
       </main>
+
+      {/* Certificate Preview Modal */}
+      <CertificateModal 
+        certificate={previewCert} 
+        onClose={() => setPreviewCert(null)} 
+      />
     </div>
   );
 }

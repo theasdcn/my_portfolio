@@ -10,8 +10,10 @@ import {
 } from 'lucide-react';
 import { CERTIFICATIONS_DATA } from '../constants/portfolioData';
 import { playVinylClick } from '../utils/soundEffects';
+import { CertificateModal } from './CertificateModal';
 
 const INITIAL_VISIBLE_COUNT = 4;
+const FEATURED_IDS = [1, 10, 12, 2];
 
 function CertificateCard({ cert, idx, onVerify }) {
   const cardRef = useRef(null);
@@ -111,7 +113,7 @@ function CertificateCard({ cert, idx, onVerify }) {
           <div className="cert-accredited-tag">
             <span className="cert-pulse-dot" />
             <ShieldCheck size={12} className="cert-verified-icon" />
-            <span>CREDLY ACCREDITED</span>
+            <span>{cert.issuerCode === 'EPCPS' ? 'VERIFIED WEBINAR' : 'CREDLY ACCREDITED'}</span>
           </div>
         </div>
 
@@ -166,7 +168,7 @@ function CertificateCard({ cert, idx, onVerify }) {
               onClick={(e) => onVerify(cert, e)}
               aria-label={`Verify ${cert.title} on official registry`}
             >
-              <span>Verify Credential</span>
+              <span>{cert.image ? 'View Certificate' : (cert.verificationUrl?.includes('credly') ? 'Verify on Credly' : 'Verify Credential')}</span>
               <ExternalLink size={11} className="verify-arrow-icon" />
             </button>
           </div>
@@ -177,10 +179,14 @@ function CertificateCard({ cert, idx, onVerify }) {
 }
 
 export function Certifications({ onViewAll }) {
+  const [previewCert, setPreviewCert] = useState(null);
+
   const handleVerify = (cert, e) => {
     e?.stopPropagation();
     playVinylClick();
-    if (cert.verificationUrl) {
+    if (cert.image) {
+      setPreviewCert(cert);
+    } else if (cert.verificationUrl) {
       window.open(cert.verificationUrl, '_blank', 'noopener,noreferrer');
     }
   };
@@ -194,7 +200,7 @@ export function Certifications({ onViewAll }) {
     }
   };
 
-  const featuredCerts = CERTIFICATIONS_DATA.slice(0, INITIAL_VISIBLE_COUNT);
+  const featuredCerts = FEATURED_IDS.map(id => CERTIFICATIONS_DATA.find(c => c.id === id)).filter(Boolean);
 
   return (
     <section className="certifications-section" id="certifications">
@@ -235,10 +241,6 @@ export function Certifications({ onViewAll }) {
                 View All Certifications &amp; Training
               </span>
 
-              <span className="cert-btn-counter-badge">
-                9 Credentials &bull; Full Registry
-              </span>
-
               <span className="cert-btn-icon-wrap">
                 <ExternalLink size={15} />
               </span>
@@ -246,6 +248,12 @@ export function Certifications({ onViewAll }) {
           </motion.button>
         </div>
       </div>
+
+      {/* Certificate Preview Modal */}
+      <CertificateModal 
+        certificate={previewCert} 
+        onClose={() => setPreviewCert(null)} 
+      />
     </section>
   );
 }

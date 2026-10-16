@@ -25,9 +25,6 @@ export function useScroll3D() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-        } else {
-          // Remove is-visible when scrolling out of viewport so it re-fades on scrolling back
-          entry.target.classList.remove('is-visible');
         }
       });
     }, observerOptions);
