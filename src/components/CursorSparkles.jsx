@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { useTheme } from '../context/ThemeContext';
 
 const SPARKLE_CHARS = ['✦', '✧', '⋆', '★', '·'];
 
 export function CursorSparkles() {
+  const { theme } = useTheme();
   const [sparkles, setSparkles] = useState([]);
+
+  if (theme !== 'dark') {
+    return null;
+  }
 
   useEffect(() => {
     let lastMoveTime = 0;

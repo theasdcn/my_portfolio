@@ -207,7 +207,7 @@ export function Certifications({ onViewAll }) {
       <div className="cert-container">
         {/* Section Header */}
         <div className="section-header-retro reveal-3d">
-          <span className="section-num-stamp">04 // ✦</span>
+          <span className="section-num-stamp">04 //<span className="dark-only-star"> ✦</span></span>
           <h2 className="section-title-serif">Certifications &amp; Accreditations <span className="title-star-flair">✦</span></h2>
         </div>
 

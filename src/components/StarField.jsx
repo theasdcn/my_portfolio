@@ -5,6 +5,11 @@ export function StarField() {
   const canvasRef = useRef(null);
   const { theme } = useTheme();
 
+  // ONLY render starfield in dark mode
+  if (theme !== 'dark') {
+    return null;
+  }
+
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;

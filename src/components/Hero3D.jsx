@@ -24,7 +24,7 @@ export function Hero3D() {
             <span className="hero-script-tag">
               <Sparkles size={14} className="hero-sparkle-icon" /> Hey, I'm
             </span>
-            <span className="hero-micro-star-tag">✦ PORTFOLIO '26</span>
+            <span className="hero-micro-star-tag"><span className="dark-only-star">✦ </span>PORTFOLIO '26</span>
           </div>
 
           <h1 className="hero-title-main">
@@ -43,7 +43,7 @@ export function Hero3D() {
             </div>
             <div className="hero-status-pill">
               <span className="hero-pulse-dot" />
-              <span>✦ AVAILABLE FOR OPPORTUNITIES</span>
+              <span><span className="dark-only-star">✦ </span>AVAILABLE FOR OPPORTUNITIES</span>
             </div>
           </div>
 
@@ -90,7 +90,7 @@ export function Hero3D() {
             title="Click to snap camera shutter!"
           >
             <div className="tilt-sheen-layer" />
-            <div className="archival-mount-tag">✦ PORTFOLIO EDITORIAL ✦</div>
+            <div className="archival-mount-tag"><span className="dark-only-star">✦ </span>PORTFOLIO EDITORIAL<span className="dark-only-star"> ✦</span></div>
             <div className="polaroid-img-box">
               <img
                 src="/assets/user_photo_1.png"
@@ -99,7 +99,7 @@ export function Hero3D() {
               />
             </div>
             <div className="polaroid-caption-row">
-              <p className="polaroid-caption">Althea — 2026 ✦</p>
+              <p className="polaroid-caption">Althea — 2026<span className="dark-only-star"> ✦</span></p>
               <Volume2 size={16} className="audio-hint-icon opacity-60 group-hover:opacity-100 transition-opacity" />
             </div>
           </div>
@@ -113,7 +113,7 @@ export function Hero3D() {
             title="Click to snap camera shutter!"
           >
             <div className="tilt-sheen-layer" />
-            <div className="archival-mount-tag">✦ DEV · ARCHIVE</div>
+            <div className="archival-mount-tag"><span className="dark-only-star">✦ </span>DEV · ARCHIVE</div>
             <div className="polaroid-img-box">
               <img
                 src="/assets/user_photo_2.png"
@@ -121,7 +121,7 @@ export function Hero3D() {
                 draggable={false}
               />
             </div>
-            <p className="polaroid-caption">Web &amp; Mobile Dev ✧</p>
+            <p className="polaroid-caption">Web &amp; Mobile Dev<span className="dark-only-star"> ✧</span></p>
           </div>
         </div>
 

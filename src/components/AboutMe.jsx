@@ -6,7 +6,7 @@ export function AboutMe() {
   return (
     <section className="about-section" id="about">
       <div className="section-header-retro reveal-3d">
-        <span className="section-num-stamp">01 // ✦</span>
+        <span className="section-num-stamp">01 //<span className="dark-only-star"> ✦</span></span>
         <h2 className="section-title-serif">About Me <span className="title-star-flair">✦</span></h2>
       </div>
 
@@ -71,9 +71,9 @@ export function AboutMe() {
             </div>
 
             <div className="film-footer-meta">
-              <span>✦ 10281.JPG</span>
-              <span>ALTHEA ✧</span>
-              <span>10283.JPG ✦</span>
+              <span><span className="dark-only-star">✦ </span>10281.JPG</span>
+              <span>ALTHEA<span className="dark-only-star"> ✧</span></span>
+              <span>10283.JPG<span className="dark-only-star"> ✦</span></span>
             </div>
           </div>
         </div>

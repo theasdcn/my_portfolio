@@ -5701,10 +5701,24 @@ body,
 }
 
 /* ==========================================================================
-   CELESTIAL STARFIELD & STARRY ATTRACTIONS SYSTEM
+   CELESTIAL STARFIELD & STARRY ATTRACTIONS SYSTEM (DARK MODE ONLY)
    ========================================================================== */
 
-/* Full-Screen Ambient Star Canvas */
+/* By default (Light Mode): Hide all stars, sparkles, and celestial particles */
+.dark-only-star,
+.celestial-starfield-canvas,
+.cursor-sparkles-container,
+.hero-stars-aura,
+.floating-hero-star,
+.collage-star-pin,
+.title-star-flair,
+.stat-card-corner-star,
+.hero-sparkle-icon,
+.role-star-bullet {
+  display: none !important;
+}
+
+/* Full-Screen Ambient Star Canvas (Revealed only in Dark Mode) */
 .celestial-starfield-canvas {
   position: fixed;
   inset: 0;
@@ -5714,7 +5728,7 @@ body,
   z-index: 1;
 }
 
-/* Cursor Stardust Sparkles Trail */
+/* Cursor Stardust Sparkles Trail (Revealed only in Dark Mode) */
 .cursor-sparkles-container {
   position: fixed;
   inset: 0;
@@ -5759,7 +5773,6 @@ body,
 
 .floating-hero-star {
   position: absolute;
-  display: inline-block;
   pointer-events: none;
   user-select: none;
   animation: heroStarFloat 6s ease-in-out infinite;
@@ -5871,7 +5884,6 @@ body,
 }
 
 .hero-sparkle-icon {
-  display: inline-block;
   vertical-align: middle;
   color: #d4af37;
   animation: starTwinklePulse 2.8s ease-in-out infinite;
@@ -5904,7 +5916,6 @@ body,
   color: #d4af37;
   font-size: 0.95rem;
   margin-right: 0.35rem;
-  display: inline-block;
   animation: starTwinklePulse 3.5s ease-in-out infinite;
 }
 
@@ -5915,8 +5926,7 @@ body,
 
 /* Section Title Star Flair */
 .title-star-flair {
-  display: inline-block;
-  color: #d4af37;
+  color: #ffd700;
   font-size: 0.85em;
   margin-left: 0.4rem;
   animation: starTwinklePulse 4.2s ease-in-out infinite;
@@ -5930,7 +5940,7 @@ body,
   top: 10px;
   right: 14px;
   font-size: 0.95rem;
-  color: #d4af37;
+  color: #ffd700;
   opacity: 0.75;
   transition: transform 0.35s ease, opacity 0.35s ease, color 0.35s ease;
 }
@@ -5968,7 +5978,55 @@ body,
 .stat-paper-card:hover,
 .edu-paper-card:hover,
 .cert-luxury-card:hover {
-  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.18), 0 0 20px rgba(212, 175, 55, 0.25);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.18);
+}
+
+/* ==========================================================================
+   DARK MODE STAR ACTIVATIONS ([data-theme="dark"])
+   ========================================================================== */
+
+[data-theme="dark"] .dark-only-star {
+  display: inline !important;
+}
+
+[data-theme="dark"] .celestial-starfield-canvas {
+  display: block !important;
+}
+
+[data-theme="dark"] .cursor-sparkles-container {
+  display: block !important;
+}
+
+[data-theme="dark"] .hero-stars-aura {
+  display: block !important;
+}
+
+[data-theme="dark"] .floating-hero-star {
+  display: inline-block !important;
+  filter: drop-shadow(0 0 14px currentColor);
+}
+
+[data-theme="dark"] .collage-star-pin {
+  display: block !important;
+  filter: drop-shadow(0 0 16px currentColor);
+}
+
+[data-theme="dark"] .title-star-flair {
+  display: inline-block !important;
+  color: #ffd700;
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.9));
+}
+
+[data-theme="dark"] .stat-card-corner-star {
+  display: block !important;
+}
+
+[data-theme="dark"] .hero-sparkle-icon {
+  display: inline-block !important;
+}
+
+[data-theme="dark"] .role-star-bullet {
+  display: inline-block !important;
 }
 
 [data-theme="dark"] .polaroid-card:hover,
@@ -5976,17 +6034,4 @@ body,
 [data-theme="dark"] .edu-paper-card:hover,
 [data-theme="dark"] .cert-luxury-card:hover {
   box-shadow: 0 18px 40px -10px rgba(0, 0, 0, 0.7), 0 0 26px rgba(212, 175, 55, 0.35), 0 0 40px rgba(255, 71, 102, 0.15);
-}
-
-[data-theme="dark"] .title-star-flair {
-  color: #ffd700;
-  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.9));
-}
-
-[data-theme="dark"] .floating-hero-star {
-  filter: drop-shadow(0 0 14px currentColor);
-}
-
-[data-theme="dark"] .collage-star-pin {
-  filter: drop-shadow(0 0 16px currentColor);
 }
