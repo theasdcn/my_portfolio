@@ -62,8 +62,8 @@ export function ContactSection() {
 
         {/* LEFT COLUMN: Exactly matching user reference */}
         <div className="clean-contact-intro">
-          <span className="contact-eyebrow-italic">Contact</span>
-          <h2 className="contact-headline-serif">Let's work together.</h2>
+          <span className="contact-eyebrow-italic">✦ Contact ✦</span>
+          <h2 className="contact-headline-serif">Let's work together. <span className="title-star-flair">✦</span></h2>
           <div className="contact-red-accent-line" />
 
           <div className="contact-text-links-list">

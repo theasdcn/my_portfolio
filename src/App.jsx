@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { HomeScreen } from './screens/HomeScreen';
 import { CertificationsScreen } from './screens/CertificationsScreen';
 import { ThemeProvider } from './context/ThemeContext';
+import { StarField } from './components/StarField';
+import { CursorSparkles } from './components/CursorSparkles';
 
 export default function App() {
   const [currentRoute, setCurrentRoute] = useState(() => {
@@ -32,6 +34,11 @@ export default function App() {
 
   return (
     <ThemeProvider>
+      {/* Ambient Celestial Starfield Background */}
+      <StarField />
+      {/* Interactive Cursor Stardust Sparkles */}
+      <CursorSparkles />
+
       {currentRoute === 'certifications' ? (
         <CertificationsScreen onBack={() => navigateToHome('#certifications')} />
       ) : (

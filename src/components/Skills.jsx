@@ -70,7 +70,7 @@ export function Skills() {
                   <path d="M2 17l10 5 10-5" stroke="#B81D36" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </span>
-              <h2 className="tech-stack-title">Tech Stack</h2>
+              <h2 className="tech-stack-title">Tech Stack <span className="title-star-flair">✦</span></h2>
             </div>
           </div>
 
