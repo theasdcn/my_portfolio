@@ -15,6 +15,13 @@ export function Hero3D() {
         <span className="floating-hero-star f-star-3">⋆</span>
         <span className="floating-hero-star f-star-4">✦</span>
         <span className="floating-hero-star f-star-5">✧</span>
+        <span className="floating-hero-star f-star-6">✦</span>
+        <span className="floating-hero-star f-star-7">★</span>
+        <span className="floating-hero-star f-star-8">⋆</span>
+        <span className="floating-hero-star f-star-9">✧</span>
+        <span className="floating-hero-star f-star-10">✦</span>
+        <span className="floating-hero-star f-star-11">⋆</span>
+        <span className="floating-hero-star f-star-12">✧</span>
       </div>
 
       <div className="hero-container">

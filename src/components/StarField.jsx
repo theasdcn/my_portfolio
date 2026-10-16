@@ -26,55 +26,48 @@ export function StarField() {
       y: -1000,
       targetX: -1000,
       targetY: -1000,
-      radius: 140
+      radius: 160
     };
 
-    // Star configurations
-    const STAR_COUNT = Math.min(Math.floor((width * height) / 8000), 160);
+    // Star configurations - 160-200 shining stars
+    const STAR_COUNT = Math.min(Math.floor((width * height) / 6500), 190);
     const stars = [];
 
     // Helper to generate star
     const createStar = (initial = false) => {
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      const isFourPoint = Math.random() > 0.82; // ~18% are 4-point sparkle stars
+      // 30% are larger signature 4-point stars, 70% are shining little diamond stars
+      const isFourPoint = Math.random() > 0.68;
+      const isFastTwinkle = Math.random() > 0.5;
+
       return {
         x: Math.random() * width,
-        y: initial ? Math.random() * height : -10,
-        size: isFourPoint ? Math.random() * 2.5 + 2.0 : Math.random() * 1.5 + 0.6,
+        y: initial ? Math.random() * height : -15,
+        size: isFourPoint ? Math.random() * 2.2 + 2.0 : Math.random() * 1.6 + 1.2,
         isFourPoint,
         rotation: Math.random() * Math.PI * 2,
-        rotSpeed: (Math.random() - 0.5) * 0.02,
-        baseAlpha: Math.random() * 0.6 + 0.2,
-        twinkleSpeed: Math.random() * 0.03 + 0.01,
+        rotSpeed: (Math.random() - 0.5) * 0.025,
+        baseAlpha: Math.random() * 0.35 + 0.35,
+        // High quality sharp twinkle oscillation
+        twinkleSpeed: isFastTwinkle ? Math.random() * 0.045 + 0.03 : Math.random() * 0.02 + 0.012,
         twinklePhase: Math.random() * Math.PI * 2,
-        speedY: Math.random() * 0.15 + 0.05,
-        speedX: (Math.random() - 0.5) * 0.06,
-        color: getRandomColor(isDark),
+        twinklePower: isFastTwinkle ? 8 : 4,
+        speedY: Math.random() * 0.12 + 0.04,
+        speedX: (Math.random() - 0.5) * 0.05,
+        color: getRandomStarColor(),
       };
     };
 
-    function getRandomColor(isDark) {
-      if (isDark) {
-        // Deep obsidian background: Gold, diamond white, soft rose, champagne
-        const colors = [
-          'rgba(255, 255, 255, ',
-          'rgba(245, 222, 179, ',
-          'rgba(212, 175, 55, ',
-          'rgba(255, 182, 193, ',
-          'rgba(255, 215, 0, ',
-        ];
-        return colors[Math.floor(Math.random() * colors.length)];
-      } else {
-        // Light cream parchment: Warm honey, rose amber, antique gold, wine sparkle
-        const colors = [
-          'rgba(184, 134, 11, ',
-          'rgba(196, 75, 105, ',
-          'rgba(140, 40, 70, ',
-          'rgba(166, 124, 0, ',
-          'rgba(120, 30, 50, ',
-        ];
-        return colors[Math.floor(Math.random() * colors.length)];
-      }
+    function getRandomStarColor() {
+      // Radiant palette for dark obsidian background: Diamond White, Champagne, Gold, Soft Rosy Starlight
+      const colors = [
+        'rgba(255, 255, 255, ',
+        'rgba(255, 248, 220, ', // Cornsilk
+        'rgba(255, 223, 128, ', // Soft Warm Gold
+        'rgba(212, 175, 55, ',  // Metallic Gold
+        'rgba(255, 192, 203, ', // Soft Rose
+        'rgba(255, 255, 255, ', // Extra diamond white
+      ];
+      return colors[Math.floor(Math.random() * colors.length)];
     }
 
     for (let i = 0; i < STAR_COUNT; i++) {
@@ -86,48 +79,82 @@ export function StarField() {
     let lastShootingStarTime = Date.now();
 
     const spawnShootingStar = () => {
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
       shootingStars.push({
-        x: Math.random() * width * 0.8,
-        y: Math.random() * height * 0.4,
-        length: Math.random() * 80 + 50,
-        speed: Math.random() * 8 + 7,
-        angle: Math.PI / 4 + (Math.random() - 0.5) * 0.2,
+        x: Math.random() * width * 0.85,
+        y: Math.random() * height * 0.35,
+        length: Math.random() * 90 + 60,
+        speed: Math.random() * 9 + 8,
+        angle: Math.PI / 4 + (Math.random() - 0.5) * 0.25,
         opacity: 1,
-        fadeSpeed: 0.015,
-        color: isDark ? '255, 235, 180' : '196, 75, 105',
+        fadeSpeed: 0.018,
+        color: '255, 240, 200',
       });
     };
 
-    // Draw 4-point star burst (✦)
-    const drawFourPointStar = (ctx, cx, cy, spikes, outerRadius, innerRadius, rotation, alpha, colorPrefix) => {
-      let rot = (Math.PI / 2) * 3 + rotation;
-      let x = cx;
-      let y = cy;
-      const step = Math.PI / spikes;
+    // Draw Shining Star with 4 Tapered Rays & Diamond Glint
+    const drawShiningStar = (ctx, star, glint, alpha) => {
+      const { x, y, size, rotation, isFourPoint, color } = star;
+      const rayLen = size * (isFourPoint ? 3.8 : 2.5) * (0.85 + glint * 0.95);
+      const rayThickness = isFourPoint ? 1.5 : 0.9;
 
       ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate(rotation);
+
+      // 1. Soft Radial Starlight Glow Aura
+      const auraRadius = rayLen * 1.4;
+      const glowGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, auraRadius);
+      glowGrad.addColorStop(0, `rgba(255, 255, 255, ${alpha * 0.9})`);
+      glowGrad.addColorStop(0.3, `${color}${alpha * 0.5})`);
+      glowGrad.addColorStop(1, `${color}0)`);
+      ctx.fillStyle = glowGrad;
       ctx.beginPath();
-      ctx.moveTo(cx, cy - outerRadius);
-
-      for (let i = 0; i < spikes; i++) {
-        x = cx + Math.cos(rot) * outerRadius;
-        y = cy + Math.sin(rot) * outerRadius;
-        ctx.lineTo(x, y);
-        rot += step;
-
-        x = cx + Math.cos(rot) * innerRadius;
-        y = cy + Math.sin(rot) * innerRadius;
-        ctx.lineTo(x, y);
-        rot += step;
-      }
-      ctx.lineTo(cx, cy - outerRadius);
-      ctx.closePath();
-
-      ctx.fillStyle = `${colorPrefix}${alpha})`;
-      ctx.shadowBlur = outerRadius * 3;
-      ctx.shadowColor = `${colorPrefix}${alpha * 0.8})`;
+      ctx.arc(0, 0, auraRadius, 0, Math.PI * 2);
       ctx.fill();
+
+      // 2. Shining 4-Point Tapered Cross Rays (Horizontal & Vertical)
+      // Horizontal ray
+      ctx.beginPath();
+      ctx.moveTo(-rayLen, 0);
+      ctx.lineTo(0, -rayThickness);
+      ctx.lineTo(rayLen, 0);
+      ctx.lineTo(0, rayThickness);
+      ctx.closePath();
+      ctx.fillStyle = `rgba(255, 255, 255, ${Math.min(alpha * 1.1, 1)})`;
+      ctx.shadowBlur = 8;
+      ctx.shadowColor = `${color}${alpha})`;
+      ctx.fill();
+
+      // Vertical ray
+      ctx.beginPath();
+      ctx.moveTo(0, -rayLen);
+      ctx.lineTo(-rayThickness, 0);
+      ctx.lineTo(0, rayLen);
+      ctx.lineTo(rayThickness, 0);
+      ctx.closePath();
+      ctx.fill();
+
+      // If it's a prominent 4-point star, add secondary soft diagonal micro-rays
+      if (isFourPoint && glint > 0.4) {
+        const diagLen = rayLen * 0.45;
+        ctx.beginPath();
+        ctx.moveTo(-diagLen, -diagLen);
+        ctx.lineTo(diagLen, diagLen);
+        ctx.moveTo(-diagLen, diagLen);
+        ctx.lineTo(diagLen, -diagLen);
+        ctx.strokeStyle = `rgba(255, 255, 255, ${alpha * 0.6})`;
+        ctx.lineWidth = 0.8;
+        ctx.stroke();
+      }
+
+      // 3. Ultra-Bright Central Diamond Core
+      ctx.beginPath();
+      ctx.arc(0, 0, size * 0.65, 0, Math.PI * 2);
+      ctx.fillStyle = '#ffffff';
+      ctx.shadowBlur = 10;
+      ctx.shadowColor = '#ffffff';
+      ctx.fill();
+
       ctx.restore();
     };
 
@@ -136,10 +163,7 @@ export function StarField() {
 
     const render = () => {
       const now = Date.now();
-      const dt = (now - lastTime) / 1000;
       lastTime = now;
-
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
 
       ctx.clearRect(0, 0, width, height);
 
@@ -147,13 +171,13 @@ export function StarField() {
       mouse.x += (mouse.targetX - mouse.x) * 0.1;
       mouse.y += (mouse.targetY - mouse.y) * 0.1;
 
-      // Random shooting star chance every 5-8 seconds
-      if (now - lastShootingStarTime > 6000 && Math.random() < 0.015) {
+      // Random shooting star every 5-8 seconds
+      if (now - lastShootingStarTime > 5500 && Math.random() < 0.02) {
         spawnShootingStar();
         lastShootingStarTime = now;
       }
 
-      // 1. Draw and update stars
+      // 1. Draw and update shining stars
       for (let i = 0; i < stars.length; i++) {
         const star = stars[i];
 
@@ -163,19 +187,20 @@ export function StarField() {
         star.rotation += star.rotSpeed;
         star.twinklePhase += star.twinkleSpeed;
 
-        // Wrap around
-        if (star.y > height + 10) {
-          star.y = -10;
+        // Wrap around screen edges
+        if (star.y > height + 15) {
+          star.y = -15;
           star.x = Math.random() * width;
         }
-        if (star.x < -10) star.x = width + 10;
-        if (star.x > width + 10) star.x = -10;
+        if (star.x < -15) star.x = width + 15;
+        if (star.x > width + 15) star.x = -15;
 
-        // Calculate twinkle opacity
-        const twinkle = Math.sin(star.twinklePhase) * 0.35 + 0.65;
-        let alpha = star.baseAlpha * twinkle;
+        // Sharp shining glint calculation (mimics real celestial twinkle)
+        const sinVal = (Math.sin(star.twinklePhase) + 1) / 2; // 0 to 1
+        const glint = Math.pow(sinVal, star.twinklePower); // sharp glint peaks
+        let alpha = star.baseAlpha + (1.0 - star.baseAlpha) * glint;
 
-        // Mouse proximity interaction (stars glow brighter near cursor)
+        // Mouse proximity interaction (stars shine brighter near cursor)
         const dx = mouse.x - star.x;
         const dy = mouse.y - star.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
@@ -184,34 +209,8 @@ export function StarField() {
           alpha = Math.min(alpha + proximity * 0.6, 1.0);
         }
 
-        // Adjust alpha for light mode so it remains tasteful & readable
-        const finalAlpha = isDark ? alpha : alpha * 0.55;
-
-        if (star.isFourPoint) {
-          drawFourPointStar(
-            ctx,
-            star.x,
-            star.y,
-            4,
-            star.size * 2.2,
-            star.size * 0.5,
-            star.rotation,
-            finalAlpha,
-            star.color
-          );
-        } else {
-          // Standard glowing dot star
-          ctx.save();
-          ctx.beginPath();
-          ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
-          ctx.fillStyle = `${star.color}${finalAlpha})`;
-          if (isDark && star.size > 1.2) {
-            ctx.shadowBlur = 6;
-            ctx.shadowColor = `${star.color}${finalAlpha * 0.6})`;
-          }
-          ctx.fill();
-          ctx.restore();
-        }
+        // Draw the shining star
+        drawShiningStar(ctx, star, glint, alpha);
       }
 
       // 2. Draw shooting stars
@@ -243,15 +242,15 @@ export function StarField() {
           s.y - Math.sin(s.angle) * s.length
         );
         ctx.strokeStyle = gradient;
-        ctx.lineWidth = 1.8;
+        ctx.lineWidth = 2.2;
         ctx.lineCap = 'round';
         ctx.stroke();
 
         // Glowing head of shooting star
         ctx.beginPath();
-        ctx.arc(s.x, s.y, 2.2, 0, Math.PI * 2);
+        ctx.arc(s.x, s.y, 2.5, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(${s.color}, ${s.opacity})`;
-        ctx.shadowBlur = 10;
+        ctx.shadowBlur = 12;
         ctx.shadowColor = `rgba(${s.color}, ${s.opacity})`;
         ctx.fill();
         ctx.restore();
