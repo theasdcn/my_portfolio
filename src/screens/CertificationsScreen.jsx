@@ -15,6 +15,7 @@ import {
 import { CERTIFICATIONS_DATA } from '../constants/portfolioData';
 import { playVinylClick } from '../utils/soundEffects';
 import { CertificateModal } from '../components/CertificateModal';
+import { ThemeToggle } from '../components/ThemeToggle';
 
 function getCategoryForCert(cert) {
   if (
@@ -225,6 +226,7 @@ export function CertificationsScreen({ onBack }) {
             <ArrowLeft size={16} />
             <span>Back to Portfolio</span>
           </button>
+          <ThemeToggle />
         </div>
       </header>
 

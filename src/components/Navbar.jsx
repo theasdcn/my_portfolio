@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { DESIGNER_INFO, NAV_LINKS } from '../constants/portfolioData';
 
+import { ThemeToggle } from './ThemeToggle';
+
 // Split nav links: first half left, second half right of the center logo
 const leftLinks = NAV_LINKS.slice(0, 3); // Hero, About Me, Education
 const rightLinks = NAV_LINKS.slice(3, 7); // Skills, Certifications, Projects, Contact
@@ -42,27 +44,33 @@ export function Navbar({ onOpenContact }) {
           <span className="brand-subtitle-center">{DESIGNER_INFO.title}</span>
         </a>
 
-        {/* RIGHT NAV LINKS */}
-        <nav className="nav-links-right">
-          {rightLinks.map((link) => (
-            <button
-              key={link.id}
-              className="nav-link-btn"
-              onClick={() => handleNavClick(link.id)}
-            >
-              {link.label}
-            </button>
-          ))}
-        </nav>
+        {/* RIGHT NAV LINKS + THEME TOGGLE */}
+        <div className="navbar-right-group">
+          <nav className="nav-links-right">
+            {rightLinks.map((link) => (
+              <button
+                key={link.id}
+                className="nav-link-btn"
+                onClick={() => handleNavClick(link.id)}
+              >
+                {link.label}
+              </button>
+            ))}
+          </nav>
+          <ThemeToggle />
+        </div>
 
-        {/* Mobile toggle */}
-        <button
-          className="mobile-menu-toggle"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile actions & toggle */}
+        <div className="navbar-mobile-actions">
+          <ThemeToggle />
+          <button
+            className="mobile-menu-toggle"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Drawer */}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { HomeScreen } from './screens/HomeScreen';
 import { CertificationsScreen } from './screens/CertificationsScreen';
+import { ThemeProvider } from './context/ThemeContext';
 
 export default function App() {
   const [currentRoute, setCurrentRoute] = useState(() => {
@@ -29,9 +30,13 @@ export default function App() {
     window.location.hash = hash;
   };
 
-  if (currentRoute === 'certifications') {
-    return <CertificationsScreen onBack={() => navigateToHome('#certifications')} />;
-  }
-
-  return <HomeScreen onNavigateToCertifications={navigateToCertifications} />;
+  return (
+    <ThemeProvider>
+      {currentRoute === 'certifications' ? (
+        <CertificationsScreen onBack={() => navigateToHome('#certifications')} />
+      ) : (
+        <HomeScreen onNavigateToCertifications={navigateToCertifications} />
+      )}
+    </ThemeProvider>
+  );
 }
