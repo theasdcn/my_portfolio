@@ -6225,8 +6225,8 @@ button:focus-visible,
 }
 
 /* ==========================================================================
-   DARK MODE COLOR REFINEMENT — "MIDNIGHT WINE"
-   A richer plum-wine base with champagne-gold edges and rose highlights,
+   DARK MODE COLOR REFINEMENT — DEEP BURGUNDY
+   A richer burgundy base with champagne-gold edges and rose highlights,
    replacing the flat brown-black. Also brings every surface and text colour
    that was still styled for light mode (certificate cards, chips, buttons,
    the certifications page and the project modal) into the same scheme.
@@ -6234,31 +6234,31 @@ button:focus-visible,
    ========================================================================== */
 [data-theme="dark"] {
   /* Dark-mode tokens */
-  --d-bg: #120610;
-  --d-surface: #1c0c19;
-  --d-surface-2: #261327;
-  --d-surface-3: #321a33;
+  --d-bg: #14060a;
+  --d-surface: #1f0a10;
+  --d-surface-2: #2a1019;
+  --d-surface-3: #38161f;
   --d-border: rgba(226, 187, 110, 0.22);
   --d-border-strong: rgba(226, 187, 110, 0.5);
   --d-text: #f7f0ea;
-  --d-text-soft: #dccfd6;
-  --d-muted: #b8a5b0;
+  --d-text-soft: #e0d0d3;
+  --d-muted: #bba8ad;
   --d-gold: #e2bb6e;
   --d-rose: #ff7d96;
 
   /* Re-point the shared variables so anything using them follows the palette */
-  --bg-cream: #120610;
-  --bg-cream-pure: #1c0c19;
-  --bg-cream-dark: #160913;
-  --bg-cream-subtle: #261327;
-  --bg-burgundy: #2a0d1d;
-  --bg-burgundy-dark: #150610;
-  --bg-burgundy-rich: #34122a;
-  --bg-burgundy-light: #451a35;
+  --bg-cream: #14060a;
+  --bg-cream-pure: #1f0a10;
+  --bg-cream-dark: #18070c;
+  --bg-cream-subtle: #2a1019;
+  --bg-burgundy: #2c0a12;
+  --bg-burgundy-dark: #150508;
+  --bg-burgundy-rich: #3a0e19;
+  --bg-burgundy-light: #4c1522;
   --text-dark: #f7f0ea;
   --text-burgundy: #ffd3dc;
-  --text-muted: #b8a5b0;
-  --text-muted-light: #8f7b88;
+  --text-muted: #bba8ad;
+  --text-muted-light: #94787f;
   --accent-cherry: #e8384f;
   --accent-rose: #ff7d96;
   --accent-gold: #e2bb6e;
@@ -6266,48 +6266,48 @@ button:focus-visible,
   --border-gold: rgba(226, 187, 110, 0.35);
 }
 
-/* ---- Page backdrop: wine glow, a hint of violet, a whisper of gold ---- */
+/* ---- Page backdrop: burgundy glow, a touch of rose, a whisper of gold ---- */
 [data-theme="dark"] body {
   background-color: var(--d-bg);
   background-image:
-    radial-gradient(ellipse 80% 55% at 88% -8%, rgba(150, 30, 70, 0.32) 0%, transparent 62%),
-    radial-gradient(ellipse 60% 45% at 8% 12%, rgba(88, 44, 130, 0.16) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 55% at 88% -8%, rgba(165, 28, 52, 0.34) 0%, transparent 62%),
+    radial-gradient(ellipse 60% 45% at 8% 12%, rgba(120, 20, 40, 0.16) 0%, transparent 60%),
     radial-gradient(ellipse 70% 50% at 4% 108%, rgba(226, 187, 110, 0.07) 0%, transparent 60%),
-    linear-gradient(180deg, #180a1b 0%, #0e0511 100%);
+    linear-gradient(180deg, #1a0709 0%, #0f0406 100%);
   background-attachment: fixed;
 }
 
 [data-theme="dark"] .hero-section {
-  background: radial-gradient(ellipse at 75% 30%, rgba(104, 24, 58, 0.62) 0%, rgba(36, 11, 38, 0.78) 60%, rgba(18, 6, 16, 0.88) 100%);
+  background: radial-gradient(ellipse at 75% 30%, rgba(112, 20, 38, 0.62) 0%, rgba(40, 8, 16, 0.78) 60%, rgba(20, 6, 10, 0.88) 100%);
 }
 
 /* ---- Navigation and translucent bands ---- */
 [data-theme="dark"] .navbar-header,
 [data-theme="dark"] .cert-page-navbar {
-  background: rgba(18, 6, 16, 0.9);
+  background: rgba(20, 6, 10, 0.9);
   border-bottom-color: var(--d-border);
 }
 
 [data-theme="dark"] .mobile-nav-dropdown {
-  background: rgba(18, 6, 16, 0.98);
+  background: rgba(20, 6, 10, 0.98);
   border-bottom-color: var(--d-border);
 }
 
 [data-theme="dark"] .press-marquee-bar {
-  background: rgba(22, 9, 26, 0.62);
+  background: rgba(26, 8, 14, 0.62);
   border-color: var(--d-border);
 }
 
 [data-theme="dark"] .education-section {
-  background: linear-gradient(180deg, rgba(28, 11, 32, 0.84) 0%, rgba(14, 6, 18, 0.9) 100%);
+  background: linear-gradient(180deg, rgba(32, 9, 16, 0.84) 0%, rgba(16, 5, 9, 0.9) 100%);
 }
 
 [data-theme="dark"] .certifications-section {
-  background: rgba(22, 9, 26, 0.5);
+  background: rgba(26, 8, 14, 0.5);
 }
 
 [data-theme="dark"] .clean-contact-section {
-  background: rgba(18, 6, 16, 0.58);
+  background: rgba(20, 6, 10, 0.58);
 }
 
 [data-theme="dark"] .cert-page-root {
@@ -6366,13 +6366,13 @@ button:focus-visible,
 
 /* ---- Certificates on the home page: dark parchment instead of cream ---- */
 [data-theme="dark"] .cert-parchment-frame {
-  background: radial-gradient(ellipse at 50% 0%, #2c1529 0%, #1f0e1d 55%, #190a17 100%);
+  background: radial-gradient(ellipse at 50% 0%, #34121c 0%, #260d14 55%, #1e0a10 100%);
   border-color: rgba(226, 187, 110, 0.4);
   outline-color: rgba(226, 187, 110, 0.22);
 }
 
 [data-theme="dark"] .cert-luxury-card:hover .cert-parchment-frame {
-  background: radial-gradient(ellipse at 50% 0%, #361a31 0%, #241020 55%, #1c0b1a 100%);
+  background: radial-gradient(ellipse at 50% 0%, #3c1621 0%, #2b0f18 55%, #220b12 100%);
   border-color: rgba(226, 187, 110, 0.65);
 }
 
@@ -6415,7 +6415,7 @@ button:focus-visible,
 }
 
 [data-theme="dark"] .cert-view-all-btn:not(.is-expanded) {
-  background: linear-gradient(135deg, #2c1529 0%, #1f0e1d 100%);
+  background: linear-gradient(135deg, #34121c 0%, #260d14 100%);
   color: var(--d-rose);
   border-color: rgba(255, 125, 150, 0.45);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
@@ -6484,7 +6484,7 @@ button:focus-visible,
 }
 
 [data-theme="dark"] .cert-search-input::placeholder {
-  color: #8f7b88;
+  color: #94787f;
 }
 
 [data-theme="dark"] .cert-bottom-back-btn:not(:hover) {
@@ -6522,7 +6522,7 @@ button:focus-visible,
 }
 
 [data-theme="dark"] .tech-stack-gravity-btn.is-active {
-  background: #5a1a3c;
+  background: #5c1426;
   border-color: var(--d-gold);
 }
 
@@ -6535,12 +6535,12 @@ button:focus-visible,
 
 /* ---- Project modal: readable text and matching inner panels ---- */
 [data-theme="dark"] .modal-luxury-header {
-  background: linear-gradient(180deg, #2c1529 0%, #221021 100%);
+  background: linear-gradient(180deg, #34121c 0%, #2a0f17 100%);
   border-bottom-color: var(--d-border);
 }
 
 [data-theme="dark"] .cream-modal-footer {
-  background: #1a0b18;
+  background: #1e0a0f;
   border-top-color: var(--d-border);
 }
 
