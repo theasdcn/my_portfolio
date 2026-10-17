@@ -2,7 +2,7 @@ import React from 'react';
 import { Sun, Moon } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
-export function ThemeToggle({ className = '', showLabel = true }) {
+export function ThemeToggle({ className = '' }) {
   const { theme, toggleTheme } = useTheme();
   const isDark = theme === 'dark';
 
@@ -17,17 +17,12 @@ export function ThemeToggle({ className = '', showLabel = true }) {
       <div className="theme-toggle-track">
         <div className={`theme-toggle-thumb ${isDark ? 'is-dark' : 'is-light'}`}>
           {isDark ? (
-            <Sun size={13} className="theme-toggle-icon sun-icon" />
+            <Sun size={14} className="theme-toggle-icon sun-icon text-amber-300" />
           ) : (
-            <Moon size={13} className="theme-toggle-icon moon-icon" />
+            <Moon size={14} className="theme-toggle-icon moon-icon text-cherry" />
           )}
         </div>
       </div>
-      {showLabel && (
-        <span className="theme-toggle-label">
-          {isDark ? 'Dark' : 'Light'}
-        </span>
-      )}
     </button>
   );
 }

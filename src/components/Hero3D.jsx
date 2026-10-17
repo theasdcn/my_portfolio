@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Volume2, Sparkles } from 'lucide-react';
+import { MapPin, Volume2 } from 'lucide-react';
 import { DESIGNER_INFO } from '../constants/portfolioData';
 import { playCameraShutter, playVinylClick } from '../utils/soundEffects';
 
@@ -11,19 +11,14 @@ export function Hero3D() {
       <div className="hero-container">
         {/* LEFT COLUMN: Editorial Titles & Bio */}
         <div className="hero-left reveal-3d-left">
-          <div className="hero-script-badge-wrapper">
-            <span className="hero-script-tag">Hey, I'm</span>
-            <span className="hero-micro-star-tag">PORTFOLIO '26</span>
-          </div>
+          <span className="hero-script-tag">Hey, I'm</span>
 
           <h1 className="hero-title-main">
             ALTHEA ZULEIKA <br />
             <span className="hero-title-italic">SADICON</span>
           </h1>
 
-          <p className="hero-role-tag">
-            BSIT Student <span className="role-separator">|</span> Web &amp; Mobile Application Developer
-          </p>
+          <p className="hero-role-tag">BSIT Student | Web &amp; Mobile Application Developer</p>
 
           <div className="hero-meta-row">
             <div className="hero-location-tag">
@@ -108,6 +103,7 @@ export function Hero3D() {
             <p className="polaroid-caption">Web &amp; Mobile Dev</p>
           </div>
         </div>
+
       </div>
     </section>
   );

@@ -2,9 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { HomeScreen } from './screens/HomeScreen';
 import { CertificationsScreen } from './screens/CertificationsScreen';
 import { ThemeProvider } from './context/ThemeContext';
-import { StarField } from './components/StarField';
-import { CursorSparkles } from './components/CursorSparkles';
-import { FloatingThemeToggle } from './components/FloatingThemeToggle';
 
 export default function App() {
   const [currentRoute, setCurrentRoute] = useState(() => {
@@ -35,13 +32,6 @@ export default function App() {
 
   return (
     <ThemeProvider>
-      {/* Ambient Celestial Starfield Background (Tiny real stars in dark mode) */}
-      <StarField />
-      {/* Interactive Cursor Stardust Sparkles */}
-      <CursorSparkles />
-      {/* Unmistakable Floating Theme Switcher */}
-      <FloatingThemeToggle />
-
       {currentRoute === 'certifications' ? (
         <CertificationsScreen onBack={() => navigateToHome('#certifications')} />
       ) : (
