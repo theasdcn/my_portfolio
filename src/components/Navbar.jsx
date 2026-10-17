@@ -8,6 +8,14 @@ import { ThemeToggle } from './ThemeToggle';
 const leftLinks = NAV_LINKS.slice(0, 3); // Hero, About Me, Education
 const rightLinks = NAV_LINKS.slice(3, 7); // Skills, Certifications, Projects, Contact
 
+// The stored name is upper case; a brush script reads best in title case.
+const brandName = DESIGNER_INFO.name
+  .split(' ')
+  .slice(0, 2)
+  .join(' ')
+  .toLowerCase()
+  .replace(/\b\w/g, (c) => c.toUpperCase());
+
 export function Navbar({ onOpenContact }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeId, setActiveId] = useState(NAV_LINKS[0].id);
@@ -69,10 +77,32 @@ export function Navbar({ onOpenContact }) {
         <a
           href="#hero"
           className="navbar-brand-center"
+          aria-label={`${brandName}, back to top`}
           onClick={(e) => { e.preventDefault(); handleNavClick('hero'); }}
         >
-          <span className="brand-script-name">{DESIGNER_INFO.name.split(' ').slice(0, 2).join(' ')}</span>
-          <span className="brand-subtitle-center">{DESIGNER_INFO.title}</span>
+          <span className="brand-logo">
+            <span className="brand-script-name" aria-hidden="true">{brandName}</span>
+
+            {/* Small heart flourish, top right of the wordmark */}
+            <svg className="brand-heart" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12 21s-7.2-4.4-9.7-8.7C.3 8.7 2.3 4 6.4 4c2.1 0 3.6 1 5.6 3.1C14 5 15.5 4 17.6 4c4.1 0 6.1 4.7 4.1 8.3C19.2 16.6 12 21 12 21z" />
+            </svg>
+
+            {/* Tapered brush-stroke underline */}
+            <svg className="brand-swash" viewBox="0 0 200 16" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <defs>
+                <linearGradient id="brandSwashGradient" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" style={{ stopColor: 'var(--brand-1)' }} />
+                  <stop offset="0.5" style={{ stopColor: 'var(--brand-2)' }} />
+                  <stop offset="1" style={{ stopColor: 'var(--brand-3)' }} />
+                </linearGradient>
+              </defs>
+              <path
+                d="M2 11.5C45 5.5 120 3.2 198 4.6C128 7.4 52 10.4 3 14.2C0.8 13.4 0.6 12.4 2 11.5Z"
+                fill="url(#brandSwashGradient)"
+              />
+            </svg>
+          </span>
         </a>
 
         {/* RIGHT NAV LINKS + THEME TOGGLE */}

@@ -6096,3 +6096,144 @@ button:focus-visible,
     animation: none;
   }
 }
+
+/* ==========================================================================
+   NAVBAR WORDMARK — brush script, rose gradient, swash underline, heart
+   Swap the typeface by editing --font-logo.
+   ========================================================================== */
+:root {
+  --font-logo: 'Mr Dafoe', 'Kaushan Script', 'Caveat', cursive;
+}
+
+.navbar-header {
+  padding: 1rem 2.5rem;
+}
+
+.navbar-brand-center {
+  --brand-1: #7a1124;
+  --brand-2: #b81d36;
+  --brand-3: #d9788e;
+  --brand-heart: #c9455f;
+  padding: 0.1rem 1.25rem;
+}
+
+[data-theme="dark"] .navbar-brand-center {
+  --brand-1: #ff3b5c;
+  --brand-2: #ff7d96;
+  --brand-3: #ffc2cf;
+  --brand-heart: #ff7d96;
+}
+
+.brand-logo {
+  position: relative;
+  display: inline-block;
+  padding: 0 0.35rem 0.55rem;
+}
+
+[data-theme="dark"] .brand-logo {
+  filter: drop-shadow(0 0 14px rgba(255, 59, 92, 0.22));
+}
+
+/* Gradient fill. The extra horizontal padding keeps the brush overhang from
+   being clipped, since background-clip only paints inside the element box. */
+.navbar-brand-center .brand-script-name {
+  display: inline-block;
+  padding: 0 0.2em;
+  font-family: var(--font-logo);
+  font-size: clamp(2.3rem, 3vw, 2.9rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: 0;
+  background: linear-gradient(100deg, var(--brand-1) 0%, var(--brand-2) 45%, var(--brand-3) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-shadow: none;
+}
+
+.navbar-brand-center:hover .brand-script-name {
+  color: transparent;
+}
+
+.brand-heart {
+  position: absolute;
+  top: 0.1rem;
+  right: -0.3rem;
+  width: 15px;
+  height: 15px;
+  fill: var(--brand-heart);
+  transform: rotate(16deg);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.brand-swash {
+  position: absolute;
+  left: 4%;
+  bottom: 0.1rem;
+  width: 92%;
+  height: 0.55rem;
+  overflow: visible;
+  transform-origin: left center;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.navbar-brand-center:hover .brand-swash {
+  transform: scaleX(1.04);
+}
+
+.navbar-brand-center:hover .brand-heart {
+  transform: rotate(16deg) scale(1.18);
+}
+
+/* Links: soft rose sans-serif with generous spacing (4.9:1 contrast on cream). */
+.nav-links-left,
+.nav-links-right {
+  gap: clamp(1.25rem, 2.2vw, 2.75rem);
+}
+
+.nav-link-btn {
+  font-family: var(--font-sans);
+  font-size: 0.96rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: #ad4a62;
+}
+
+.nav-link-btn:hover {
+  color: var(--text-burgundy);
+}
+
+/* The wordmark is wider than the old logo, so collapse into the menu earlier. */
+@media (max-width: 1200px) {
+
+  .nav-links-left,
+  .nav-links-right,
+  .navbar-right-group {
+    display: none;
+  }
+
+  .navbar-centered-layout {
+    grid-template-columns: 1fr auto;
+  }
+
+  .navbar-mobile-actions,
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .navbar-brand-center {
+    align-items: flex-start;
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .navbar-header {
+    padding: 0.7rem 1.25rem;
+  }
+
+  .navbar-brand-center .brand-script-name {
+    font-size: 2.1rem;
+  }
+}
