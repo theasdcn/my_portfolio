@@ -91,7 +91,7 @@ export const PROJECTS_DATA = [
     description: "An interactive web platform built for a hybrid tea shop and printing service hub. Features a responsive beverage ordering catalog, customizable printing request form, customer reviews, blog updates, and custom Y2K visual design.",
     metrics: "Role: Full-Stack Web Developer (Frontend & Backend)",
     liveUrl: "https://moonlit-pithivier-1e4971.netlify.app/",
-    githubUrl: "https://github.com/altheazuleikasadicon",
+    githubUrl: "https://github.com/theasdcn",
     tags: ["HTML/CSS", "JavaScript", "E-Commerce & Services", "UI/UX Design"],
     features: [
       "Interactive Digital Ordering Menu for Beverages",
@@ -114,8 +114,8 @@ export const PROJECTS_DATA = [
     description: "A full-stack e-commerce web platform for Brew-Ha Café, featuring an interactive ordering catalog for handcrafted coffees, fruit refreshers, artisan pastries, and specialty pastas. Features real-time cart calculations with customizable drink sizes and pastry quantities, delivery fee estimations, customer authentication, live order tracking, and a centralized administrative dashboard with full CRUD operations for menu inventory, registered users, and active orders.",
     metrics: "Role: Frontend Web Developer",
     liveUrl: "https://brewha-cafe.onrender.com/index.html",
-    githubUrl: "https://github.com/briee1w/brewha-cafe",
-    repoUrl: "https://github.com/briee1w/brewha-cafe",
+    githubUrl: "https://github.com/theasdcn/brewha-cafe",
+    repoUrl: "https://github.com/theasdcn/brewha-cafe",
     tags: ["PHP", "JavaScript", "HTML/CSS", "SQLite / MySQL", "Vercel Deployment", "REST APIs", "E-Commerce"],
     features: [
       "Interactive Ordering Catalog with customizable drink sizes & pastry quantities",
@@ -355,6 +355,6 @@ export const CONTACT_INFO = {
   email: "sadiconaltheazuleika@gmail.com",
   linkedin: "https://www.linkedin.com/in/althea-zuleika-sadicon-1754271ba/",
   briefcase: "https://paraverse.feutech.edu.ph/briefcase/profile/126013202T",
-  github: "https://github.com/altheazuleikasadicon",
+  github: "https://github.com/theasdcn",
   portfolio: "https://althea.dev"
 };

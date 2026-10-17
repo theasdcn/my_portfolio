@@ -6,8 +6,8 @@ export function AboutMe() {
   return (
     <section className="about-section" id="about">
       <div className="section-header-retro reveal-3d">
-        <span className="section-num-stamp">01 //<span className="dark-only-star"> ✦</span></span>
-        <h2 className="section-title-serif">About Me <span className="title-star-flair">✦</span></h2>
+        <span className="section-num-stamp">01 //</span>
+        <h2 className="section-title-serif">About Me</h2>
       </div>
 
       <div className="about-scrapbook-grid">
@@ -25,13 +25,12 @@ export function AboutMe() {
             {DESIGNER_INFO.aboutDetailed}
           </p>
 
-          {/* About Trait Cards with Star Accents */}
+          {/* About Trait Cards */}
           <div className="about-stats-tape-grid">
             {DESIGNER_INFO.aboutCards.map((card, idx) => (
               <div key={idx} className={`stat-paper-card tilt-card-3d reveal-3d-card delay-${idx + 1}`}>
                 <div className="tilt-sheen-layer" />
                 <div className="card-luxury-accent" />
-                <span className="stat-card-corner-star">✦</span>
                 <span className="stat-num-y2k">{card.label}</span>
                 <p className="stat-label-y2k">{card.sub}</p>
               </div>
@@ -71,9 +70,9 @@ export function AboutMe() {
             </div>
 
             <div className="film-footer-meta">
-              <span><span className="dark-only-star">✦ </span>10281.JPG</span>
-              <span>ALTHEA<span className="dark-only-star"> ✧</span></span>
-              <span>10283.JPG<span className="dark-only-star"> ✦</span></span>
+              <span>10281.JPG</span>
+              <span>ALTHEA</span>
+              <span>10283.JPG</span>
             </div>
           </div>
         </div>
