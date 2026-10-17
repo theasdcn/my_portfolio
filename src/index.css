@@ -5699,3 +5699,44 @@ body,
   border-color: rgba(255, 255, 255, 0.1);
   color: #fbf8f4;
 }
+
+/* ==========================================================================
+   BACKGROUND STARRY NIGHT (VERY SMALL REALISTIC STARS - DARK MODE ONLY)
+   ========================================================================== */
+
+/* Background Starry Night Canvas */
+.celestial-night-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1; /* Strictly behind all content, cards, and text */
+  display: none;
+}
+
+[data-theme="dark"] .celestial-night-canvas {
+  display: block !important;
+}
+
+/* Ensure content sits comfortably on top of the starry background */
+.portfolio-app-root {
+  position: relative;
+  z-index: 2;
+}
+
+/* In dark mode, slightly translucent hero backdrop lets starry night show through behind */
+[data-theme="dark"] .hero-section {
+  background: radial-gradient(ellipse at 75% 30%, rgba(65, 12, 22, 0.78) 0%, rgba(26, 5, 10, 0.9) 60%, rgba(16, 4, 7, 0.95) 100%);
+}
+
+.hero-container,
+.about-scrapbook-grid,
+.education-container,
+.tech-stack-container,
+.cert-container,
+.projects-grid-polaroid,
+.clean-contact-container {
+  position: relative;
+  z-index: 2;
+}

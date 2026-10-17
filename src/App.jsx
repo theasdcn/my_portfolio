@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { HomeScreen } from './screens/HomeScreen';
 import { CertificationsScreen } from './screens/CertificationsScreen';
 import { ThemeProvider } from './context/ThemeContext';
+import { StarField } from './components/StarField';
 
 export default function App() {
   const [currentRoute, setCurrentRoute] = useState(() => {
@@ -32,6 +33,9 @@ export default function App() {
 
   return (
     <ThemeProvider>
+      {/* Background Starry Night (Very small real stars in dark mode only) */}
+      <StarField />
+
       {currentRoute === 'certifications' ? (
         <CertificationsScreen onBack={() => navigateToHome('#certifications')} />
       ) : (
