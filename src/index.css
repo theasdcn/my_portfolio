@@ -5720,9 +5720,12 @@ body,
 }
 
 /* Ensure content sits comfortably on top of the starry background */
-.portfolio-app-root {
-  position: relative;
-  z-index: 2;
+[data-theme="dark"] .portfolio-app-root {
+  background: transparent;
+}
+
+[data-theme="dark"] .hero-bg-texture {
+  opacity: 0;
 }
 
 /* In dark mode, slightly translucent hero backdrop lets starry night show through behind */
@@ -5736,7 +5739,8 @@ body,
 .tech-stack-container,
 .cert-container,
 .projects-grid-polaroid,
-.clean-contact-container {
+.clean-contact-container,
+.footer-editorial {
   position: relative;
   z-index: 2;
 }
