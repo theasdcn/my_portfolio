@@ -10,6 +10,7 @@ export function ContactSection() {
   });
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [activationNotice, setActivationNotice] = useState(false);
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -18,6 +19,7 @@ export function ContactSection() {
     }
 
     setLoading(true);
+    setActivationNotice(false);
 
     const emailSubject = `[Portfolio Inquiry] from ${formData.name.trim()}`;
     const emailBody = `Hi Althea,\n\n${formData.message.trim()}\n\n---\nName: ${formData.name.trim()}\nEmail: ${formData.email.trim()}`;
@@ -40,10 +42,15 @@ export function ContactSection() {
         })
       });
 
-      if (response.ok) {
+      const data = await response.json().catch(() => ({}));
+
+      if (data.message && data.message.toLowerCase().includes('activation')) {
+        // FormSubmit needs the owner to click the confirmation link once in Gmail
+        setActivationNotice(true);
+      } else if (response.ok && data.success !== 'false') {
         setSubmitted(true);
       } else {
-        // Fallback to email client
+        // Fallback to opening email client directly
         window.location.href = mailtoUrl;
         setSubmitted(true);
       }
@@ -96,7 +103,42 @@ export function ContactSection() {
 
         {/* RIGHT COLUMN: Minimal underline inputs & pill button */}
         <div className="clean-contact-form-wrapper">
-          {submitted ? (
+          {activationNotice ? (
+            <div className="clean-form-success animate-fadeIn" style={{ borderColor: '#d4af37', background: 'rgba(212, 175, 55, 0.08)' }}>
+              <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>📧</div>
+              <h4 className="font-serif text-xl font-bold" style={{ color: '#b81d36' }}>One-Time Activation Required!</h4>
+              <p className="text-muted text-sm my-2" style={{ lineHeight: '1.6' }}>
+                FormSubmit has sent a confirmation email to <strong style={{ color: '#b81d36' }}>{CONTACT_INFO.email}</strong>.
+              </p>
+              <div style={{ background: 'rgba(0,0,0,0.04)', padding: '0.85rem', borderRadius: '8px', margin: '0.75rem 0', fontSize: '0.85rem', textAlign: 'left', borderLeft: '3px solid #b81d36' }}>
+                <strong>How to receive emails:</strong>
+                <ol style={{ paddingLeft: '1.2rem', marginTop: '0.35rem' }}>
+                  <li>Open your Gmail for <strong>{CONTACT_INFO.email}</strong></li>
+                  <li>Look for an email from <strong>FormSubmit</strong> (check <strong>Spam/Junk</strong> if not in Inbox)</li>
+                  <li>Click the <strong>"Activate Form"</strong> button inside</li>
+                </ol>
+              </div>
+              <p className="text-muted text-xs mb-3">
+                Once clicked, all messages sent here will arrive immediately in your Gmail inbox!
+              </p>
+              <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'center' }}>
+                <a
+                  href={`mailto:${CONTACT_INFO.email}?subject=${encodeURIComponent(`[Portfolio Inquiry] from ${formData.name}`)}&body=${encodeURIComponent(formData.message)}`}
+                  className="clean-submit-pill"
+                  style={{ textDecoration: 'none', display: 'inline-block', padding: '0.5rem 1.2rem' }}
+                >
+                  Send via Email App Instead
+                </a>
+                <button 
+                  type="button" 
+                  onClick={() => setActivationNotice(false)}
+                  className="clean-reset-btn"
+                >
+                  Back to Form
+                </button>
+              </div>
+            </div>
+          ) : submitted ? (
             <div className="clean-form-success animate-fadeIn">
               <CheckCircle2 size={32} className="text-emerald-700 mb-2 mx-auto" />
               <h4 className="font-serif text-xl font-bold text-burgundy">Message Sent Directly!</h4>
