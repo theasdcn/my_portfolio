@@ -6,7 +6,6 @@ export function Education() {
     <section className="education-section" id="education">
       <div className="education-container">
         <div className="section-header-retro reveal-3d">
-          <span className="section-num-stamp">02 //</span>
           <h2 className="section-title-serif">Education &amp; Background</h2>
         </div>
 

@@ -5833,3 +5833,266 @@ body,
     animation: none;
   }
 }
+
+/* ==========================================================================
+   DESIGN REFINEMENT LAYER
+   Keeps the cabernet and champagne-gold identity. Tightens typography,
+   section headers, navigation, cards, forms, focus and motion.
+   Kept last so it wins over earlier rules.
+   ========================================================================== */
+
+:root {
+  --focus-ring: #b81d36;
+  --radius-card: 12px;
+}
+
+[data-theme="dark"] {
+  --focus-ring: #d4af37;
+}
+
+/* ---- Typography: balanced headings, comfortable measure for body copy ---- */
+.section-title-serif,
+.about-headline-serif,
+.contact-headline-serif,
+.project-title-serif,
+.edu-degree-serif {
+  text-wrap: balance;
+}
+
+.about-body-text,
+.edu-body-p,
+.cert-description-text,
+.clean-form-notice-text {
+  text-wrap: pretty;
+}
+
+/* Warm grey instead of the cool grey that clashed with the cream page. */
+.about-body-text {
+  color: #5b5052;
+  max-width: 62ch;
+  line-height: 1.8;
+}
+
+.edu-body-p {
+  color: #4e4446;
+  max-width: 60ch;
+}
+
+[data-theme="dark"] .edu-body-p {
+  color: #d9ced2;
+}
+
+::selection {
+  background: rgba(184, 29, 54, 0.16);
+}
+
+/* ---- Section headers: a gold hairline that fades out, no numbering ---- */
+.section-header-retro {
+  margin-bottom: 3rem;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(90deg, var(--accent-gold) 0%, rgba(197, 160, 89, 0.18) 72%, transparent 100%) 1;
+}
+
+[data-theme="dark"] .section-header-retro {
+  border-image: linear-gradient(90deg, #d4af37 0%, rgba(212, 175, 55, 0.2) 72%, transparent 100%) 1;
+}
+
+/* ---- Navigation: active section and scroll shadow ---- */
+.navbar-header {
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar-header.is-scrolled {
+  box-shadow: 0 10px 30px -14px rgba(32, 4, 8, 0.3);
+}
+
+[data-theme="dark"] .navbar-header.is-scrolled {
+  box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.7);
+}
+
+.nav-link-btn.is-active {
+  color: var(--accent-cherry);
+}
+
+.nav-link-btn.is-active::after {
+  width: 100%;
+}
+
+[data-theme="dark"] .nav-link-btn.is-active {
+  color: #d4af37;
+}
+
+[data-theme="dark"] .nav-link-btn.is-active::after {
+  background: #d4af37;
+}
+
+.mobile-nav-item.is-active {
+  color: var(--accent-cherry);
+}
+
+[data-theme="dark"] .mobile-nav-item.is-active {
+  color: #d4af37;
+}
+
+/* ---- Hero: a soft champagne glow lifts the portrait off the background ---- */
+.hero-center-collage::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 125%;
+  aspect-ratio: 1 / 1;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle,
+      rgba(197, 160, 89, 0.22) 0%,
+      rgba(184, 29, 54, 0.12) 38%,
+      transparent 68%);
+  filter: blur(12px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ---- Project cards: calmer details, same character ---- */
+.project-polaroid-card {
+  border-radius: var(--radius-card);
+}
+
+.project-polaroid-card:hover,
+.project-polaroid-card:focus-visible {
+  border-color: rgba(197, 160, 89, 0.55);
+}
+
+.project-polaroid-card:focus-visible .project-view-overlay {
+  opacity: 1;
+}
+
+.project-img-frame {
+  border-radius: 8px;
+  box-shadow: inset 0 0 0 1px rgba(56, 8, 15, 0.08);
+}
+
+.project-title-serif {
+  font-size: 1.45rem;
+  line-height: 1.2;
+}
+
+.project-subtitle-mono {
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.project-mini-tag {
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 0.25rem 0.7rem;
+  border-radius: 9999px;
+}
+
+/* ---- Contact: clear, visitor-friendly status messages ---- */
+.clean-input:focus-visible,
+.clean-textarea:focus-visible {
+  border-bottom: 2px solid var(--focus-ring);
+}
+
+.clean-submit-pill--compact {
+  padding: 0.7rem 1.6rem;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.clean-form-notice {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 2rem 1.75rem;
+  background: var(--bg-cream-pure);
+  border: 1px solid var(--border-cream-medium);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-subtle);
+}
+
+.clean-form-notice.is-success {
+  border-color: rgba(4, 120, 87, 0.3);
+}
+
+.clean-form-notice-icon {
+  color: #047857;
+}
+
+[data-theme="dark"] .clean-form-notice-icon {
+  color: #34d399;
+}
+
+.clean-form-notice-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-burgundy);
+}
+
+.clean-form-notice-text {
+  max-width: 46ch;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+.clean-form-notice-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.clean-form-notice .clean-reset-btn {
+  margin-top: 0;
+}
+
+/* ---- Footer: hairline that fades in from the edges ---- */
+.simple-site-footer {
+  border-top: 1px solid transparent;
+  border-image: linear-gradient(90deg, transparent 0%, rgba(197, 160, 89, 0.55) 50%, transparent 100%) 1;
+}
+
+/* ---- Keyboard focus: one visible, on-brand ring everywhere ---- */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:not([tabindex="-1"]):focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+/* ---- Reduced motion: show content immediately, stop looping animation ---- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal-3d,
+  .reveal-3d-left,
+  .reveal-3d-right,
+  .reveal-3d-scale,
+  .reveal-3d-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .press-marquee-track,
+  .hero-pulse-dot,
+  .cert-pulse-dot,
+  .live-dot-pulse,
+  .eyebrow-sparkle,
+  .cert-btn-shimmer,
+  .cert-btn-counter-badge {
+    animation: none;
+  }
+}

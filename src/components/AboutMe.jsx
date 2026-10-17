@@ -6,7 +6,6 @@ export function AboutMe() {
   return (
     <section className="about-section" id="about">
       <div className="section-header-retro reveal-3d">
-        <span className="section-num-stamp">01 //</span>
         <h2 className="section-title-serif">About Me</h2>
       </div>
 

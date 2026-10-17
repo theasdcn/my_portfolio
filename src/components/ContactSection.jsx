@@ -104,49 +104,36 @@ export function ContactSection() {
         {/* RIGHT COLUMN: Minimal underline inputs & pill button */}
         <div className="clean-contact-form-wrapper">
           {activationNotice ? (
-            <div className="clean-form-success animate-fadeIn" style={{ borderColor: '#d4af37', background: 'rgba(212, 175, 55, 0.08)' }}>
-              <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>📧</div>
-              <h4 className="font-serif text-xl font-bold" style={{ color: '#b81d36' }}>One-Time Activation Required!</h4>
-              <p className="text-muted text-sm my-2" style={{ lineHeight: '1.6' }}>
-                FormSubmit has sent a confirmation email to <strong style={{ color: '#b81d36' }}>{CONTACT_INFO.email}</strong>.
+            <div className="clean-form-notice animate-fadeIn" role="status">
+              <h4 className="clean-form-notice-title">Your message hasn't been sent yet</h4>
+              <p className="clean-form-notice-text">
+                The form couldn't deliver it automatically. Send it from your email app instead; your message is already filled in.
               </p>
-              <div style={{ background: 'rgba(0,0,0,0.04)', padding: '0.85rem', borderRadius: '8px', margin: '0.75rem 0', fontSize: '0.85rem', textAlign: 'left', borderLeft: '3px solid #b81d36' }}>
-                <strong>How to receive emails:</strong>
-                <ol style={{ paddingLeft: '1.2rem', marginTop: '0.35rem' }}>
-                  <li>Open your Gmail for <strong>{CONTACT_INFO.email}</strong></li>
-                  <li>Look for an email from <strong>FormSubmit</strong> (check <strong>Spam/Junk</strong> if not in Inbox)</li>
-                  <li>Click the <strong>"Activate Form"</strong> button inside</li>
-                </ol>
-              </div>
-              <p className="text-muted text-xs mb-3">
-                Once clicked, all messages sent here will arrive immediately in your Gmail inbox!
-              </p>
-              <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'center' }}>
+              <div className="clean-form-notice-actions">
                 <a
                   href={`mailto:${CONTACT_INFO.email}?subject=${encodeURIComponent(`[Portfolio Inquiry] from ${formData.name}`)}&body=${encodeURIComponent(formData.message)}`}
-                  className="clean-submit-pill"
-                  style={{ textDecoration: 'none', display: 'inline-block', padding: '0.5rem 1.2rem' }}
+                  className="clean-submit-pill clean-submit-pill--compact"
                 >
-                  Send via Email App Instead
+                  Open email app
                 </a>
-                <button 
-                  type="button" 
+                <button
+                  type="button"
                   onClick={() => setActivationNotice(false)}
                   className="clean-reset-btn"
                 >
-                  Back to Form
+                  Back to form
                 </button>
               </div>
             </div>
           ) : submitted ? (
-            <div className="clean-form-success animate-fadeIn">
-              <CheckCircle2 size={32} className="text-emerald-700 mb-2 mx-auto" />
-              <h4 className="font-serif text-xl font-bold text-burgundy">Message Sent Directly!</h4>
-              <p className="text-muted text-sm my-2">
-                Thank you! Your message has been sent directly to <span className="font-mono text-burgundy font-semibold">{CONTACT_INFO.email}</span>. Althea will get back to you shortly.
+            <div className="clean-form-notice is-success animate-fadeIn" role="status">
+              <CheckCircle2 size={28} className="clean-form-notice-icon" aria-hidden="true" />
+              <h4 className="clean-form-notice-title">Message sent</h4>
+              <p className="clean-form-notice-text">
+                Thanks for reaching out, {formData.name.trim()}. Althea will get back to you at {formData.email.trim()}.
               </p>
-              <button 
-                type="button" 
+              <button
+                type="button"
                 onClick={() => {
                   setFormData({ name: '', email: '', message: '' });
                   setSubmitted(false);
@@ -200,7 +187,7 @@ export function ContactSection() {
                   className="clean-submit-pill"
                   disabled={loading}
                 >
-                  {loading ? 'Sending to Inbox...' : 'Send message'}
+                  {loading ? 'Sending...' : 'Send message'}
                 </button>
               </div>
             </form>

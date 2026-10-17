@@ -14,10 +14,24 @@ export function ProjectCard3D({ project, onSelectProject }) {
     window.open(project.liveUrl, '_blank', 'noopener,noreferrer');
   };
 
+  // Keyboard support: the card acts as a button, but ignore keys pressed on the
+  // nested "Visit Live" button so it keeps its own behavior.
+  const handleKeyDown = (e) => {
+    if (e.target !== e.currentTarget) return;
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleClick();
+    }
+  };
+
   return (
     <div
       className="project-polaroid-card group cursor-pointer tilt-card-3d reveal-3d-card"
+      role="button"
+      tabIndex={0}
+      aria-label={`View details for ${project.title}`}
       onClick={handleClick}
+      onKeyDown={handleKeyDown}
       onMouseEnter={playVinylClick}
     >
       <div className="tilt-sheen-layer" />
