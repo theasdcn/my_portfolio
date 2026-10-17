@@ -6186,24 +6186,6 @@ button:focus-visible,
   transform: rotate(16deg) scale(1.18);
 }
 
-/* Links: soft rose sans-serif with generous spacing (4.9:1 contrast on cream). */
-.nav-links-left,
-.nav-links-right {
-  gap: clamp(1.25rem, 2.2vw, 2.75rem);
-}
-
-.nav-link-btn {
-  font-family: var(--font-sans);
-  font-size: 0.96rem;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  color: #ad4a62;
-}
-
-.nav-link-btn:hover {
-  color: var(--text-burgundy);
-}
-
 /* The wordmark is wider than the old logo, so collapse into the menu earlier. */
 @media (max-width: 1200px) {
 
