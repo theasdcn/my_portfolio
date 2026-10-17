@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useLayoutEffect } from 'react';
 import { playVinylClick } from '../utils/soundEffects';
 
 const ThemeContext = createContext();
@@ -10,7 +10,9 @@ export function ThemeProvider({ children }) {
     return 'light'; // Default to original signature editorial style
   });
 
-  useEffect(() => {
+  // Layout effect so data-theme is applied before children's effects run (the
+  // starfield measures its canvas on mount) and before the browser paints.
+  useLayoutEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('portfolio-theme', theme);
   }, [theme]);

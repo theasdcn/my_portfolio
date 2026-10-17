@@ -5727,7 +5727,7 @@ body,
 
 /* In dark mode, slightly translucent hero backdrop lets starry night show through behind */
 [data-theme="dark"] .hero-section {
-  background: radial-gradient(ellipse at 75% 30%, rgba(65, 12, 22, 0.78) 0%, rgba(26, 5, 10, 0.9) 60%, rgba(16, 4, 7, 0.95) 100%);
+  background: radial-gradient(ellipse at 75% 30%, rgba(65, 12, 22, 0.66) 0%, rgba(26, 5, 10, 0.8) 60%, rgba(16, 4, 7, 0.88) 100%);
 }
 
 .hero-container,
@@ -5739,4 +5739,97 @@ body,
 .clean-contact-container {
   position: relative;
   z-index: 2;
+}
+
+/* ==========================================================================
+   DARK MODE ENHANCEMENT — DEEP-SPACE BACKDROP & SUBTLE STARFIELD
+   Kept last so it refines the earlier dark-mode rules.
+
+   Layering (back to front):
+     html/body background  ->  star canvas (z 0)  ->  page content (z 1)
+   The page root and the full-width sections used to paint solid dark
+   backgrounds over the canvas, which is why the stars never showed. They are
+   now transparent or translucent; cards and text blocks stay opaque so
+   content remains crisp and readable.
+   ========================================================================== */
+
+/* Star canvas: sits behind everything and fades in gently. */
+.celestial-night-canvas {
+  z-index: 0;
+}
+
+[data-theme="dark"] .celestial-night-canvas {
+  animation: starsFadeIn 1.4s ease-out both;
+}
+
+@keyframes starsFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Backdrop: deep cabernet with a faint warm glow top-right and a hint of
+   champagne bottom-left. Fixed so the stars feel like a window behind the page. */
+[data-theme="dark"] body {
+  background-image:
+    radial-gradient(ellipse 80% 55% at 88% -8%, rgba(122, 22, 42, 0.30) 0%, transparent 62%),
+    radial-gradient(ellipse 70% 50% at 4% 108%, rgba(212, 175, 55, 0.07) 0%, transparent 60%),
+    linear-gradient(180deg, #15060c 0%, #0d0305 100%);
+  background-attachment: fixed;
+}
+
+/* Let the stars through: page roots no longer paint over the canvas. */
+[data-theme="dark"] .portfolio-app-root,
+[data-theme="dark"] .cert-page-root {
+  background: transparent;
+  z-index: 1;
+}
+
+/* Full-width bands become translucent glass so the sky shows faintly through. */
+[data-theme="dark"] .press-marquee-bar {
+  background: rgba(20, 5, 9, 0.62);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+[data-theme="dark"] .education-section {
+  background: linear-gradient(180deg, rgba(24, 4, 8, 0.84) 0%, rgba(12, 2, 4, 0.9) 100%);
+}
+
+[data-theme="dark"] .certifications-section {
+  background: rgba(20, 5, 9, 0.5);
+}
+
+[data-theme="dark"] .clean-contact-section {
+  background: rgba(16, 4, 7, 0.58);
+}
+
+/* Small finishing touches */
+[data-theme="dark"] ::selection {
+  background: rgba(212, 175, 55, 0.3);
+  color: #fffdfa;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: #100407;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: #4a1220;
+  border-color: #100407;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
+
+/* Reduced motion: no fade or twinkle (the component also draws a static frame). */
+@media (prefers-reduced-motion: reduce) {
+  [data-theme="dark"] .celestial-night-canvas {
+    animation: none;
+  }
 }
