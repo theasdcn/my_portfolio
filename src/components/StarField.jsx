@@ -5,12 +5,9 @@ export function StarField() {
   const canvasRef = useRef(null);
   const { theme } = useTheme();
 
-  // ONLY render stars in dark mode
-  if (theme !== 'dark') {
-    return null;
-  }
-
   useEffect(() => {
+    if (theme !== 'dark') return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
@@ -147,6 +144,10 @@ export function StarField() {
       cancelAnimationFrame(animationFrameId);
     };
   }, [theme]);
+
+  if (theme !== 'dark') {
+    return null;
+  }
 
   return <canvas ref={canvasRef} className="celestial-night-canvas" aria-hidden="true" />;
 }
