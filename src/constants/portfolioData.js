@@ -158,7 +158,7 @@ export const SKILLS_CATEGORIES = [
   },
   {
     category: "Programming & Technologies",
-    skills: ["HTML & CSS", "JAVASCRIPT", "JAVA", "PHP", "SQL", "DOCKER", "GIT & GITHUB", "REACT / WEB TECHNOLOGIES"]
+    skills: ["HTML & CSS", "JAVASCRIPT", "TAILWIND CSS", "NODE.JS", "PHP", "CODEIGNITER", "SQL", "SQLITE", "APACHE", "JAVA", "DOCKER", "GIT & GITHUB", "REACT / WEB TECHNOLOGIES"]
   },
   {
     category: "Design & Workflow",

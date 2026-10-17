@@ -10,6 +10,7 @@ const TECH_GROUPS = [
       { id: 'react-native', name: 'react-native', label: 'React Native' },
       { id: 'react', name: 'react', label: 'React (Vite)' },
       { id: 'nextjs', name: 'nextjs', label: 'Next.js' },
+      { id: 'tailwind', name: 'tailwind', label: 'Tailwind CSS' },
       { id: 'javascript', name: 'javascript', label: 'JavaScript' },
       { id: 'html5', name: 'html5', label: 'HTML5' },
       { id: 'css3', name: 'css3', label: 'CSS3' },
@@ -20,10 +21,14 @@ const TECH_GROUPS = [
     category: 'BACK END & FULL STACK',
     items: [
       { id: 'laravel', name: 'laravel', label: 'Laravel' },
+      { id: 'codeigniter', name: 'codeigniter', label: 'CodeIgniter' },
+      { id: 'nodejs', name: 'nodejs', label: 'Node.js' },
       { id: 'php', name: 'php', label: 'PHP' },
+      { id: 'apache', name: 'apache', label: 'Apache' },
       { id: 'supabase', name: 'supabase', label: 'Supabase' },
       { id: 'mysql', name: 'sql', label: 'MySQL' },
       { id: 'postgresql', name: 'postgresql', label: 'PostgreSQL' },
+      { id: 'sqlite', name: 'sqlite', label: 'SQLite' },
       { id: 'docker', name: 'docker', label: 'Docker' },
     ]
   },
