@@ -10,21 +10,27 @@ import { useEffect } from 'react';
 export function useScroll3D() {
   useEffect(() => {
     // ----------------------------------------------------
-    // 1. Intersection Observer for 3D Scroll Reveal
+    // 1. Intersection Observer for 3D Scroll Reveal (Bidirectional: Up & Down)
     // ----------------------------------------------------
     const revealSelector = '.reveal-3d, .reveal-3d-left, .reveal-3d-right, .reveal-3d-flip, .reveal-3d-scale, .reveal-3d-card';
     const revealElements = document.querySelectorAll(revealSelector);
 
     const observerOptions = {
       root: null,
-      rootMargin: '-20px 0px -40px 0px',
-      threshold: 0.08
+      rootMargin: '10px 0px 10px 0px',
+      threshold: 0.06
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
+        } else {
+          // When element scrolls completely offscreen, reset so it animates again when scrolling back
+          const rect = entry.target.getBoundingClientRect();
+          if (rect.bottom < -50 || rect.top > window.innerHeight + 50) {
+            entry.target.classList.remove('is-visible');
+          }
         }
       });
     }, observerOptions);
@@ -39,15 +45,25 @@ export function useScroll3D() {
     });
 
     // ----------------------------------------------------
-    // 2. Smooth Continuous 3D Scroll Parallax
+    // 2. Smooth Continuous 3D Scroll Parallax & Direction Tracking
     // ----------------------------------------------------
     let ticking = false;
+    let lastScrollY = window.scrollY;
+    document.documentElement.setAttribute('data-scroll-dir', 'down');
     const parallaxItems = document.querySelectorAll('[data-parallax-speed]');
 
     const onScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
           const scrollY = window.scrollY;
+          const delta = scrollY - lastScrollY;
+
+          // Detect scroll direction (up vs down)
+          if (Math.abs(delta) > 2) {
+            const dir = delta > 0 ? 'down' : 'up';
+            document.documentElement.setAttribute('data-scroll-dir', dir);
+            lastScrollY = scrollY;
+          }
 
           // Parallax for marked elements
           parallaxItems.forEach((el) => {

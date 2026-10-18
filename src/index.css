@@ -1342,6 +1342,27 @@ div[id] {
   transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateX(0) translateY(0) scale(1);
 }
 
+/* Directional 3D Entrance: When scrolling UP, elements enter gracefully from above */
+html[data-scroll-dir="up"] .reveal-3d:not(.is-visible) {
+  transform: perspective(1000px) rotateX(-8deg) translateY(-32px);
+}
+
+html[data-scroll-dir="up"] .reveal-3d-left:not(.is-visible) {
+  transform: perspective(1000px) rotateY(8deg) translateX(-32px);
+}
+
+html[data-scroll-dir="up"] .reveal-3d-right:not(.is-visible) {
+  transform: perspective(1000px) rotateY(-8deg) translateX(32px);
+}
+
+html[data-scroll-dir="up"] .reveal-3d-card:not(.is-visible) {
+  transform: perspective(1000px) translateY(-28px) scale(0.96);
+}
+
+html[data-scroll-dir="up"] .reveal-3d-scale:not(.is-visible) {
+  transform: perspective(1000px) scale(0.92) translateY(-24px);
+}
+
 .delay-1 {
   transition-delay: 0.1s;
 }
