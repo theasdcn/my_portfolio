@@ -16,7 +16,7 @@ export function Interests() {
   return (
     <section className="interests-section" id="interests">
       <div className="interests-container">
-        <div className="section-header-retro reveal-3d">
+        <div className="section-header-retro">
           <h2 className="section-title-serif">Beyond the Code</h2>
         </div>
 
@@ -26,7 +26,7 @@ export function Interests() {
           {interests.map((item, idx) => {
             const Icon = INTEREST_ICONS[item.icon] || BookOpen;
             return (
-              <div key={item.label} className={`interest-card reveal-3d-card delay-${idx + 1}`}>
+              <div key={item.label} className="interest-card">
                 <span className="interest-icon" aria-hidden="true">
                   <Icon size={20} strokeWidth={1.8} />
                 </span>
@@ -38,7 +38,7 @@ export function Interests() {
             );
           })}
 
-          <div className={`fun-fact-card reveal-3d-card delay-${interests.length + 1}`}>
+          <div className="fun-fact-card">
             <div className="fun-fact-badge-wrapper" aria-hidden="true">
               <span className="fun-fact-pill-tag">
                 <Sparkles size={13} className="fun-fact-sparkle-icon" />
