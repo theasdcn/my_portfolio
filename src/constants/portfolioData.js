@@ -54,7 +54,7 @@ export const PROJECTS_DATA = [
     accentColor: "#84cc16",
     accentGlow: "rgba(132, 204, 22, 0.4)",
     description: "A comprehensive web and mobile platform developed for the Philippine FoodBank Foundation Inc. to streamline food donation logistics, real-time inventory tracking, meal planning, disaster intelligence, donation requests, distribution, and analytical reporting.",
-    metrics: "Role: Project Manager & Frontend Mobile Developer",
+    metrics: "Role: Project Manager, Frontend Mobile Developer",
     liveUrl: "https://savrdonate.com/",
     githubUrl: "https://github.com/altheazuleikasadicon",
     tags: ["React Native", "Web Development", "Mobile App", "Project Management"],
@@ -77,7 +77,7 @@ export const PROJECTS_DATA = [
     accentColor: "#f59e0b",
     accentGlow: "rgba(245, 158, 11, 0.4)",
     description: "An interactive web platform built for a hybrid tea shop and printing service hub. Features a responsive beverage ordering catalog, customizable printing request form, customer reviews, blog updates, and custom Y2K visual design.",
-    metrics: "Role: Full-Stack Web Developer (Frontend & Backend)",
+    metrics: "Role: Project Manager, Frontend & Backend Developer",
     liveUrl: "https://moonlit-pithivier-1e4971.netlify.app/",
     githubUrl: "https://github.com/theasdcn",
     tags: ["HTML/CSS", "JavaScript", "E-Commerce & Services", "UI/UX Design"],
@@ -88,7 +88,7 @@ export const PROJECTS_DATA = [
       "Customer Testimonials & News/Blog Engine",
       "Fast Static Deployment with Netlify Automation"
     ],
-    roleDetails: "Sole full-stack developer responsible for end-to-end architecture, UI/UX wireframing, responsive frontend design, dynamic cart ordering logic, printing request submission handlers, and cloud deployment on Netlify."
+    roleDetails: "Served as Project Manager and sole developer responsible for end-to-end architecture, UI/UX wireframing, responsive frontend design, dynamic cart ordering logic, printing request submission handlers, and cloud deployment on Netlify."
   },
   {
     id: "teddiursa-airlines",
@@ -100,7 +100,7 @@ export const PROJECTS_DATA = [
     accentColor: "#8b5cf6",
     accentGlow: "rgba(139, 92, 246, 0.4)",
     description: "A full-stack space tourism web platform that lets travelers explore planetary destinations, browse celestial flight schedules, calculate dynamic fares, and book voyages across the Milky Way. Features end-to-end flight reservations, automated ticket generation, and a centralized admin management dashboard with full CRUD operations for passengers and flights.",
-    metrics: "Role: Frontend Web Developer & UI Designer",
+    metrics: "Role: Frontend Developer",
     liveUrl: "https://teddiursa-airlines.onrender.com",
     githubUrl: "https://github.com/briee1w/teddiursa-airlines",
     client: "Space Tourism & Flight Booking Platform",
@@ -112,7 +112,7 @@ export const PROJECTS_DATA = [
       "Dual-Database Architecture with PostgreSQL & MongoDB",
       "Dockerized Containerization & Cloud Deployment on Render"
     ],
-    roleDetails: "Focused on frontend development and interface design, building the responsive intergalactic flight booking views, passenger seat selection, dynamic ticket generation display, and space-themed UI styling."
+    roleDetails: "Focused on frontend development, building the responsive flight booking views, passenger seat selection, dynamic ticket generation display, and space-themed UI styling."
   },
   {
     id: "brewha-cafe",
@@ -124,7 +124,7 @@ export const PROJECTS_DATA = [
     accentColor: "#794628",
     accentGlow: "rgba(121, 70, 40, 0.4)",
     description: "A full-stack e-commerce web platform for Brew-Ha Café, featuring an interactive ordering catalog for handcrafted coffees, fruit refreshers, artisan pastries, and specialty pastas. Features real-time cart calculations with customizable drink sizes and pastry quantities, delivery fee estimations, customer authentication, live order tracking, and a centralized administrative dashboard with full CRUD operations for menu inventory, registered users, and active orders.",
-    metrics: "Role: Frontend Web Developer",
+    metrics: "Role: Frontend Developer",
     liveUrl: "https://brewha-cafe.onrender.com/index.html",
     githubUrl: "https://github.com/theasdcn/brewha-cafe",
     repoUrl: "https://github.com/theasdcn/brewha-cafe",
