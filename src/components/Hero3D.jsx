@@ -69,7 +69,7 @@ export function Hero3D() {
             title="Click to snap camera shutter!"
           >
             <div className="tilt-sheen-layer" />
-            <div className="archival-mount-tag"></div>
+            <div className="archival-mount-tag">PORTFOLIO</div>
             <div className="polaroid-img-box">
               <img
                 src="/assets/user_photo_1.png"

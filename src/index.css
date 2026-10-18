@@ -6618,27 +6618,57 @@ button:focus-visible,
   color: var(--d-text);
 }
 /* ==========================================================================
-   BEYOND THE CODE — INTERESTS AND FUN FACT (own section, after Projects)
-   Matches the existing cards; the fun fact is the one burgundy accent.
+   BEYOND THE CODE — INTERESTS AND FUN FACT (Deep Velvet Cabernet & Champagne Gold)
+   Signature dark wine section with champagne gold accents.
    ========================================================================== */
 .interests-section {
   width: 100%;
   padding: 6.5rem 0 6.5rem;
-  background: #fcf1f4; /* Dedicated soft porcelain rose blush — distinctly NOT beige */
-  border-top: 1px solid rgba(184, 29, 54, 0.12);
-  border-bottom: 1px solid rgba(184, 29, 54, 0.12);
+  background: linear-gradient(180deg, #1c0307 0%, #2b060d 50%, #1a0206 100%);
+  border-top: 1px solid rgba(197, 160, 89, 0.35);
+  border-bottom: 1px solid rgba(197, 160, 89, 0.35);
   position: relative;
+  overflow: hidden;
+}
+
+.interests-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 420px;
+  background: radial-gradient(ellipse at top, rgba(197, 160, 89, 0.12) 0%, transparent 72%);
+  pointer-events: none;
 }
 
 .interests-container {
   max-width: 1320px;
   margin: 0 auto;
   padding: 0 2.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 /* Projects only needs a normal gap before the next section */
 .projects-section {
   padding-bottom: 4rem;
+}
+
+/* Header inside Cabernet section */
+.interests-section .section-header-retro {
+  border-bottom-color: rgba(197, 160, 89, 0.35);
+}
+
+.interests-section .section-header-retro::after {
+  color: #e2bb6e;
+  background: #23050a;
+}
+
+.interests-section .section-title-serif {
+  color: #ffffff;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
 }
 
 /* Short intro sits right under the section header line */
@@ -6649,7 +6679,7 @@ button:focus-visible,
   font-style: italic;
   font-size: 1.15rem;
   line-height: 1.6;
-  color: var(--text-muted);
+  color: #e8ded2;
 }
 
 /* Four interests in a row, the fun fact banner underneath across the full width */
@@ -6671,18 +6701,19 @@ button:focus-visible,
   align-items: flex-start;
   gap: 1rem;
   padding: 1.6rem 1.4rem;
-  background: #ffffff;
-  border: 1px solid var(--border-cream-medium);
+  background: rgba(43, 8, 14, 0.75);
+  border: 1px solid rgba(197, 160, 89, 0.28);
   border-radius: 10px;
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 10px 28px -6px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
   /* opacity keeps the scroll-reveal fade; the rest is the hover lift */
   transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .interest-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
-  border-color: rgba(197, 160, 89, 0.55);
+  box-shadow: 0 18px 36px -8px rgba(0, 0, 0, 0.6), 0 0 22px rgba(197, 160, 89, 0.2);
+  border-color: rgba(226, 187, 110, 0.65);
 }
 
 .interest-icon {
@@ -6692,15 +6723,16 @@ button:focus-visible,
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  color: #9c7316;
+  color: #e2bb6e;
   background: rgba(197, 160, 89, 0.16);
-  border: 1px solid rgba(197, 160, 89, 0.4);
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease;
+  border: 1px solid rgba(197, 160, 89, 0.45);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease, border-color 0.3s ease;
 }
 
 .interest-card:hover .interest-icon {
   transform: rotate(-10deg) scale(1.1);
   background: rgba(197, 160, 89, 0.28);
+  border-color: rgba(226, 187, 110, 0.7);
 }
 
 .interest-text {
@@ -6714,13 +6746,13 @@ button:focus-visible,
   font-size: 1.15rem;
   font-weight: 800;
   line-height: 1.25;
-  color: var(--text-burgundy);
+  color: #ffffff;
 }
 
 .interest-sub {
   font-size: 0.9rem;
   line-height: 1.5;
-  color: var(--text-muted);
+  color: #ded1c1;
 }
 
 /* Fun fact banner */
@@ -6733,10 +6765,10 @@ button:focus-visible,
   gap: 2.25rem;
   padding: 2rem 2.25rem;
   color: #faf7f2;
-  background: linear-gradient(135deg, #38080f 0%, #5a121e 100%);
-  border: 1px solid rgba(197, 160, 89, 0.55);
+  background: linear-gradient(135deg, #180306 0%, #35080f 50%, #4a0c16 100%);
+  border: 1px solid rgba(226, 187, 110, 0.5);
   border-radius: 14px;
-  box-shadow: 0 18px 42px -12px rgba(56, 8, 15, 0.5);
+  box-shadow: 0 20px 48px -12px rgba(0, 0, 0, 0.65), 0 0 25px rgba(197, 160, 89, 0.14);
 }
 
 /* Soft champagne glow behind the number */
@@ -6834,43 +6866,47 @@ button:focus-visible,
 
 /* Dark mode */
 [data-theme="dark"] .interests-section {
-  background: #190509; /* Deep velvet wine */
-  border-color: rgba(226, 187, 110, 0.15);
+  background: linear-gradient(180deg, #130205 0%, #220409 50%, #130205 100%);
+  border-color: rgba(226, 187, 110, 0.22);
+}
+
+[data-theme="dark"] .interests-section .section-header-retro::after {
+  background: #190306;
 }
 
 [data-theme="dark"] .interest-card {
-  background: var(--d-surface);
-  border-color: var(--d-border);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  background: rgba(30, 6, 11, 0.85);
+  border-color: rgba(197, 160, 89, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
 }
 
 [data-theme="dark"] .interest-card:hover {
-  border-color: var(--d-border-strong);
-  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.6), 0 0 20px rgba(226, 187, 110, 0.15);
+  border-color: rgba(226, 187, 110, 0.65);
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.7), 0 0 20px rgba(226, 187, 110, 0.18);
 }
 
 [data-theme="dark"] .interest-icon {
   color: #e2bb6e;
-  background: rgba(226, 187, 110, 0.12);
-  border-color: rgba(226, 187, 110, 0.4);
+  background: rgba(226, 187, 110, 0.14);
+  border-color: rgba(226, 187, 110, 0.45);
 }
 
 [data-theme="dark"] .interest-card:hover .interest-icon {
-  background: rgba(226, 187, 110, 0.22);
+  background: rgba(226, 187, 110, 0.25);
 }
 
 [data-theme="dark"] .interest-label {
-  color: #fffaf5;
+  color: #ffffff;
 }
 
 [data-theme="dark"] .interest-sub {
-  color: var(--d-muted);
+  color: #ded1c1;
 }
 
 [data-theme="dark"] .fun-fact-card {
-  background: linear-gradient(135deg, #3a0e19 0%, #4c1522 100%);
+  background: linear-gradient(135deg, #160205 0%, #32060e 50%, #460b15 100%);
   border-color: rgba(226, 187, 110, 0.5);
-  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.65);
 }
 
 /* Tablet and phones: one column, interest cards become compact rows */

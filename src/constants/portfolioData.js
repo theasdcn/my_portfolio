@@ -56,7 +56,7 @@ export const PROJECTS_DATA = [
     image: "/assets/project_savr.png",
     accentColor: "#84cc16",
     accentGlow: "rgba(132, 204, 22, 0.4)",
-    description: "A comprehensive web and mobile platform developed for the Philippine FoodBank Foundation Inc. to streamline food donation logistics, real-time inventory tracking, meal planning, disaster intelligence, donation requests, distribution, and analytical reporting.",
+    description: "A comprehensive web and mobile platform developed for the Philippine FoodBank Foundation Inc. to streamline food donation logistics, real-time inventory tracking, meal planning, donation requests, distribution, and analytical reporting.",
     metrics: "Role: Project Manager, Frontend Mobile Developer",
     liveUrl: "https://savrdonate.com/",
     githubUrl: "https://github.com/altheazuleikasadicon",
@@ -68,7 +68,7 @@ export const PROJECTS_DATA = [
       "Logistics Route Management & Meal Planning",
       "Comprehensive Analytics & Reporting Tools"
     ],
-    roleDetails: "Managed project timelines and deliverables while leading the front-end mobile development using React Native to ensure seamless user experience for donors and volunteers."
+    roleDetails: "Managed project timelines and deliverables while leading the front-end mobile development using React Native to ensure seamless user experience."
   },
   {
     id: "vitaly-tea",
