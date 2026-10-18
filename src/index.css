@@ -6622,9 +6622,16 @@ button:focus-visible,
    Matches the existing cards; the fun fact is the one burgundy accent.
    ========================================================================== */
 .interests-section {
-  padding: 6.5rem 2.5rem;
+  /* No top padding: the Projects section above already supplies the space.
+     (Stacking both made a 13rem gap.) */
+  padding: 0 2.5rem 4.5rem;
   max-width: 1320px;
   margin: 0 auto;
+}
+
+/* Projects only needs a normal gap before the next section */
+.projects-section {
+  padding-bottom: 4rem;
 }
 
 /* Three interests plus the fun fact in one row */
@@ -6782,8 +6789,12 @@ button:focus-visible,
 
 /* Phones: one column, compact rows */
 @media (max-width: 768px) {
+  .projects-section {
+    padding-bottom: 3rem;
+  }
+
   .interests-section {
-    padding: 4.5rem 1.5rem;
+    padding: 0 1.5rem 3.5rem;
   }
 }
 
