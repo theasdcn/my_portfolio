@@ -82,6 +82,15 @@ export function ContactSection() {
             </a>
 
             <a 
+              href={CONTACT_INFO.github} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="contact-clean-text-link"
+            >
+              github.com/theasdcn
+            </a>
+
+            <a 
               href={CONTACT_INFO.linkedin} 
               target="_blank" 
               rel="noopener noreferrer" 
