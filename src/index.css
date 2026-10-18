@@ -6622,11 +6622,18 @@ button:focus-visible,
    Matches the existing cards; the fun fact is the one burgundy accent.
    ========================================================================== */
 .interests-section {
-  /* No top padding: the Projects section above already supplies the space.
-     (Stacking both made a 13rem gap.) */
-  padding: 0 2.5rem 4.5rem;
+  width: 100%;
+  padding: 6.5rem 0 6.5rem;
+  background: #fcf1f4; /* Dedicated soft porcelain rose blush — distinctly NOT beige */
+  border-top: 1px solid rgba(184, 29, 54, 0.12);
+  border-bottom: 1px solid rgba(184, 29, 54, 0.12);
+  position: relative;
+}
+
+.interests-container {
   max-width: 1320px;
   margin: 0 auto;
+  padding: 0 2.5rem;
 }
 
 /* Projects only needs a normal gap before the next section */
@@ -6739,31 +6746,33 @@ button:focus-visible,
   pointer-events: none;
 }
 
-.fun-fact-count {
+.fun-fact-badge-wrapper {
   position: relative;
   flex-shrink: 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 0.35rem;
-  padding-right: 2.25rem;
+  padding-right: 2rem;
   border-right: 1px solid rgba(226, 187, 110, 0.3);
 }
 
-.fun-fact-number {
-  font-family: var(--font-serif);
-  font-size: 4.6rem;
+.fun-fact-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.15rem;
+  background: rgba(226, 187, 110, 0.15);
+  border: 1px solid rgba(226, 187, 110, 0.5);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
   font-weight: 800;
-  line-height: 1;
+  letter-spacing: 0.22em;
   color: #e2bb6e;
-  text-shadow: 0 0 28px rgba(226, 187, 110, 0.35);
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
-.fun-fact-label {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
+.fun-fact-sparkle-icon {
   color: #e2bb6e;
 }
 
@@ -6818,6 +6827,11 @@ button:focus-visible,
 }
 
 /* Dark mode */
+[data-theme="dark"] .interests-section {
+  background: #190509; /* Deep velvet wine */
+  border-color: rgba(226, 187, 110, 0.15);
+}
+
 [data-theme="dark"] .interest-card {
   background: var(--d-surface);
   border-color: var(--d-border);
@@ -6873,16 +6887,10 @@ button:focus-visible,
     padding: 1.6rem 1.4rem;
   }
 
-  .fun-fact-count {
-    flex-direction: row;
-    align-items: center;
-    gap: 1rem;
+  .fun-fact-badge-wrapper {
     padding-right: 0;
     border-right: none;
-  }
-
-  .fun-fact-number {
-    font-size: 3.4rem;
+    padding-bottom: 0.5rem;
   }
 
   .fun-fact-cats {
@@ -6896,7 +6904,11 @@ button:focus-visible,
   }
 
   .interests-section {
-    padding: 0 1.5rem 3.5rem;
+    padding: 4.5rem 0 5rem;
+  }
+
+  .interests-container {
+    padding: 0 1.5rem;
   }
 }
 
