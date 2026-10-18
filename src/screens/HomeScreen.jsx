@@ -8,6 +8,7 @@ import { Education } from '../components/Education';
 import { Skills } from '../components/Skills';
 import { Certifications } from '../components/Certifications';
 import { ProjectsSection } from '../components/ProjectsSection';
+import { Interests } from '../components/Interests';
 import { ContactSection } from '../components/ContactSection';
 import { Footer } from '../components/Footer';
 import { ProjectModal } from '../components/ProjectModal';
@@ -48,10 +49,13 @@ export function HomeScreen({ onNavigateToCertifications }) {
         {/* 6. PROJECTS */}
         <ProjectsSection onSelectProject={(project) => setSelectedProject(project)} />
 
-        {/* 7. CONTACT */}
+        {/* 7. BEYOND THE CODE: interests and fun fact */}
+        <Interests />
+
+        {/* 8. CONTACT */}
         <ContactSection />
 
-        {/* 8. SIMPLE FOOTER */}
+        {/* 9. SIMPLE FOOTER */}
         <Footer />
       </main>
 
