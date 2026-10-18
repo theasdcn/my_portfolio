@@ -3204,7 +3204,7 @@ div[id] {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  box-shadow: 
+  box-shadow:
     0 35px 80px rgba(0, 0, 0, 0.55),
     0 0 0 1px rgba(197, 160, 89, 0.2);
   animation: modalScaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -3792,23 +3792,28 @@ div[id] {
 }
 
 @media (max-width: 768px) {
+
   .modal-overview-role-grid,
   .modal-content-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+
   .modal-luxury-header {
     padding: 1.25rem 3.5rem 1.25rem 1.25rem;
   }
+
   .modal-luxury-body {
     padding: 1.25rem 1.25rem;
     gap: 1.4rem;
   }
+
   .modal-title-and-actions {
     flex-direction: column;
     align-items: stretch;
     gap: 0.85rem;
   }
+
   .modal-header-actions {
     width: 100%;
     justify-content: flex-start;
@@ -5164,6 +5169,7 @@ div[id] {
   .navbar-right-group {
     display: none;
   }
+
   .navbar-mobile-actions {
     display: flex;
   }
@@ -5714,7 +5720,8 @@ body,
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: 1; /* Strictly behind all content, cards, and text */
+  z-index: 1;
+  /* Strictly behind all content, cards, and text */
   display: none;
 }
 
@@ -6617,107 +6624,158 @@ button:focus-visible,
 [data-theme="dark"] .modal-footer-repo-text strong {
   color: var(--d-text);
 }
+
 /* ==========================================================================
-   BEYOND THE CODE — EDITORIAL BENTO / 2-COLUMN LAYOUT
-   Distinct warm champagne silk background in light mode (distinct from Projects),
-   crisp porcelain white interest cards, and deep velvet cabernet hero fun-fact card.
-   Fully refined dark mode with luminous accents and impeccable contrast.
+   BEYOND THE CODE — INTERESTS AND FUN FACT (own section, after Projects)
+   Matches the existing cards; the fun fact is the one burgundy accent.
    ========================================================================== */
 .interests-section {
   width: 100%;
   padding: 6.5rem 0 6.5rem;
-  background: #f5efe6; /* Distinct warm champagne silk — NOT the beige of Projects (#faf7f2) */
-  border-top: 1px solid rgba(197, 160, 89, 0.38);
-  border-bottom: 1px solid rgba(197, 160, 89, 0.38);
+  background: #fcf1f4; /* Dedicated soft porcelain rose blush — distinctly NOT beige */
+  border-top: 1px solid rgba(184, 29, 54, 0.12);
+  border-bottom: 1px solid rgba(184, 29, 54, 0.12);
   position: relative;
-  overflow: hidden;
 }
 
 .interests-container {
   max-width: 1320px;
   margin: 0 auto;
   padding: 0 2.5rem;
-  position: relative;
-  z-index: 1;
 }
 
+/* Projects only needs a normal gap before the next section */
 .projects-section {
   padding-bottom: 4rem;
 }
 
-/* Header inside Beyond the Code */
-.interests-section .section-header-retro {
-  border-bottom-color: rgba(197, 160, 89, 0.38);
-}
-
-.interests-section .section-header-retro::after {
-  color: var(--accent-cherry);
-  background: #f5efe6;
-}
-
-.interests-section .section-title-serif {
-  color: #38080f; /* Authentic Cabernet headline */
-}
-
+/* Short intro sits right under the section header line */
 .interests-intro {
-  margin: -1.75rem 0 2.5rem;
+  margin: -1.75rem 0 2.25rem;
   max-width: 60ch;
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 1.18rem;
+  font-size: 1.15rem;
   line-height: 1.6;
-  color: #6a575c;
+  color: var(--text-muted);
 }
 
-/* Two-column layout: Featured Fun Fact on Left, 2x2 Interest Cards on Right */
-.beyond-code-layout {
+/* Four interests in a row, the fun fact banner underneath across the full width */
+.interests-grid {
   display: grid;
-  grid-template-columns: 1.12fr 1fr;
-  gap: 1.75rem;
-  align-items: stretch;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
 }
 
-/* 1. Left Featured Fun Fact Card */
+@media (max-width: 1100px) and (min-width: 769px) {
+  .interests-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.interest-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.6rem 1.4rem;
+  background: #ffffff;
+  border: 1px solid var(--border-cream-medium);
+  border-radius: 10px;
+  box-shadow: var(--shadow-card);
+  /* opacity keeps the scroll-reveal fade; the rest is the hover lift */
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.interest-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(197, 160, 89, 0.55);
+}
+
+.interest-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: #9c7316;
+  background: rgba(197, 160, 89, 0.16);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease;
+}
+
+.interest-card:hover .interest-icon {
+  transform: rotate(-10deg) scale(1.1);
+  background: rgba(197, 160, 89, 0.28);
+}
+
+.interest-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.interest-label {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--text-burgundy);
+}
+
+.interest-sub {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+/* Fun fact banner */
 .fun-fact-card {
   position: relative;
   overflow: hidden;
+  grid-column: 1 / -1;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 1.75rem;
-  padding: 2.4rem 2.25rem;
-  background: linear-gradient(145deg, #38080f 0%, #520d19 100%);
+  align-items: center;
+  gap: 2.25rem;
+  padding: 2rem 2.25rem;
+  color: #faf7f2;
+  background: linear-gradient(135deg, #38080f 0%, #5a121e 100%);
   border: 1px solid rgba(197, 160, 89, 0.55);
   border-radius: 14px;
-  box-shadow: 0 16px 36px -8px rgba(56, 8, 15, 0.28);
+  box-shadow: 0 18px 42px -12px rgba(56, 8, 15, 0.5);
 }
 
-/* Ambient glow inside Fun Fact */
+/* Soft champagne glow behind the number */
 .fun-fact-card::before {
   content: '';
   position: absolute;
-  top: -60px;
-  right: -60px;
-  width: 260px;
-  height: 260px;
-  background: radial-gradient(circle, rgba(226, 187, 110, 0.22) 0%, transparent 70%);
+  left: -40px;
+  top: 50%;
+  width: 320px;
+  height: 320px;
+  transform: translateY(-50%);
+  background: radial-gradient(circle, rgba(226, 187, 110, 0.2) 0%, transparent 68%);
   pointer-events: none;
 }
 
-.fun-fact-header {
+.fun-fact-badge-wrapper {
+  position: relative;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
-  position: relative;
-  z-index: 1;
+  padding-right: 2rem;
+  border-right: 1px solid rgba(226, 187, 110, 0.3);
 }
 
 .fun-fact-pill-tag {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.5rem 1.15rem;
-  background: rgba(226, 187, 110, 0.16);
-  border: 1px solid rgba(226, 187, 110, 0.55);
+  padding: 0.55rem 1.15rem;
+  background: rgba(226, 187, 110, 0.15);
+  border: 1px solid rgba(226, 187, 110, 0.5);
   border-radius: 999px;
   font-family: var(--font-mono);
   font-size: 0.76rem;
@@ -6734,136 +6792,61 @@ button:focus-visible,
 
 .fun-fact-text {
   position: relative;
-  z-index: 1;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.4rem;
 }
 
 .fun-fact-headline {
   font-family: var(--font-serif);
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 800;
   line-height: 1.2;
   color: #ffffff;
 }
 
 .fun-fact-sub {
-  font-size: 1.02rem;
-  line-height: 1.65;
-  color: #f1e6da;
-  max-width: 48ch;
+  max-width: 46ch;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #e8ded2;
 }
 
-.fun-fact-cats-container {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid rgba(226, 187, 110, 0.25);
-}
-
-.fun-fact-cats-label {
-  font-family: var(--font-mono);
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #e2bb6e;
-}
-
+/* Eleven little cats, one for each cat. They pop in one after another. */
 .fun-fact-cats {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  gap: 0.65rem;
+  gap: 0.6rem;
+  max-width: 310px;
 }
 
 .fun-fact-cat {
   color: #e2bb6e;
-  opacity: 0.95;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.2s ease;
-  cursor: pointer;
+  opacity: 0;
+  transform: translateY(8px) scale(0.6);
+  transition: opacity 0.35s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: calc(var(--i) * 70ms + 250ms);
 }
 
-.fun-fact-cat:hover {
-  color: #fff2d1;
-  transform: translateY(-4px) rotate(-10deg) scale(1.25);
+.fun-fact-card.is-visible .fun-fact-cat {
+  opacity: 1;
+  transform: none;
 }
 
-/* 2. Right Column: 2x2 Interest Cards */
-.interests-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem;
-}
-
-.interest-card {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1.25rem;
-  padding: 1.75rem 1.5rem;
-  background: #ffffff; /* Crisp porcelain white — NOT burgundy! */
-  border: 1px solid rgba(197, 160, 89, 0.32);
-  border-radius: 12px;
-  box-shadow: 0 8px 24px -4px rgba(56, 8, 15, 0.06);
-  transition: transform 0.35s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.interest-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 32px -6px rgba(56, 8, 15, 0.12), 0 0 16px rgba(197, 160, 89, 0.2);
-  border-color: rgba(197, 160, 89, 0.65);
-}
-
-.interest-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  color: #9c7316;
-  background: rgba(197, 160, 89, 0.16);
-  border: 1px solid rgba(197, 160, 89, 0.4);
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease;
-}
-
-.interest-card:hover .interest-icon {
-  transform: rotate(-8deg) scale(1.08);
-  background: rgba(197, 160, 89, 0.26);
-}
-
-.interest-text {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.interest-label {
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
-  font-weight: 800;
-  line-height: 1.25;
-  color: #38080f; /* Cabernet typography */
-}
-
-.interest-sub {
-  font-size: 0.92rem;
-  line-height: 1.55;
-  color: #68575c;
+.fun-fact-card.is-visible .fun-fact-cat:hover {
+  transform: translateY(-3px) rotate(-10deg) scale(1.2);
+  transition-delay: 0s;
 }
 
 /* ==========================================================================
    DARK MODE OVERRIDES FOR BEYOND THE CODE
    ========================================================================== */
 [data-theme="dark"] .interests-section {
-  background: #100407; /* Matches dark mode base */
-  border-color: rgba(226, 187, 110, 0.2);
+  background: #170509; /* Deep velvet wine */
+  border-top-color: rgba(226, 187, 110, 0.2);
+  border-bottom-color: rgba(226, 187, 110, 0.2);
 }
 
 [data-theme="dark"] .interests-section .section-header-retro {
@@ -6871,7 +6854,7 @@ button:focus-visible,
 }
 
 [data-theme="dark"] .interests-section .section-header-retro::after {
-  background: #100407;
+  background: #170509;
   color: #e2bb6e;
 }
 
@@ -6880,29 +6863,28 @@ button:focus-visible,
 }
 
 [data-theme="dark"] .interests-intro {
-  color: #baa9af;
+  color: #c4b5bb;
 }
 
-/* Dark Mode Interest Cards */
 [data-theme="dark"] .interest-card {
-  background: #1a080d; /* Crisp dark surface */
+  background: #200a11;
   border-color: rgba(226, 187, 110, 0.22);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
 }
 
 [data-theme="dark"] .interest-card:hover {
   border-color: rgba(226, 187, 110, 0.65);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7), 0 0 20px rgba(226, 187, 110, 0.16);
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.7), 0 0 20px rgba(226, 187, 110, 0.18);
 }
 
 [data-theme="dark"] .interest-icon {
   color: #e2bb6e;
-  background: rgba(226, 187, 110, 0.12);
-  border-color: rgba(226, 187, 110, 0.4);
+  background: rgba(226, 187, 110, 0.14);
+  border-color: rgba(226, 187, 110, 0.45);
 }
 
 [data-theme="dark"] .interest-card:hover .interest-icon {
-  background: rgba(226, 187, 110, 0.22);
+  background: rgba(226, 187, 110, 0.25);
 }
 
 [data-theme="dark"] .interest-label {
@@ -6910,14 +6892,13 @@ button:focus-visible,
 }
 
 [data-theme="dark"] .interest-sub {
-  color: #c4b5bb;
+  color: #baa9af;
 }
 
-/* Dark Mode Fun Fact */
 [data-theme="dark"] .fun-fact-card {
-  background: linear-gradient(145deg, #24050b 0%, #3a0912 100%);
-  border-color: rgba(226, 187, 110, 0.45);
-  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.65);
+  background: linear-gradient(135deg, #28060d 0%, #440c16 100%);
+  border-color: rgba(226, 187, 110, 0.5);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.65);
 }
 
 [data-theme="dark"] .fun-fact-headline {
@@ -6928,30 +6909,58 @@ button:focus-visible,
   color: #ded1c1;
 }
 
-/* Responsive adjustments */
-@media (max-width: 980px) {
-  .beyond-code-layout {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .interests-cards-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+[data-theme="dark"] .fun-fact-pill-tag {
+  color: #e2bb6e;
+  background: rgba(226, 187, 110, 0.16);
+  border-color: rgba(226, 187, 110, 0.55);
 }
 
-@media (max-width: 640px) {
-  .interests-cards-grid {
+[data-theme="dark"] .fun-fact-cats .fun-fact-cat {
+  color: #e2bb6e;
+}
+
+/* Tablet and phones: one column, interest cards become compact rows */
+@media (max-width: 900px) {
+  .interests-grid {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 1.15rem;
+  }
+
+  .interest-card {
+    flex-direction: row;
+    align-items: center;
+    padding: 1.25rem 1.25rem;
   }
 
   .fun-fact-card {
-    padding: 1.75rem 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 1.6rem 1.4rem;
   }
 
-  .fun-fact-headline {
-    font-size: 1.65rem;
+  .fun-fact-badge-wrapper {
+    padding-right: 0;
+    border-right: none;
+    padding-bottom: 0.5rem;
+  }
+
+  .fun-fact-cats {
+    max-width: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-section {
+    padding-bottom: 3rem;
+  }
+
+  .interests-section {
+    padding: 4.5rem 0 5rem;
+  }
+
+  .interests-container {
+    padding: 0 1.5rem;
   }
 }
 
@@ -6970,6 +6979,7 @@ button:focus-visible,
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .interest-card,
   .interest-icon {
     transition: none;
