@@ -57,7 +57,7 @@ export function Laptop3D() {
                   <span className="dot green" />
                 </div>
                 <div className="screen-address-bar">
-                  <span>altheasadicon.portfolio</span>
+                  <span>altheaxz.dev</span>
                 </div>
               </div>
               <div className="screen-hero-preview">
