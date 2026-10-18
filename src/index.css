@@ -6896,17 +6896,21 @@ button:focus-visible,
    DARK MODE OVERRIDES FOR BEYOND THE CODE
    ========================================================================== */
 [data-theme="dark"] .interests-section {
-  background: #170509; /* Deep velvet wine */
-  border-top-color: rgba(226, 187, 110, 0.2);
-  border-bottom-color: rgba(226, 187, 110, 0.2);
+  background: transparent; /* Allows starry night canvas to shine through seamlessly like other sections */
+  border-top-color: rgba(226, 187, 110, 0.22);
+  border-bottom-color: rgba(226, 187, 110, 0.22);
+}
+
+[data-theme="dark"] .interests-section::before {
+  background: radial-gradient(ellipse at top, rgba(226, 187, 110, 0.08) 0%, transparent 70%);
 }
 
 [data-theme="dark"] .interests-section .section-header-retro {
-  border-bottom-color: rgba(226, 187, 110, 0.2);
+  border-bottom-color: rgba(226, 187, 110, 0.22);
 }
 
 [data-theme="dark"] .interests-section .section-header-retro::after {
-  background: #170509;
+  background: #140509;
   color: #e2bb6e;
 }
 
