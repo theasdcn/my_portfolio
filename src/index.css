@@ -6618,37 +6618,28 @@ button:focus-visible,
   color: var(--d-text);
 }
 /* ==========================================================================
-   ABOUT ME — "BEYOND THE CODE": INTERESTS AND FUN FACT
-   Matches the existing stat cards; fun fact card is the one burgundy accent.
+   BEYOND THE CODE — INTERESTS AND FUN FACT (own section, after Projects)
+   Matches the existing cards; the fun fact is the one burgundy accent.
    ========================================================================== */
-.about-beyond {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-top: 1.25rem;
+.interests-section {
+  padding: 6.5rem 2.5rem;
+  max-width: 1320px;
+  margin: 0 auto;
 }
 
-.about-beyond-eyebrow {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: var(--accent-cherry);
-}
-
-.about-interests-grid {
-  list-style: none;
+/* Three interests plus the fun fact in one row */
+.interests-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
 }
 
 .interest-card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.9rem;
-  padding: 1.2rem 1.15rem;
+  gap: 1rem;
+  padding: 1.6rem 1.4rem;
   background: #ffffff;
   border: 1px solid var(--border-cream-medium);
   border-radius: 10px;
@@ -6696,9 +6687,11 @@ button:focus-visible,
 
 .fun-fact-card {
   display: flex;
-  align-items: center;
-  gap: 1.15rem;
-  padding: 1.35rem 1.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.1rem;
+  padding: 1.6rem 1.4rem;
   color: #faf7f2;
   background: linear-gradient(135deg, #38080f 0%, #5a121e 100%);
   border: 1px solid rgba(197, 160, 89, 0.55);
@@ -6773,29 +6766,41 @@ button:focus-visible,
   color: var(--d-muted);
 }
 
-[data-theme="dark"] .about-beyond-eyebrow {
-  color: var(--d-rose);
-}
-
 [data-theme="dark"] .fun-fact-card {
   background: linear-gradient(135deg, #3a0e19 0%, #4c1522 100%);
   border-color: rgba(226, 187, 110, 0.5);
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.55);
 }
 
-/* Narrow screens: interests stack as compact rows */
+/* Tablet: two by two */
+@media (max-width: 1100px) {
+  .interests-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+/* Phones: one column, compact rows */
+@media (max-width: 768px) {
+  .interests-section {
+    padding: 4.5rem 1.5rem;
+  }
+}
+
 @media (max-width: 640px) {
-  .about-interests-grid {
+  .interests-grid {
     grid-template-columns: 1fr;
   }
 
   .interest-card {
     flex-direction: row;
     align-items: center;
-    gap: 1rem;
+    padding: 1.15rem 1.15rem;
   }
 
   .fun-fact-card {
+    flex-direction: row;
+    align-items: center;
     padding: 1.15rem 1.15rem;
   }
 }
