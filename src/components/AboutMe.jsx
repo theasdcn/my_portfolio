@@ -1,6 +1,14 @@
 import React from 'react';
+import { Plane, Utensils, BookOpen, Cat } from 'lucide-react';
 import { DESIGNER_INFO } from '../constants/portfolioData';
 import { playCameraShutter } from '../utils/soundEffects';
+
+// Keys used by `interests[].icon` in portfolioData.js
+const INTEREST_ICONS = {
+  travel: Plane,
+  food: Utensils,
+  books: BookOpen,
+};
 
 export function AboutMe() {
   return (
@@ -34,6 +42,39 @@ export function AboutMe() {
                 <p className="stat-label-y2k">{card.sub}</p>
               </div>
             ))}
+          </div>
+
+          {/* Beyond the code: interests and a fun fact */}
+          <div className="about-beyond">
+            <span className="about-beyond-eyebrow">Beyond the code</span>
+
+            <ul className="about-interests-grid">
+              {DESIGNER_INFO.interests.map((item, idx) => {
+                const Icon = INTEREST_ICONS[item.icon] || BookOpen;
+                return (
+                  <li key={item.label} className={`interest-card reveal-3d-card delay-${idx + 1}`}>
+                    <span className="interest-icon" aria-hidden="true">
+                      <Icon size={20} strokeWidth={1.8} />
+                    </span>
+                    <span className="interest-text">
+                      <span className="interest-label">{item.label}</span>
+                      <span className="interest-sub">{item.sub}</span>
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+
+            <div className="fun-fact-card reveal-3d-card delay-4">
+              <span className="fun-fact-icon" aria-hidden="true">
+                <Cat size={26} strokeWidth={1.7} />
+              </span>
+              <div className="fun-fact-text">
+                <span className="fun-fact-label">{DESIGNER_INFO.funFact.label}</span>
+                <p className="fun-fact-headline">{DESIGNER_INFO.funFact.headline}</p>
+                <p className="fun-fact-sub">{DESIGNER_INFO.funFact.sub}</p>
+              </div>
+            </div>
           </div>
         </div>
 

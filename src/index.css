@@ -6617,3 +6617,195 @@ button:focus-visible,
 [data-theme="dark"] .modal-footer-repo-text strong {
   color: var(--d-text);
 }
+/* ==========================================================================
+   ABOUT ME — "BEYOND THE CODE": INTERESTS AND FUN FACT
+   Matches the existing stat cards; fun fact card is the one burgundy accent.
+   ========================================================================== */
+.about-beyond {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.about-beyond-eyebrow {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--accent-cherry);
+}
+
+.about-interests-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.interest-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 1.2rem 1.15rem;
+  background: #ffffff;
+  border: 1px solid var(--border-cream-medium);
+  border-radius: 10px;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.interest-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(197, 160, 89, 0.55);
+}
+
+.interest-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #9c7316;
+  background: rgba(197, 160, 89, 0.16);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+}
+
+.interest-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.interest-label {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--text-burgundy);
+}
+
+.interest-sub {
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.fun-fact-card {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+  padding: 1.35rem 1.5rem;
+  color: #faf7f2;
+  background: linear-gradient(135deg, #38080f 0%, #5a121e 100%);
+  border: 1px solid rgba(197, 160, 89, 0.55);
+  border-radius: 12px;
+  box-shadow: 0 14px 34px -10px rgba(56, 8, 15, 0.45);
+}
+
+.fun-fact-icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  color: #e2bb6e;
+  background: rgba(226, 187, 110, 0.14);
+  border: 1px solid rgba(226, 187, 110, 0.5);
+}
+
+.fun-fact-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.fun-fact-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #e2bb6e;
+}
+
+.fun-fact-headline {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+.fun-fact-sub {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #e8ded2;
+}
+
+/* Dark mode */
+[data-theme="dark"] .interest-card {
+  background: var(--d-surface);
+  border-color: var(--d-border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="dark"] .interest-card:hover {
+  border-color: var(--d-border-strong);
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.6), 0 0 20px rgba(226, 187, 110, 0.15);
+}
+
+[data-theme="dark"] .interest-icon {
+  color: #e2bb6e;
+  background: rgba(226, 187, 110, 0.12);
+  border-color: rgba(226, 187, 110, 0.4);
+}
+
+[data-theme="dark"] .interest-label {
+  color: #fffaf5;
+}
+
+[data-theme="dark"] .interest-sub {
+  color: var(--d-muted);
+}
+
+[data-theme="dark"] .about-beyond-eyebrow {
+  color: var(--d-rose);
+}
+
+[data-theme="dark"] .fun-fact-card {
+  background: linear-gradient(135deg, #3a0e19 0%, #4c1522 100%);
+  border-color: rgba(226, 187, 110, 0.5);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.55);
+}
+
+/* Narrow screens: interests stack as compact rows */
+@media (max-width: 640px) {
+  .about-interests-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .interest-card {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .fun-fact-card {
+    padding: 1.15rem 1.15rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .interest-card {
+    transition: none;
+  }
+
+  .interest-card:hover {
+    transform: none;
+  }
+}

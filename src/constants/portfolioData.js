@@ -28,7 +28,19 @@ export const DESIGNER_INFO = {
     { label: "TEAM-ORIENTED", sub: "Communication & Collaboration" },
     { label: "PROBLEM-SOLVING", sub: "Adaptability & Critical Thinking" },
     { label: "DETAIL-FOCUSED", sub: "UI/UX & User Experience" }
-  ]
+  ],
+  // Shown under "Beyond the code" in About Me. `icon` must match a key in
+  // INTEREST_ICONS inside AboutMe.jsx.
+  interests: [
+    { icon: "travel", label: "Traveling", sub: "Exploring new places and cultures" },
+    { icon: "food", label: "Eating", sub: "Always hunting for a great meal" },
+    { icon: "books", label: "Reading Books", sub: "Stories that fuel my imagination" }
+  ],
+  funFact: {
+    label: "FUN FACT",
+    headline: "I have 11 cats.",
+    sub: "Yes, eleven. They keep life lively."
+  }
 };
 
 export const PROJECTS_DATA = [
