@@ -32,14 +32,16 @@ export const DESIGNER_INFO = {
   // Shown under "Beyond the code" in About Me. `icon` must match a key in
   // INTEREST_ICONS inside AboutMe.jsx.
   interests: [
-    { icon: "travel", label: "Traveling", sub: "Exploring new places and cultures" },
-    { icon: "food", label: "Eating", sub: "Always hunting for a great meal" },
-    { icon: "books", label: "Reading Books", sub: "Stories that fuel my imagination" }
+    { icon: "travel", label: "Traveling", sub: "Collecting new places, one trip at a time" },
+    { icon: "food", label: "Eating", sub: "Food is my love language" },
+    { icon: "books", label: "Reading Books", sub: "Always one more chapter" }
   ],
+  interestsIntro: "When the laptop closes, these are the things that keep me curious.",
   funFact: {
     label: "FUN FACT",
+    count: 11,
     headline: "I have 11 cats.",
-    sub: "Yes, eleven. They keep life lively."
+    sub: "Yes, eleven. My home is never quiet, and I wouldn't have it any other way."
   }
 };
 

@@ -6634,10 +6634,21 @@ button:focus-visible,
   padding-bottom: 4rem;
 }
 
-/* Three interests plus the fun fact in one row */
+/* Short intro sits right under the section header line */
+.interests-intro {
+  margin: -1.75rem 0 2.25rem;
+  max-width: 60ch;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* Three interests in a row, the fun fact banner underneath across the full width */
 .interests-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
 }
 
@@ -6651,7 +6662,8 @@ button:focus-visible,
   border: 1px solid var(--border-cream-medium);
   border-radius: 10px;
   box-shadow: var(--shadow-card);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  /* opacity keeps the scroll-reveal fade; the rest is the hover lift */
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .interest-card:hover {
@@ -6664,87 +6676,145 @@ button:focus-visible,
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   color: #9c7316;
   background: rgba(197, 160, 89, 0.16);
   border: 1px solid rgba(197, 160, 89, 0.4);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease;
+}
+
+.interest-card:hover .interest-icon {
+  transform: rotate(-10deg) scale(1.1);
+  background: rgba(197, 160, 89, 0.28);
 }
 
 .interest-text {
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: 0.25rem;
 }
 
 .interest-label {
   font-family: var(--font-serif);
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 800;
   line-height: 1.25;
   color: var(--text-burgundy);
 }
 
 .interest-sub {
-  font-size: 0.84rem;
+  font-size: 0.9rem;
   line-height: 1.5;
   color: var(--text-muted);
 }
 
+/* Fun fact banner */
 .fun-fact-card {
+  position: relative;
+  overflow: hidden;
+  grid-column: 1 / -1;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 1.1rem;
-  padding: 1.6rem 1.4rem;
+  align-items: center;
+  gap: 2.25rem;
+  padding: 2rem 2.25rem;
   color: #faf7f2;
   background: linear-gradient(135deg, #38080f 0%, #5a121e 100%);
   border: 1px solid rgba(197, 160, 89, 0.55);
-  border-radius: 12px;
-  box-shadow: 0 14px 34px -10px rgba(56, 8, 15, 0.45);
+  border-radius: 14px;
+  box-shadow: 0 18px 42px -12px rgba(56, 8, 15, 0.5);
 }
 
-.fun-fact-icon {
+/* Soft champagne glow behind the number */
+.fun-fact-card::before {
+  content: '';
+  position: absolute;
+  left: -40px;
+  top: 50%;
+  width: 320px;
+  height: 320px;
+  transform: translateY(-50%);
+  background: radial-gradient(circle, rgba(226, 187, 110, 0.2) 0%, transparent 68%);
+  pointer-events: none;
+}
+
+.fun-fact-count {
+  position: relative;
   flex-shrink: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  color: #e2bb6e;
-  background: rgba(226, 187, 110, 0.14);
-  border: 1px solid rgba(226, 187, 110, 0.5);
-}
-
-.fun-fact-text {
   display: flex;
   flex-direction: column;
-  gap: 0.15rem;
+  align-items: center;
+  gap: 0.35rem;
+  padding-right: 2.25rem;
+  border-right: 1px solid rgba(226, 187, 110, 0.3);
+}
+
+.fun-fact-number {
+  font-family: var(--font-serif);
+  font-size: 4.6rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #e2bb6e;
+  text-shadow: 0 0 28px rgba(226, 187, 110, 0.35);
 }
 
 .fun-fact-label {
   font-family: var(--font-mono);
   font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   color: #e2bb6e;
+}
+
+.fun-fact-text {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
 .fun-fact-headline {
   font-family: var(--font-serif);
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 800;
   line-height: 1.2;
   color: #ffffff;
 }
 
 .fun-fact-sub {
-  font-size: 0.9rem;
-  line-height: 1.5;
+  max-width: 46ch;
+  font-size: 0.98rem;
+  line-height: 1.6;
   color: #e8ded2;
+}
+
+/* Eleven little cats, one for each cat. They pop in one after another. */
+.fun-fact-cats {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  max-width: 310px;
+}
+
+.fun-fact-cat {
+  color: #e2bb6e;
+  opacity: 0;
+  transform: translateY(8px) scale(0.6);
+  transition: opacity 0.35s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: calc(var(--i) * 70ms + 250ms);
+}
+
+.fun-fact-card.is-visible .fun-fact-cat {
+  opacity: 1;
+  transform: none;
+}
+
+.fun-fact-card.is-visible .fun-fact-cat:hover {
+  transform: translateY(-3px) rotate(-10deg) scale(1.2);
+  transition-delay: 0s;
 }
 
 /* Dark mode */
@@ -6765,6 +6835,10 @@ button:focus-visible,
   border-color: rgba(226, 187, 110, 0.4);
 }
 
+[data-theme="dark"] .interest-card:hover .interest-icon {
+  background: rgba(226, 187, 110, 0.22);
+}
+
 [data-theme="dark"] .interest-label {
   color: #fffaf5;
 }
@@ -6776,18 +6850,46 @@ button:focus-visible,
 [data-theme="dark"] .fun-fact-card {
   background: linear-gradient(135deg, #3a0e19 0%, #4c1522 100%);
   border-color: rgba(226, 187, 110, 0.5);
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.55);
 }
 
-/* Tablet: two by two */
-@media (max-width: 1100px) {
+/* Tablet and phones: one column, interest cards become compact rows */
+@media (max-width: 900px) {
   .interests-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+  }
+
+  .interest-card {
+    flex-direction: row;
+    align-items: center;
+    padding: 1.25rem 1.25rem;
+  }
+
+  .fun-fact-card {
+    flex-direction: column;
+    align-items: flex-start;
     gap: 1.25rem;
+    padding: 1.6rem 1.4rem;
+  }
+
+  .fun-fact-count {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    padding-right: 0;
+    border-right: none;
+  }
+
+  .fun-fact-number {
+    font-size: 3.4rem;
+  }
+
+  .fun-fact-cats {
+    max-width: none;
   }
 }
 
-/* Phones: one column, compact rows */
 @media (max-width: 768px) {
   .projects-section {
     padding-bottom: 3rem;
@@ -6798,30 +6900,21 @@ button:focus-visible,
   }
 }
 
-@media (max-width: 640px) {
-  .interests-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .interest-card {
-    flex-direction: row;
-    align-items: center;
-    padding: 1.15rem 1.15rem;
-  }
-
-  .fun-fact-card {
-    flex-direction: row;
-    align-items: center;
-    padding: 1.15rem 1.15rem;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .interest-card {
+  .interest-card,
+  .interest-icon {
     transition: none;
   }
 
-  .interest-card:hover {
+  .interest-card:hover,
+  .interest-card:hover .interest-icon {
     transform: none;
+  }
+
+  /* Show all the cats straight away */
+  .fun-fact-cat {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
