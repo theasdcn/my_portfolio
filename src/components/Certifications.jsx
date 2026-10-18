@@ -7,7 +7,7 @@ import { CertificateModal } from './CertificateModal';
 import { CertificateCard } from './CertificateCard';
 
 const INITIAL_VISIBLE_COUNT = 4;
-const FEATURED_IDS = [1, 10, 12, 2];
+const FEATURED_IDS = [1, 9, 11, 2];
 
 
 export function Certifications({ onViewAll }) {

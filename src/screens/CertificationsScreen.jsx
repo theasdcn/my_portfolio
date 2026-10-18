@@ -138,7 +138,7 @@ export function CertificationsScreen({ onBack }) {
             <div className="notice-content-col">
               <h3 className="notice-title">Authenticity &amp; Digital Registry Verification</h3>
               <p className="notice-text">
-                Every credential showcased in this repository has been issued directly by recognized academic and industry authorities—including <strong>Ethel Programming Computer Programming Services</strong>, <strong>Cisco Networking Academy</strong>, the <strong>Project Management Institute (PMI)</strong>, and the <strong>Linux Professional Institute (LPI)</strong>. Each badge features official certification records and verifiable credentials.
+                Every credential showcased in this repository has been issued directly by recognized academic and industry authorities—including <strong>Ethel Programming Computer Programming Services</strong>, <strong>Cisco</strong>, the <strong>Project Management Institute (PMI)</strong>, <strong>Certiport (Pearson VUE)</strong>, and the <strong>Linux Professional Institute (LPI)</strong>. Each badge features official certification records and direct Credly verification links.
               </p>
               <div className="notice-tags">
                 <span className="notice-tag"><CheckCircle2 size={13} /> Official Certificate Records</span>
