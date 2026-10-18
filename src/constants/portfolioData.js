@@ -40,8 +40,8 @@ export const DESIGNER_INFO = {
   funFact: {
     label: "FUN FACT",
     count: 11,
-    headline: "I have 11 cats.",
-    sub: "Yes, eleven. My home is never quiet, and I wouldn't have it any other way."
+    headline: "I love animals — I have 11 cats!",
+    sub: "Yes, eleven! My home is always lively, full of purrs, and I wouldn't have it any other way."
   }
 };
 
