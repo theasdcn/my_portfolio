@@ -6652,11 +6652,17 @@ button:focus-visible,
   color: var(--text-muted);
 }
 
-/* Three interests in a row, the fun fact banner underneath across the full width */
+/* Four interests in a row, the fun fact banner underneath across the full width */
 .interests-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1.5rem;
+}
+
+@media (max-width: 1100px) and (min-width: 769px) {
+  .interests-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .interest-card {

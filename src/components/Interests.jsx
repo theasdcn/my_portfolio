@@ -1,10 +1,11 @@
 import React from 'react';
-import { Plane, Utensils, BookOpen, Cat, Sparkles } from 'lucide-react';
+import { Plane, Utensils, BookOpen, Cat, Sparkles, Shirt } from 'lucide-react';
 import { DESIGNER_INFO } from '../constants/portfolioData';
 
 // Keys used by `interests[].icon` in portfolioData.js
 const INTEREST_ICONS = {
   travel: Plane,
+  fashion: Shirt,
   food: Utensils,
   books: BookOpen,
 };
