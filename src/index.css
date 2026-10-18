@@ -6647,27 +6647,58 @@ button:focus-visible,
 }
 
 /* ==========================================================================
-   BEYOND THE CODE — INTERESTS AND FUN FACT (own section, after Projects)
-   Matches the existing cards; the fun fact is the one burgundy accent.
+   BEYOND THE CODE — INTERESTS AND FUN FACT
+   Deep Velvet Cabernet background with Champagne Gold accents.
+   The cards stay their signature design for maximum elegance and readability.
    ========================================================================== */
 .interests-section {
   width: 100%;
   padding: 6.5rem 0 6.5rem;
-  background: #fcf1f4; /* Dedicated soft porcelain rose blush — distinctly NOT beige */
-  border-top: 1px solid rgba(184, 29, 54, 0.12);
-  border-bottom: 1px solid rgba(184, 29, 54, 0.12);
+  background: linear-gradient(180deg, #1c0307 0%, #2b060d 50%, #1a0206 100%);
+  border-top: 1px solid rgba(197, 160, 89, 0.38);
+  border-bottom: 1px solid rgba(197, 160, 89, 0.38);
   position: relative;
+  overflow: hidden;
+}
+
+.interests-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 420px;
+  background: radial-gradient(ellipse at top, rgba(197, 160, 89, 0.12) 0%, transparent 72%);
+  pointer-events: none;
 }
 
 .interests-container {
   max-width: 1320px;
   margin: 0 auto;
   padding: 0 2.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 /* Projects only needs a normal gap before the next section */
 .projects-section {
   padding-bottom: 4rem;
+}
+
+/* Header inside Cabernet section with gold accents */
+.interests-section .section-header-retro {
+  border-bottom-color: rgba(197, 160, 89, 0.38);
+}
+
+.interests-section .section-header-retro::after {
+  color: #e2bb6e;
+  background: #23050a;
+}
+
+.interests-section .section-title-serif {
+  color: #ffffff;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
 }
 
 /* Short intro sits right under the section header line */
@@ -6678,7 +6709,7 @@ button:focus-visible,
   font-style: italic;
   font-size: 1.15rem;
   line-height: 1.6;
-  color: var(--text-muted);
+  color: #e8ded2;
 }
 
 /* Four interests in a row, the fun fact banner underneath across the full width */
@@ -6700,18 +6731,18 @@ button:focus-visible,
   align-items: flex-start;
   gap: 1rem;
   padding: 1.6rem 1.4rem;
-  background: #ffffff;
-  border: 1px solid var(--border-cream-medium);
+  background: #ffffff; /* Stays crisp white for maximum contrast & readability */
+  border: 1px solid rgba(197, 160, 89, 0.35);
   border-radius: 10px;
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 10px 28px -6px rgba(0, 0, 0, 0.38);
   /* opacity keeps the scroll-reveal fade; the rest is the hover lift */
   transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .interest-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
-  border-color: rgba(197, 160, 89, 0.55);
+  box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.5), 0 0 18px rgba(197, 160, 89, 0.3);
+  border-color: rgba(197, 160, 89, 0.75);
 }
 
 .interest-icon {
