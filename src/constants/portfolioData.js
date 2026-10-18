@@ -56,6 +56,29 @@ export const PROJECTS_DATA = [
     roleDetails: "Managed project timelines and deliverables while leading the front-end mobile development using React Native to ensure seamless user experience for donors and volunteers."
   },
   {
+    id: "vitaly-tea",
+    title: "VITALY TEA",
+    subtitle: "Tea Shop & Printing Service Hub",
+    category: "Web Application",
+    categoryKey: "web",
+    image: "/assets/project_vitalytea.png",
+    accentColor: "#f59e0b",
+    accentGlow: "rgba(245, 158, 11, 0.4)",
+    description: "An interactive web platform built for a hybrid tea shop and printing service hub. Features a responsive beverage ordering catalog, customizable printing request form, customer reviews, blog updates, and custom Y2K visual design.",
+    metrics: "Role: Full-Stack Web Developer (Frontend & Backend)",
+    liveUrl: "https://moonlit-pithivier-1e4971.netlify.app/",
+    githubUrl: "https://github.com/theasdcn",
+    tags: ["HTML/CSS", "JavaScript", "E-Commerce & Services", "UI/UX Design"],
+    features: [
+      "Interactive Digital Ordering Menu for Beverages",
+      "Customizable Printing Service Catalog & Upload Form",
+      "Responsive Layout with Vintage & Modern Styling",
+      "Customer Testimonials & News/Blog Engine",
+      "Fast Static Deployment with Netlify Automation"
+    ],
+    roleDetails: "Sole full-stack developer responsible for end-to-end architecture, UI/UX wireframing, responsive frontend design, dynamic cart ordering logic, printing request submission handlers, and cloud deployment on Netlify."
+  },
+  {
     id: "teddiursa-airlines",
     title: "TEDDIURSA AIRLINES",
     subtitle: "Intergalactic Space Flight Booking & Passenger Management System",
@@ -78,29 +101,6 @@ export const PROJECTS_DATA = [
       "Dockerized Containerization & Cloud Deployment on Render"
     ],
     roleDetails: "Focused on frontend development and interface design, building the responsive intergalactic flight booking views, passenger seat selection, dynamic ticket generation display, and space-themed UI styling."
-  },
-  {
-    id: "vitaly-tea",
-    title: "VITALY TEA",
-    subtitle: "Tea Shop & Printing Service Hub",
-    category: "Web Application",
-    categoryKey: "web",
-    image: "/assets/project_vitalytea.png",
-    accentColor: "#f59e0b",
-    accentGlow: "rgba(245, 158, 11, 0.4)",
-    description: "An interactive web platform built for a hybrid tea shop and printing service hub. Features a responsive beverage ordering catalog, customizable printing request form, customer reviews, blog updates, and custom Y2K visual design.",
-    metrics: "Role: Full-Stack Web Developer (Frontend & Backend)",
-    liveUrl: "https://moonlit-pithivier-1e4971.netlify.app/",
-    githubUrl: "https://github.com/theasdcn",
-    tags: ["HTML/CSS", "JavaScript", "E-Commerce & Services", "UI/UX Design"],
-    features: [
-      "Interactive Digital Ordering Menu for Beverages",
-      "Customizable Printing Service Catalog & Upload Form",
-      "Responsive Layout with Vintage & Modern Styling",
-      "Customer Testimonials & News/Blog Engine",
-      "Fast Static Deployment with Netlify Automation"
-    ],
-    roleDetails: "Sole full-stack developer responsible for end-to-end architecture, UI/UX wireframing, responsive frontend design, dynamic cart ordering logic, printing request submission handlers, and cloud deployment on Netlify."
   },
   {
     id: "brewha-cafe",

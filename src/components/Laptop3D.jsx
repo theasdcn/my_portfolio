@@ -66,8 +66,8 @@ export function Laptop3D() {
                 <div className="mini-hero-subtitle">FEU TECH • BSIT 2026</div>
                 <div className="mini-projects-row">
                   <div className="mini-project-chip">SAVR App</div>
-                  <div className="mini-project-chip">Fairall</div>
                   <div className="mini-project-chip">Vitaly Tea</div>
+                  <div className="mini-project-chip">Teddiursa</div>
                 </div>
               </div>
             </div>
